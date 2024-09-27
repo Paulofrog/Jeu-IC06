@@ -1,3 +1,34 @@
-[gd_scene format=3 uid="uid://p0uq6callbul"]
+[gd_scene load_steps=5 format=3 uid="uid://p0uq6callbul"]
 
-[node name="Node" type="Node"]
+[ext_resource type="Texture2D" uid="uid://4gka235rmry3" path="res://Game/Assets/Images/Test legs player/legs 1.png" id="1_rkmio"]
+[ext_resource type="Texture2D" uid="uid://v00yfe7xtr2l" path="res://Game/Assets/Images/Test legs player/legs 2.png" id="2_ue68j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sk1vv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rkmio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ue68j")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfn42"]
+size = Vector2(146, 102)
+
+[node name="LegsPlayer" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sk1vv")
+animation = &"walk"
+frame_progress = 0.404907
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-1, 3)
+shape = SubResource("RectangleShape2D_bfn42")
