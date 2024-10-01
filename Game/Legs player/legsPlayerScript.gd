@@ -3,9 +3,16 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -540.0
+var camera
+var cameraSize
+var cameraBounds
 
 
-func _physics_process(delta: float) -> void:
+func _ready() -> void:
+	camera = get_node("/root/MainScene/Camera")
+
+
+func _physics_process(delta: float) -> void:	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -23,5 +30,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		$Appearance.animation = "idle"
-
+	
+	cameraSize = Vector2(camera.get_viewport().get_size()) - Vector2(1200,700)
+	cameraBounds = Rect2(camera.position - (cameraSize / 2), cameraSize)
+	
 	move_and_slide()
+	#position.x = clamp(position.x, cameraBounds.position.x, cameraBounds.position.x + cameraBounds.size.x)
+	#position.y = clamp(position.y, cameraBounds.position.y, cameraBounds.position.y + cameraBounds.size.y)

@@ -12,4 +12,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	UpdateCameraPosition()
+
+
+func UpdateCameraPosition():
+	$Camera.position = ($ArmsPlayer.global_position + $LegsPlayer.global_position) / 2
