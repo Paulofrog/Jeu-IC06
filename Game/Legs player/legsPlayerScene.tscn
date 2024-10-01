@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://p0uq6callbul"]
+[gd_scene load_steps=6 format=3 uid="uid://p0uq6callbul"]
 
+[ext_resource type="Script" path="res://Game/Legs player/legsPlayerScript.gd" id="1_eh33y"]
 [ext_resource type="Texture2D" uid="uid://4gka235rmry3" path="res://Game/Assets/Images/Test legs player/legs 1.png" id="1_rkmio"]
 [ext_resource type="Texture2D" uid="uid://v00yfe7xtr2l" path="res://Game/Assets/Images/Test legs player/legs 2.png" id="2_ue68j"]
 
@@ -7,10 +8,15 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_rkmio")
-}, {
-"duration": 1.0,
 "texture": ExtResource("2_ue68j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rkmio")
 }],
 "loop": true,
 "name": &"walk",
@@ -18,17 +24,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfn42"]
-size = Vector2(146, 102)
+size = Vector2(84, 102)
 
-[node name="LegsPlayer" type="Node2D"]
+[node name="LegsPlayer" type="CharacterBody2D"]
+collision_mask = 6
+script = ExtResource("1_eh33y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sk1vv")
-animation = &"walk"
-frame_progress = 0.404907
+animation = &"idle"
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-1, 3)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, 3)
 shape = SubResource("RectangleShape2D_bfn42")

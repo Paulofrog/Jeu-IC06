@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://b2om6os6haj1"]
+[gd_scene load_steps=4 format=3 uid="uid://b2om6os6haj1"]
 
-[node name="Scène principale" type="Node"]
+[ext_resource type="PackedScene" uid="uid://ckak4h5n30ila" path="res://Game/TestLevel/testLevelScene.tscn" id="1_3swin"]
+[ext_resource type="Script" path="res://Game/Main/mainScript.gd" id="1_cu2if"]
+[ext_resource type="PackedScene" uid="uid://p0uq6callbul" path="res://Game/Legs player/legsPlayerScene.tscn" id="2_08djd"]
+
+[node name="MainScene" type="Node"]
+script = ExtResource("1_cu2if")
+
+[node name="TestLevel" parent="." instance=ExtResource("1_3swin")]
+position = Vector2(0, 0)
+
+[node name="LegsPlayer" parent="." instance=ExtResource("2_08djd")]
+position = Vector2(-131, 72)
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(671, 337)
+zoom = Vector2(1.795, 1.795)
