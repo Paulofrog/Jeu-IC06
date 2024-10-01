@@ -268,3 +268,6 @@ tile_set = SubResource("TileSet_a1yy4")
 
 [node name="LegsPlayerSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(220, 281)
+
+[node name="ArmsPlayerSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(913, 70)

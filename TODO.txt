@@ -3,8 +3,7 @@
 > Paul
 	ArmsPlayer :
 		Créer sur le même modèle que legsPlayer
-		- Character2D, animatedSprite2D, collisionShape2D
-		- créer son script de déplacement basique (pas de saut mais suspension ?)
+		- créer un nouveau mode de déplacement (suspension au plafond ???)
 	ArmsPlayer et LegsPlayer : 
 		Possibilité de s'assembler
 		- détecter la proximité entre les 2 joueurs
