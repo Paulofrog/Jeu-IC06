@@ -1,17 +1,18 @@
 extends Node
 
+# Assembly
+const PROXIMITY_THRESHOLD = 120.0
+const ARMSPLAYER_OFFSET = Vector2(0, -120)
+var are_assembled
 
 func _ready() -> void:
 	SetSpawnPositions()
+	are_assembled = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	UpdateCameraPosition()
-	
-	if (PlayerProximityDetected()):
-		$ProximityLabel.show()
-	else:
-		$ProximityLabel.hide()
+	PlayerProximityDetection()
 
 
 func SetSpawnPositions():
@@ -25,9 +26,28 @@ func UpdateCameraPosition():
 	$Camera.position = ($ArmsPlayer.global_position + $LegsPlayer.global_position) / 2
 
 
-func PlayerProximityDetected() -> bool:
-	var distanceBetweenPlayers = $ArmsPlayer.global_position.distance_to($LegsPlayer.global_position)
-	if distanceBetweenPlayers < 500:
-		return true
+func PlayerProximityDetection():
+	var distance = $LegsPlayer.global_position.distance_to($ArmsPlayer.global_position)
+	if (distance < PROXIMITY_THRESHOLD):
+		$ProximityLabel.show()
 	else:
-		return false
+		$ProximityLabel.hide()
+	
+	if not are_assembled and distance < PROXIMITY_THRESHOLD:
+		if Input.is_action_pressed("legsAssembly") and Input.is_action_pressed("armsAssembly"):
+			assemble_players()
+	elif are_assembled:
+		if Input.is_action_just_pressed("legsAssembly") != Input.is_action_just_pressed("armsAssembly"):
+			separate_players()
+		# $ArmsPlayer.position = $LegsPlayer.position + ARMSPLAYER_OFFSET
+		# Ca bug énormément et en plus les collisions ne sont plus prises en compte.
+
+func assemble_players() -> void:
+	are_assembled = true
+	$ArmsPlayer.playersAssembled = true
+	$ArmsPlayer.position = $LegsPlayer.position + ARMSPLAYER_OFFSET
+
+
+func separate_players() -> void:
+	are_assembled = false
+	$ArmsPlayer.playersAssembled = false

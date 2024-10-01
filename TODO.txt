@@ -3,15 +3,16 @@
 > Paul
 	ArmsPlayer :
 		Créer sur le même modèle que legsPlayer
-		- créer un nouveau mode de déplacement (suspension au plafond ???)
+			FAIT - Character2D, animatedSprite2D, collisionShape2D
+			EN COURS - créer son script de déplacement basique (pas de saut mais suspension ?)
 	ArmsPlayer et LegsPlayer : 
 		Possibilité de s'assembler
-		- détecter la proximité entre les 2 joueurs
-		- afficher un message indiquant la touche à presser pour s'assembler pour chaque joueur (ces 2 commandes sont déjà configurées)
-		- gérer l'assemblage et les nouvelles restrictions et possibilités de déplacement
+			FAIT - détecter la proximité entre les 2 joueurs
+			EN COURS - afficher un message indiquant la touche à presser pour s'assembler pour chaque joueur (ces 2 commandes sont déjà configurées)
+			EN COURS - gérer l'assemblage et les nouvelles restrictions et possibilités de déplacement
 		Gérer la caméra
-		- modifier le mouvement de la caméra pour suivre dynamiquement les joueurs
-		- restreindre les déplacements des joueurs au champ de la caméra
+			EN COURS - modifier le mouvement de la caméra pour suivre dynamiquement les joueurs
+			- restreindre les déplacements des joueurs au champ de la caméra
 
 > Romane
 

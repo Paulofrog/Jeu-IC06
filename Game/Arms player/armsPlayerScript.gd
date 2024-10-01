@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
-
+var playersAssembled
 const SPEED = 150.0
 
+func _ready() -> void:
+	playersAssembled = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -20,5 +22,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		$Appearance.animation = "idle"
-
-	move_and_slide()
+	
+	if !playersAssembled:
+		move_and_slide()
