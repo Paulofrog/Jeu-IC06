@@ -59,6 +59,12 @@ armsAssemble={
 ]
 }
 
+[input_devices]
+
+pointing/movie_file=""
+pointing/default_gravity=981.0
+pointing/canvas_textures/default_texture_filter=0
+
 [layer_names]
 
 2d_physics/layer_1="Players"
