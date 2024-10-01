@@ -1,0 +1,22 @@
+> > > > > > > > > > > > > > > Fonctionnalités à implémenter < < < < < < < < < < < < < < <
+
+> Paul
+	ArmsPlayer :
+		créer sur le même modèle que legsPlayer
+		- Character2D, animatedSprite2D, collisionShape2D
+		- créer son script de déplacement basique (pas de saut mais suspension ?)
+	ArmsPlayer et LegsPlayer : 
+		possibilité de s'assembler
+		- détecter la proximité entre les 2 joueurs
+		- afficher un message indiquant la touche à presser pour s'assembler pour chaque joueur (ces 2 commandes sont déjà configurées)
+		- gérer l'assemblage et les nouvelles restrictions et possibilités de déplacement
+
+> Romane
+
+> Gauthier
+
+>> A attribuer <<
+	Interface utilisateur :
+		- Ecran d'accueil
+		- Ecran de pause
+	...
