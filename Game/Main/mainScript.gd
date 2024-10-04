@@ -52,6 +52,8 @@ func PlayerProximityDetection():
 										- ($ProximityLabel.get_size() / 2) \
 										+ PROXIMITYLABEL_OFFSET
 			$ProximityLabel.show()
+		else:
+			$ProximityLabel.hide()
 	else:
 		$ProximityLabel.hide()
 	

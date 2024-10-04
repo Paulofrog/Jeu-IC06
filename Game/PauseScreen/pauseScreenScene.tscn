@@ -9,6 +9,7 @@ shader_parameter/amount = 3.0
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
