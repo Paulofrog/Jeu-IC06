@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://frt5m4m3t0ay"
+path="res://.godot/imported/metal-beaten-sfx-230501.mp3-2faea1d2da2fb41f000f535d63233bac.mp3str"
+
+[deps]
+
+source_file="res://Game/Assets/Sound Effects/metal-beaten-sfx-230501.mp3"
+dest_files=["res://.godot/imported/metal-beaten-sfx-230501.mp3-2faea1d2da2fb41f000f535d63233bac.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
