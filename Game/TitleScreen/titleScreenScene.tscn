@@ -1,3 +1,31 @@
-[gd_scene format=3 uid="uid://bjoygijg4djxb"]
+[gd_scene load_steps=2 format=3 uid="uid://ke6k8ufdjwdj"]
 
-[node name="Node" type="Node"]
+[ext_resource type="Script" path="res://Game/TitleScreen/title_screen_scene.gd" id="1_fgq64"]
+
+[node name="TitleScreenScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fgq64")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 745.0
+offset_top = 436.0
+offset_right = 1194.0
+offset_bottom = 551.0
+text = "START"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 751.0
+offset_top = 590.0
+offset_right = 1197.0
+offset_bottom = 705.0
+text = "QUIT"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
