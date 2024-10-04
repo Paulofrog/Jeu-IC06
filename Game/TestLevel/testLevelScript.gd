@@ -13,9 +13,9 @@ func _process(_delta: float) -> void:
 	pass
 
 
-func _on_ceiling_area_entered() -> void:
+func _on_ceiling_area_entered(_area: Area2D) -> void:
 	ceilingEntered.emit()
 
 
-func _on_ceiling_area_exited() -> void:
+func _on_ceiling_area_exited(_area: Area2D) -> void:
 	ceilingExited.emit()

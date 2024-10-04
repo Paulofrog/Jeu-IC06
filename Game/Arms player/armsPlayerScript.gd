@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	if isTouchingCeiling:
-		if Input.is_action_just_pressed("armsUp"):
+		if Input.is_action_pressed("armsUp"):
 			isOnCeiling = true
 			$Appearance.animation = "hang"
 		else:

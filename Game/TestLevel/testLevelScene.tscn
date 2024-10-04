@@ -265,4 +265,3 @@ position = Vector2(672.5, 251)
 shape = SubResource("RectangleShape2D_xkx1n")
 
 [connection signal="area_entered" from="Ceiling" to="." method="_on_ceiling_area_entered"]
-[connection signal="area_exited" from="Ceiling" to="." method="_on_ceiling_area_exited"]
