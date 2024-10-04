@@ -61,8 +61,7 @@ func PlayerProximityDetection():
 	elif are_assembled:
 		if Input.is_action_just_pressed("legsAssembly") != Input.is_action_just_pressed("armsAssembly"):
 			separate_players()
-		# $ArmsPlayer.position = $LegsPlayer.position + ARMSPLAYER_OFFSET
-		# Ca bug énormément et en plus les collisions ne sont plus prises en compte.
+			
 
 func assemble_players() -> void:
 	are_assembled = true

@@ -12,7 +12,7 @@
 			FAIT??? - gérer l'assemblage et les nouvelles restrictions et possibilités de déplacement
 		Gérer la caméra
 			EN COURS - modifier le mouvement de la caméra pour suivre dynamiquement les joueurs
-			- restreindre les déplacements des joueurs au champ de la caméra
+			FAIT restreindre les déplacements des joueurs au champ de la caméra
 
 > Romane
 	FAIT - Ajout d'écran d'accueil basique (start / quit)
