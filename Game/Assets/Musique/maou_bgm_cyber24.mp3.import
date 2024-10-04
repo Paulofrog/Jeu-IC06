@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/maou_bgm_cyber24.mp3-0f893d3092661e2a578899f1
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

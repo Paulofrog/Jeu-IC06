@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/maou_bgm_orchestra22.mp3-252869e99395abf2aca9
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
