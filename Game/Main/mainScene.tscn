@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2om6os6haj1"]
+[gd_scene load_steps=9 format=3 uid="uid://b2om6os6haj1"]
 
 [ext_resource type="PackedScene" uid="uid://ckak4h5n30ila" path="res://Game/TestLevel/testLevelScene.tscn" id="1_3swin"]
 [ext_resource type="Script" path="res://Game/Main/mainScript.gd" id="1_cu2if"]
 [ext_resource type="PackedScene" uid="uid://p0uq6callbul" path="res://Game/Legs player/legsPlayerScene.tscn" id="2_08djd"]
 [ext_resource type="PackedScene" uid="uid://biegw40cam53k" path="res://Game/Arms player/armsPlayerScene.tscn" id="4_hms30"]
 [ext_resource type="PackedScene" uid="uid://b5bicbah67v4c" path="res://Game/PauseScreen/pauseScreenScene.tscn" id="5_hwaqx"]
+[ext_resource type="PackedScene" uid="uid://30r70r7j2qqo" path="res://Game/Ladder/LadderScene.tscn" id="6_rkcm4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hff5"]
 size = Vector2(1070, 35)
@@ -25,6 +26,10 @@ collision_mask = 38
 [node name="ArmsPlayer" parent="." instance=ExtResource("4_hms30")]
 position = Vector2(93, -150)
 collision_mask = 38
+
+[node name="Ladder" parent="." instance=ExtResource("6_rkcm4")]
+position = Vector2(802, 216)
+scale = Vector2(1, 0.816803)
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(715, 357)

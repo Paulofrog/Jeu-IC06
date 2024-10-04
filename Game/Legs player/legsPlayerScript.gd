@@ -7,7 +7,6 @@ var camera
 var cameraSize
 var cameraBounds
 
-
 func _ready() -> void:
 	camera = get_node("/root/MainScene/Camera")
 
@@ -18,13 +17,17 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("legsJump") and is_on_floor():
+	if Input.is_action_just_pressed("legsJump") and is_on_floor() and !Global.can_climb:
 		velocity.y = JUMP_VELOCITY
+		
+	var directionY := Input.get_axis("legsUp", "legsDown")
+	if directionY and Global.can_climb:
+		velocity.y = directionY * SPEED
 
 	# Get the input direction and handle the movement/deceleration.
-	var direction := Input.get_axis("legsLeft", "legsRight")
-	if direction:
-		velocity.x = direction * SPEED
+	var directionX = Input.get_axis("legsLeft", "legsRight")
+	if directionX:
+		velocity.x = directionX * SPEED
 		$Appearance.animation = "walk"
 		$Appearance.flip_h = velocity.x < 0
 	else:
