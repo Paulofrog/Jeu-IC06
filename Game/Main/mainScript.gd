@@ -67,6 +67,7 @@ func assemble_players() -> void:
 	are_assembled = true
 	$ArmsPlayer.playersAssembled = true
 	$ArmsPlayer.position = $LegsPlayer.position + ARMSPLAYER_OFFSET
+	$MetalAudioPlayer.play()
 
 
 func separate_players() -> void:
