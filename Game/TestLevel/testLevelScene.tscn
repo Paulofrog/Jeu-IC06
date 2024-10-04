@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=4 uid="uid://ckak4h5n30ila"]
+[gd_scene load_steps=7 format=4 uid="uid://ckak4h5n30ila"]
 
 [ext_resource type="Texture2D" uid="uid://c1ctx7k0snu53" path="res://Game/Assets/Images/Tilemap environnement test/ciel.png" id="1_e2k6n"]
+[ext_resource type="Script" path="res://Game/TestLevel/testLevelScript.gd" id="1_wyk6a"]
 [ext_resource type="Texture2D" uid="uid://7afrse223tfl" path="res://Game/Assets/Images/Tilemap environnement test/tilemap_packed.png" id="2_k8x23"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rsw0o"]
@@ -232,8 +233,12 @@ physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_rsw0o")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkx1n"]
+size = Vector2(567, 30)
+
 [node name="TestLevel" type="Node2D"]
 position = Vector2(-41, 77)
+script = ExtResource("1_wyk6a")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(1080, 500)
@@ -251,3 +256,13 @@ position = Vector2(220, 281)
 
 [node name="ArmsPlayerSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(913, 70)
+
+[node name="Ceiling" type="Area2D" parent="."]
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
+position = Vector2(672.5, 251)
+shape = SubResource("RectangleShape2D_xkx1n")
+
+[connection signal="area_entered" from="Ceiling" to="." method="_on_ceiling_area_entered"]
+[connection signal="area_exited" from="Ceiling" to="." method="_on_ceiling_area_exited"]

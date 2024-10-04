@@ -9,18 +9,18 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_ih3nu")
+"texture": ExtResource("2_yqppv")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"hang",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_yqppv")
+"texture": ExtResource("1_ih3nu")
 }],
 "loop": true,
-"name": &"up",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -42,7 +42,7 @@ script = ExtResource("1_3g23n")
 
 [node name="Appearance" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rjjch")
-animation = &"walk"
+animation = &"hang"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 0.5)
