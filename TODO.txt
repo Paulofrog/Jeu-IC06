@@ -15,11 +15,10 @@
 			- restreindre les déplacements des joueurs au champ de la caméra
 
 > Romane
+	FAIT - Ajout d'écran d'accueil basique (start / quit)
+	EN COURS - Ecran de pause
 
 > Gauthier
 
 >> A attribuer <<
-	Interface utilisateur :
-		- Ecran d'accueil
-		- Ecran de pause
-	...
+	
