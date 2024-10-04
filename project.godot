@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Jeu-IC06"
-run/main_scene="res://Game/TitleScreen/titleScreenScene.tscn"
+run/main_scene="res://Game/Main/mainScene.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -82,6 +82,7 @@ pointing/canvas_textures/default_texture_filter=0
 2d_physics/layer_3="Ground"
 2d_physics/layer_4="Collectible"
 2d_physics/layer_5="UI"
+2d_physics/layer_6="MovementArea"
 
 [physics]
 

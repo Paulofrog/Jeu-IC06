@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2om6os6haj1"]
+[gd_scene load_steps=8 format=3 uid="uid://b2om6os6haj1"]
 
 [ext_resource type="PackedScene" uid="uid://ckak4h5n30ila" path="res://Game/TestLevel/testLevelScene.tscn" id="1_3swin"]
 [ext_resource type="Script" path="res://Game/Main/mainScript.gd" id="1_cu2if"]
 [ext_resource type="PackedScene" uid="uid://p0uq6callbul" path="res://Game/Legs player/legsPlayerScene.tscn" id="2_08djd"]
 [ext_resource type="PackedScene" uid="uid://biegw40cam53k" path="res://Game/Arms player/armsPlayerScene.tscn" id="4_hms30"]
 [ext_resource type="PackedScene" uid="uid://b5bicbah67v4c" path="res://Game/PauseScreen/pauseScreenScene.tscn" id="5_hwaqx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hff5"]
+size = Vector2(1070, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8lhb"]
+size = Vector2(40, 532)
 
 [node name="MainScene" type="Node"]
 script = ExtResource("1_cu2if")
@@ -14,9 +20,11 @@ position = Vector2(0, 0)
 
 [node name="LegsPlayer" parent="." instance=ExtResource("2_08djd")]
 position = Vector2(233, -150)
+collision_mask = 38
 
 [node name="ArmsPlayer" parent="." instance=ExtResource("4_hms30")]
 position = Vector2(93, -150)
+collision_mask = 38
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(715, 357)
@@ -29,16 +37,37 @@ offset_top = -44.0
 offset_right = -103.0
 offset_bottom = -37.0
 
+[node name="MovementArea" type="StaticBody2D" parent="Camera"]
+collision_layer = 32
+
+[node name="CollisionArea" type="CollisionShape2D" parent="Camera/MovementArea"]
+position = Vector2(0, -283.5)
+shape = SubResource("RectangleShape2D_4hff5")
+
+[node name="CollisionArea2" type="CollisionShape2D" parent="Camera/MovementArea"]
+position = Vector2(0, 283.5)
+shape = SubResource("RectangleShape2D_4hff5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/MovementArea"]
+position = Vector2(-515, 0)
+shape = SubResource("RectangleShape2D_w8lhb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera/MovementArea"]
+position = Vector2(515, 0)
+shape = SubResource("RectangleShape2D_w8lhb")
+
 [node name="ProximityLabel" type="Label" parent="."]
-anchors_preset = -1
-anchor_left = 0.272
-anchor_top = 0.508
-anchor_right = 0.375
-anchor_bottom = 0.53
-offset_left = -0.240051
-offset_top = 0.359985
-offset_right = -6.10352e-05
-offset_bottom = -0.400024
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -11.5
+offset_right = 95.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Appuyez sur ALT et RCtrl"
 horizontal_alignment = 1
