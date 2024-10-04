@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2om6os6haj1"]
+[gd_scene load_steps=6 format=3 uid="uid://b2om6os6haj1"]
 
 [ext_resource type="PackedScene" uid="uid://ckak4h5n30ila" path="res://Game/TestLevel/testLevelScene.tscn" id="1_3swin"]
 [ext_resource type="Script" path="res://Game/Main/mainScript.gd" id="1_cu2if"]
 [ext_resource type="PackedScene" uid="uid://p0uq6callbul" path="res://Game/Legs player/legsPlayerScene.tscn" id="2_08djd"]
 [ext_resource type="PackedScene" uid="uid://biegw40cam53k" path="res://Game/Arms player/armsPlayerScene.tscn" id="4_hms30"]
+[ext_resource type="PackedScene" uid="uid://b5bicbah67v4c" path="res://Game/PauseScreen/pauseScreenScene.tscn" id="5_hwaqx"]
 
 [node name="MainScene" type="Node"]
 script = ExtResource("1_cu2if")
@@ -20,6 +21,13 @@ position = Vector2(93, -150)
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(715, 357)
 zoom = Vector2(1.795, 1.795)
+
+[node name="PauseMenu" parent="Camera" instance=ExtResource("5_hwaqx")]
+visible = false
+offset_left = -103.0
+offset_top = -44.0
+offset_right = -103.0
+offset_bottom = -37.0
 
 [node name="ProximityLabel" type="Label" parent="."]
 anchors_preset = -1

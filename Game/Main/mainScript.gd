@@ -4,6 +4,8 @@ extends Node
 const PROXIMITY_THRESHOLD = 120.0
 const ARMSPLAYER_OFFSET = Vector2(0, -120)
 var are_assembled
+var paused = false
+@onready var pausemenu = $Camera/PauseMenu
 
 func _ready() -> void:
 	SetSpawnPositions()
@@ -11,9 +13,21 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		pauseMenu()
 	UpdateCameraPosition()
 	PlayerProximityDetection()
 
+func pauseMenu() -> void:
+	if paused:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		pausemenu.hide()
+		get_tree().paused = false
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().paused = true
+		pausemenu.show()
+	paused = !paused
 
 func SetSpawnPositions():
 	var legsPlayerSpawnPoint = $TestLevel/LegsPlayerSpawnPoint.position
