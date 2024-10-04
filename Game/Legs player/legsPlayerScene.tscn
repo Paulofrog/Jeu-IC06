@@ -24,7 +24,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfn42"]
-size = Vector2(84, 102)
+size = Vector2(28, 32)
 
 [node name="LegsPlayer" type="CharacterBody2D"]
 texture_filter = 1
@@ -32,9 +32,11 @@ collision_mask = 6
 script = ExtResource("1_eh33y")
 
 [node name="Appearance" type="AnimatedSprite2D" parent="."]
+position = Vector2(11, -17)
+scale = Vector2(0.307292, 0.364662)
 sprite_frames = SubResource("SpriteFrames_sk1vv")
 animation = &"idle"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(10, 3)
+position = Vector2(13, -17)
 shape = SubResource("RectangleShape2D_bfn42")
