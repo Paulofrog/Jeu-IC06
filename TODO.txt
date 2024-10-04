@@ -9,7 +9,7 @@
 		Possibilité de s'assembler
 			FAIT - détecter la proximité entre les 2 joueurs
 			EN COURS - afficher un message indiquant la touche à presser pour s'assembler pour chaque joueur (ces 2 commandes sont déjà configurées)
-			EN COURS - gérer l'assemblage et les nouvelles restrictions et possibilités de déplacement
+			FAIT??? - gérer l'assemblage et les nouvelles restrictions et possibilités de déplacement
 		Gérer la caméra
 			EN COURS - modifier le mouvement de la caméra pour suivre dynamiquement les joueurs
 			- restreindre les déplacements des joueurs au champ de la caméra

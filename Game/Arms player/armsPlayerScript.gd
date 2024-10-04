@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var playersAssembled
 const SPEED = 150.0
+const ARMSPLAYER_OFFSET = Vector2(0, -100)
 
 func _ready() -> void:
 	playersAssembled = false
@@ -25,3 +26,5 @@ func _physics_process(delta: float) -> void:
 	
 	if !playersAssembled:
 		move_and_slide()
+	else:
+		self.position = $"../LegsPlayer".position + ARMSPLAYER_OFFSET
