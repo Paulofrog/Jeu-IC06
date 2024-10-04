@@ -1,30 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://ke6k8ufdjwdj"]
+[gd_scene load_steps=3 format=3 uid="uid://ke6k8ufdjwdj"]
 
 [ext_resource type="Script" path="res://Game/TitleScreen/title_screen_scene.gd" id="1_fgq64"]
+[ext_resource type="Texture2D" uid="uid://bk3nycovn6fkt" path="res://Game/TitleScreen/robot escape.png" id="2_1lky6"]
 
 [node name="TitleScreenScene" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fgq64")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_1lky6")
+
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 745.0
-offset_top = 436.0
-offset_right = 1194.0
-offset_bottom = 551.0
+offset_left = 738.0
+offset_top = 581.0
+offset_right = 1187.0
+offset_bottom = 696.0
 text = "START"
 
 [node name="QuitButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 751.0
-offset_top = 590.0
-offset_right = 1197.0
-offset_bottom = 705.0
+offset_left = 738.0
+offset_top = 709.0
+offset_right = 1184.0
+offset_bottom = 824.0
 text = "QUIT"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
