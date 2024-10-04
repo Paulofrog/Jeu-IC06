@@ -1,15 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2om6os6haj1"]
+[gd_scene load_steps=10 format=3 uid="uid://b2om6os6haj1"]
 
 [ext_resource type="PackedScene" uid="uid://ckak4h5n30ila" path="res://Game/TestLevel/testLevelScene.tscn" id="1_3swin"]
 [ext_resource type="Script" path="res://Game/Main/mainScript.gd" id="1_cu2if"]
 [ext_resource type="PackedScene" uid="uid://p0uq6callbul" path="res://Game/Legs player/legsPlayerScene.tscn" id="2_08djd"]
 [ext_resource type="PackedScene" uid="uid://biegw40cam53k" path="res://Game/Arms player/armsPlayerScene.tscn" id="4_hms30"]
 [ext_resource type="PackedScene" uid="uid://b5bicbah67v4c" path="res://Game/PauseScreen/pauseScreenScene.tscn" id="5_hwaqx"]
-
-[ext_resource type="PackedScene" uid="uid://30r70r7j2qqo" path="res://Game/Ladder/LadderScene.tscn" id="6_rkcm4"]
-
 [ext_resource type="AudioStream" uid="uid://dl5b4d8qagm1" path="res://Game/Assets/Musique/maou_bgm_cyber21.mp3" id="6_hlepm"]
-
+[ext_resource type="PackedScene" uid="uid://30r70r7j2qqo" path="res://Game/Ladder/LadderScene.tscn" id="6_rkcm4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hff5"]
 size = Vector2(1070, 35)
@@ -32,7 +29,7 @@ position = Vector2(93, -150)
 collision_mask = 102
 
 [node name="Ladder" parent="." instance=ExtResource("6_rkcm4")]
-position = Vector2(802, 216)
+position = Vector2(794, 215)
 scale = Vector2(1, 0.816803)
 
 [node name="Camera" type="Camera2D" parent="."]
@@ -85,5 +82,6 @@ vertical_alignment = 1
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_hlepm")
 autoplay = true
+
 [connection signal="ceilingEntered" from="TestLevel" to="ArmsPlayer" method="_on_test_level_ceiling_entered"]
 [connection signal="ceilingExited" from="TestLevel" to="ArmsPlayer" method="_on_test_level_ceiling_exited"]
