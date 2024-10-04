@@ -1,9 +1,9 @@
 extends Node
 
 # Assembly
-const PROXIMITY_THRESHOLD = 120.0
-const ARMSPLAYER_OFFSET = Vector2(0, -120)
-const PROXIMITYLABEL_OFFSET = Vector2(0, -85)
+const PROXIMITY_THRESHOLD = 50.0
+const ARMSPLAYER_OFFSET = Vector2(-5, -30)
+const PROXIMITYLABEL_OFFSET = Vector2(0, -45)
 var are_assembled
 var paused = false
 @onready var pausemenu = $Camera/PauseMenu

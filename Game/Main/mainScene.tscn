@@ -1,4 +1,3 @@
-
 [gd_scene load_steps=11 format=3 uid="uid://b2om6os6haj1"]
 
 [ext_resource type="PackedScene" uid="uid://ckak4h5n30ila" path="res://Game/TestLevel/testLevelScene.tscn" id="1_3swin"]
@@ -9,7 +8,6 @@
 [ext_resource type="AudioStream" uid="uid://dl5b4d8qagm1" path="res://Game/Assets/Musique/maou_bgm_cyber21.mp3" id="6_hlepm"]
 [ext_resource type="PackedScene" uid="uid://30r70r7j2qqo" path="res://Game/Ladder/LadderScene.tscn" id="6_rkcm4"]
 [ext_resource type="AudioStream" uid="uid://frt5m4m3t0ay" path="res://Game/Assets/Sound Effects/metal-beaten-sfx-230501.mp3" id="8_2bgkw"]
-
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hff5"]
 size = Vector2(1070, 35)
@@ -86,10 +84,8 @@ vertical_alignment = 1
 stream = ExtResource("6_hlepm")
 autoplay = true
 
-
 [node name="MetalAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_2bgkw")
-
 
 [connection signal="ceilingEntered" from="TestLevel" to="ArmsPlayer" method="_on_test_level_ceiling_entered"]
 [connection signal="ceilingExited" from="TestLevel" to="ArmsPlayer" method="_on_test_level_ceiling_exited"]

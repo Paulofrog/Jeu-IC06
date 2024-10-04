@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var playersAssembled
 const SPEED = 150.0
-const ARMSPLAYER_OFFSET = Vector2(0, -100)
+const ARMSPLAYER_OFFSET = Vector2(-5, -30)
 var isTouchingCeiling			# savoir si on est entré dans la zone de détection
 var isOnCeiling					# action de se suspendre au plafond
 
