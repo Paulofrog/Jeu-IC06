@@ -3,6 +3,7 @@ extends Node
 # Assembly
 const PROXIMITY_THRESHOLD = 120.0
 const ARMSPLAYER_OFFSET = Vector2(0, -120)
+const PROXIMITYLABEL_OFFSET = Vector2(0, -85)
 var are_assembled
 var paused = false
 @onready var pausemenu = $Camera/PauseMenu
@@ -11,12 +12,14 @@ func _ready() -> void:
 	SetSpawnPositions()
 	are_assembled = false
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
 	UpdateCameraPosition()
 	PlayerProximityDetection()
+
 
 func pauseMenu() -> void:
 	if paused:
@@ -28,6 +31,7 @@ func pauseMenu() -> void:
 		get_tree().paused = true
 		pausemenu.show()
 	paused = !paused
+
 
 func SetSpawnPositions():
 	var legsPlayerSpawnPoint = $TestLevel/LegsPlayerSpawnPoint.position
@@ -43,7 +47,11 @@ func UpdateCameraPosition():
 func PlayerProximityDetection():
 	var distance = $LegsPlayer.global_position.distance_to($ArmsPlayer.global_position)
 	if (distance < PROXIMITY_THRESHOLD):
-		$ProximityLabel.show()
+		if !are_assembled:
+			$ProximityLabel.position = (($ArmsPlayer.global_position + $LegsPlayer.global_position) / (2)) \
+										- ($ProximityLabel.get_size() / 2) \
+										+ PROXIMITYLABEL_OFFSET
+			$ProximityLabel.show()
 	else:
 		$ProximityLabel.hide()
 	
@@ -53,8 +61,7 @@ func PlayerProximityDetection():
 	elif are_assembled:
 		if Input.is_action_just_pressed("legsAssembly") != Input.is_action_just_pressed("armsAssembly"):
 			separate_players()
-		# $ArmsPlayer.position = $LegsPlayer.position + ARMSPLAYER_OFFSET
-		# Ca bug énormément et en plus les collisions ne sont plus prises en compte.
+			
 
 func assemble_players() -> void:
 	are_assembled = true

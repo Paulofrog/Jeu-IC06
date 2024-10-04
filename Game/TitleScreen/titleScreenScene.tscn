@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ke6k8ufdjwdj"]
 
 [ext_resource type="Script" path="res://Game/TitleScreen/title_screen_scene.gd" id="1_fgq64"]
-[ext_resource type="Texture2D" uid="uid://bk3nycovn6fkt" path="res://Game/TitleScreen/robot escape.png" id="2_1lky6"]
+[ext_resource type="Texture2D" uid="uid://bk3nycovn6fkt" path="res://Game/Assets/Images/Title Screen/robot escape.png" id="2_1lky6"]
 
 [node name="TitleScreenScene" type="Control"]
 layout_mode = 3

@@ -82,6 +82,7 @@ pointing/canvas_textures/default_texture_filter=0
 2d_physics/layer_3="Ground"
 2d_physics/layer_4="Collectible"
 2d_physics/layer_5="UI"
+2d_physics/layer_6="MovementArea"
 
 [physics]
 

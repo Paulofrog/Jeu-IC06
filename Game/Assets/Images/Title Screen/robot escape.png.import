@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bk3nycovn6fkt"
-path="res://.godot/imported/robot escape.png-f3871f567e87d7f032fb6d12d47416f7.ctex"
+path="res://.godot/imported/robot escape.png-ee1515c07d1fcec9af735686d2cf97d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/TitleScreen/robot escape.png"
-dest_files=["res://.godot/imported/robot escape.png-f3871f567e87d7f032fb6d12d47416f7.ctex"]
+source_file="res://Game/Assets/Images/Title Screen/robot escape.png"
+dest_files=["res://.godot/imported/robot escape.png-ee1515c07d1fcec9af735686d2cf97d3.ctex"]
 
 [params]
 
