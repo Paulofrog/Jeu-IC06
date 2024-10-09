@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
+const CLIMB_SPEED = 5.0
 const JUMP_VELOCITY = -540.0
 var camera
 var cameraSize
@@ -13,7 +14,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:	
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() and !Global.can_climb:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
@@ -22,7 +23,8 @@ func _physics_process(delta: float) -> void:
 		
 	var directionY := Input.get_axis("legsUp", "legsDown")
 	if directionY and Global.can_climb:
-		velocity.y = directionY * SPEED
+		velocity.y = 0
+		position.y += directionY * CLIMB_SPEED
 
 	# Get the input direction and handle the movement/deceleration.
 	var directionX = Input.get_axis("legsLeft", "legsRight")

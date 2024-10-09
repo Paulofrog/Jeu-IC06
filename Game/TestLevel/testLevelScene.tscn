@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://ckak4h5n30ila"]
+[gd_scene load_steps=8 format=4 uid="uid://ckak4h5n30ila"]
 
 [ext_resource type="Texture2D" uid="uid://c1ctx7k0snu53" path="res://Game/Assets/Images/Tilemap environnement test/ciel.png" id="1_e2k6n"]
 [ext_resource type="Script" path="res://Game/TestLevel/testLevelScript.gd" id="1_wyk6a"]
@@ -236,6 +236,9 @@ sources/0 = SubResource("TileSetAtlasSource_rsw0o")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xkx1n"]
 size = Vector2(567, 30)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2mnf"]
+size = Vector2(27.5, 151.75)
+
 [node name="TestLevel" type="Node2D"]
 position = Vector2(-41, 77)
 script = ExtResource("1_wyk6a")
@@ -264,4 +267,12 @@ collision_layer = 64
 position = Vector2(672.5, 251)
 shape = SubResource("RectangleShape2D_xkx1n")
 
+[node name="Ladder" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder"]
+position = Vector2(814, 288.125)
+shape = SubResource("RectangleShape2D_i2mnf")
+
 [connection signal="area_entered" from="Ceiling" to="." method="_on_ceiling_area_entered"]
+[connection signal="body_entered" from="Ladder" to="." method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Ladder" to="." method="_on_ladder_body_exited"]
