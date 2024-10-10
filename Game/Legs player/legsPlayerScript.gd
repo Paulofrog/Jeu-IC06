@@ -39,6 +39,7 @@ func _physics_process(delta: float) -> void:
 	cameraSize = Vector2(camera.get_viewport().get_size()) - Vector2(1200,700)
 	cameraBounds = Rect2(camera.position - (cameraSize / 2), cameraSize)
 	
-	move_and_slide()
-	#position.x = clamp(position.x, cameraBounds.position.x, cameraBounds.position.x + cameraBounds.size.x)
-	#position.y = clamp(position.y, cameraBounds.position.y, cameraBounds.position.y + cameraBounds.size.y)
+	if !(Global.isArmsPlayerOnCeiling and Global.are_assembled):
+		move_and_slide()
+	else:
+		self.position = $"../ArmsPlayer".position - Global.ARMSPLAYER_OFFSET

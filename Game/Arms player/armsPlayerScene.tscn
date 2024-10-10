@@ -44,7 +44,7 @@ script = ExtResource("1_3g23n")
 position = Vector2(18.5, -21.625)
 scale = Vector2(0.291666, 0.321428)
 sprite_frames = SubResource("SpriteFrames_rjjch")
-animation = &"hang"
+animation = &"idle"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(17, -21)

@@ -2,15 +2,14 @@ extends Node
 
 # Assembly
 const PROXIMITY_THRESHOLD = 50.0
-const ARMSPLAYER_OFFSET = Vector2(-5, -30)
 const PROXIMITYLABEL_OFFSET = Vector2(0, -45)
-var are_assembled
 var paused = false
-@onready var pausemenu = $Camera/PauseMenu
+var pausemenu
 
 func _ready() -> void:
+	pausemenu = $Camera/PauseMenu
 	SetSpawnPositions()
-	are_assembled = false
+	Global.are_assembled = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,7 +46,7 @@ func UpdateCameraPosition():
 func PlayerProximityDetection():
 	var distance = $LegsPlayer.global_position.distance_to($ArmsPlayer.global_position)
 	if (distance < PROXIMITY_THRESHOLD):
-		if !are_assembled:
+		if !Global.are_assembled:
 			$ProximityLabel.position = (($ArmsPlayer.global_position + $LegsPlayer.global_position) / (2)) \
 										- ($ProximityLabel.get_size() / 2) \
 										+ PROXIMITYLABEL_OFFSET
@@ -57,21 +56,19 @@ func PlayerProximityDetection():
 	else:
 		$ProximityLabel.hide()
 	
-	if not are_assembled and distance < PROXIMITY_THRESHOLD:
+	if not Global.are_assembled and distance < PROXIMITY_THRESHOLD:
 		if Input.is_action_pressed("legsAssembly") and Input.is_action_pressed("armsAssembly"):
 			assemble_players()
-	elif are_assembled:
+	elif Global.are_assembled:
 		if Input.is_action_just_pressed("legsAssembly") != Input.is_action_just_pressed("armsAssembly"):
 			separate_players()
 			
 
 func assemble_players() -> void:
-	are_assembled = true
-	$ArmsPlayer.playersAssembled = true
-	$ArmsPlayer.position = $LegsPlayer.position + ARMSPLAYER_OFFSET
+	Global.are_assembled = true
+	$ArmsPlayer.position = $LegsPlayer.position + Global.ARMSPLAYER_OFFSET
 	$MetalAudioPlayer.play()
 
 
 func separate_players() -> void:
-	are_assembled = false
-	$ArmsPlayer.playersAssembled = false
+	Global.are_assembled = false
