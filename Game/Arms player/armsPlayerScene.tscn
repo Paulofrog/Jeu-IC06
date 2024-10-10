@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://biegw40cam53k"]
+[gd_scene load_steps=8 format=3 uid="uid://biegw40cam53k"]
 
 [ext_resource type="Script" path="res://Game/Arms player/armsPlayerScript.gd" id="1_3g23n"]
 [ext_resource type="Texture2D" uid="uid://ct3nav5fhsgbr" path="res://Game/Assets/Images/Test arms player/arms idle.png" id="1_ih3nu"]
@@ -35,6 +35,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mh60r"]
 size = Vector2(36, 42)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6c4an"]
+size = Vector2(30, 74)
+
 [node name="ArmsPlayer" type="CharacterBody2D"]
 texture_filter = 1
 collision_mask = 6
@@ -49,3 +52,8 @@ animation = &"idle"
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(17, -21)
 shape = SubResource("RectangleShape2D_mh60r")
+
+[node name="AssembledCollision" type="CollisionShape2D" parent="."]
+position = Vector2(18, -5)
+shape = SubResource("RectangleShape2D_6c4an")
+disabled = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://p0uq6callbul"]
+[gd_scene load_steps=7 format=3 uid="uid://p0uq6callbul"]
 
 [ext_resource type="Script" path="res://Game/Legs player/legsPlayerScript.gd" id="1_eh33y"]
 [ext_resource type="Texture2D" uid="uid://4gka235rmry3" path="res://Game/Assets/Images/Test legs player/legs 1.png" id="1_rkmio"]
@@ -26,6 +26,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfn42"]
 size = Vector2(28, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxe27"]
+size = Vector2(30, 73)
+
 [node name="LegsPlayer" type="CharacterBody2D"]
 texture_filter = 1
 collision_mask = 6
@@ -40,3 +43,8 @@ animation = &"idle"
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(13, -17)
 shape = SubResource("RectangleShape2D_bfn42")
+
+[node name="AssembledCollision" type="CollisionShape2D" parent="."]
+position = Vector2(12, -35.5)
+shape = SubResource("RectangleShape2D_dxe27")
+disabled = true

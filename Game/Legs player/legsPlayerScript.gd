@@ -4,12 +4,11 @@ extends CharacterBody2D
 const SPEED = 300.0
 const CLIMB_SPEED = 5.0
 const JUMP_VELOCITY = -540.0
-var camera
-var cameraSize
-var cameraBounds
+
 
 func _ready() -> void:
-	camera = get_node("/root/MainScene/Camera")
+	$Collision.disabled = false
+	$AssembledCollision.disabled = true
 
 
 func _physics_process(delta: float) -> void:	
@@ -36,10 +35,14 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		$Appearance.animation = "idle"
 	
-	cameraSize = Vector2(camera.get_viewport().get_size()) - Vector2(1200,700)
-	cameraBounds = Rect2(camera.position - (cameraSize / 2), cameraSize)
-	
 	if !(Global.isArmsPlayerOnCeiling and Global.are_assembled):
 		move_and_slide()
 	else:
 		self.position = $"../ArmsPlayer".position - Global.ARMSPLAYER_OFFSET
+	
+	if Global.are_assembled:
+		$Collision.disabled = true
+		$AssembledCollision.disabled = false
+	else:
+		$Collision.disabled = false
+		$AssembledCollision.disabled = true

@@ -9,6 +9,8 @@ var gravityDirection
 func _ready() -> void:
 	gravityDirection = 1
 	Global.isArmsPlayerOnCeiling = false
+	$Collision.disabled = false
+	$AssembledCollision.disabled = true
 
 
 func _physics_process(delta: float) -> void:
@@ -39,7 +41,13 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	else:
 		self.position = $"../LegsPlayer".position + Global.ARMSPLAYER_OFFSET
-
+	
+	if Global.are_assembled and Global.isArmsPlayerOnCeiling:
+		$Collision.disabled = true
+		$AssembledCollision.disabled = false
+	else:
+		$Collision.disabled = false
+		$AssembledCollision.disabled = true
 
 func _on_test_level_ceiling_entered() -> void:
 	isTouchingCeiling = true
