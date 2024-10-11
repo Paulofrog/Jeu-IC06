@@ -46,3 +46,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		$Collision.disabled = false
 		$AssembledCollision.disabled = true
+
+
+func _on_arms_player_leaving_ceiling() -> void:
+	if Global.are_assembled:
+		velocity.y = -100

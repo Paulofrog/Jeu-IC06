@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 150.0
 var isTouchingCeiling			# savoir si on est entré dans la zone de détection
 var gravityDirection
+signal leavingCeiling
 
 
 func _ready() -> void:
@@ -24,8 +25,11 @@ func _physics_process(delta: float) -> void:
 			gravityDirection = -1
 			$Appearance.animation = "hang"
 		else:
+			if Global.isArmsPlayerOnCeiling and Input.is_action_just_released("armsUp"):
+				leavingCeiling.emit()
 			Global.isArmsPlayerOnCeiling = false
 			gravityDirection = 1
+
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("armsLeft", "armsRight")

@@ -84,3 +84,4 @@ stream = ExtResource("8_2bgkw")
 
 [connection signal="ceilingEntered" from="TestLevel" to="ArmsPlayer" method="_on_test_level_ceiling_entered"]
 [connection signal="ceilingExited" from="TestLevel" to="ArmsPlayer" method="_on_test_level_ceiling_exited"]
+[connection signal="leavingCeiling" from="ArmsPlayer" to="LegsPlayer" method="_on_arms_player_leaving_ceiling"]

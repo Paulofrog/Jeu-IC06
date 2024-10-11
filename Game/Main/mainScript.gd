@@ -72,3 +72,5 @@ func assemble_players() -> void:
 
 func separate_players() -> void:
 	Global.are_assembled = false
+	if Global.isArmsPlayerOnCeiling:
+		$LegsPlayer.velocity.y = -10
