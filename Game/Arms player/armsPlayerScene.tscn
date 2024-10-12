@@ -1,33 +1,60 @@
-[gd_scene load_steps=50 format=3 uid="uid://biegw40cam53k"]
+[gd_scene load_steps=77 format=3 uid="uid://biegw40cam53k"]
 
 [ext_resource type="Script" path="res://Game/Arms player/armsPlayerScript.gd" id="1_3g23n"]
+[ext_resource type="Texture2D" uid="uid://ds7a3oohp37ts" path="res://Game/Assets/Images/Test arms player/climbSprite/0000.png" id="2_eyk0i"]
 [ext_resource type="Texture2D" uid="uid://b1c32hg0ome8n" path="res://Game/Assets/Images/Test arms player/idlecropped/0000.png" id="2_rkoay"]
 [ext_resource type="Texture2D" uid="uid://b8eml102kepth" path="res://Game/Assets/Images/Test arms player/idlecropped/0002.png" id="3_725cc"]
+[ext_resource type="Texture2D" uid="uid://4e23bubxlyg3" path="res://Game/Assets/Images/Test arms player/climbSprite/0004.png" id="3_x3lbb"]
+[ext_resource type="Texture2D" uid="uid://bwpyfa6xg8dum" path="res://Game/Assets/Images/Test arms player/climbSprite/0008.png" id="4_smdl4"]
 [ext_resource type="Texture2D" uid="uid://dx4cswut25wqo" path="res://Game/Assets/Images/Test arms player/idlecropped/0004.png" id="4_waj81"]
+[ext_resource type="Texture2D" uid="uid://63cmhep2lsm7" path="res://Game/Assets/Images/Test arms player/climbSprite/0012.png" id="5_cxsy3"]
 [ext_resource type="Texture2D" uid="uid://ctvcrvsycd3bh" path="res://Game/Assets/Images/Test arms player/idlecropped/0006.png" id="5_fy4se"]
+[ext_resource type="Texture2D" uid="uid://c77l4lvxg3kyk" path="res://Game/Assets/Images/Test arms player/climbSprite/0016.png" id="6_5pwno"]
 [ext_resource type="Texture2D" uid="uid://cadonoexqcrs" path="res://Game/Assets/Images/Test arms player/idlecropped/0008.png" id="6_calfn"]
 [ext_resource type="Texture2D" uid="uid://biy5v6hjv68i8" path="res://Game/Assets/Images/Test arms player/idlecropped/0010.png" id="7_0v5pa"]
+[ext_resource type="Texture2D" uid="uid://bhltqcenthasn" path="res://Game/Assets/Images/Test arms player/climbSprite/0020.png" id="7_40krd"]
+[ext_resource type="Texture2D" uid="uid://2nyonxqrmlvd" path="res://Game/Assets/Images/Test arms player/climbSprite/0024.png" id="8_gmqri"]
 [ext_resource type="Texture2D" uid="uid://cpp4lbvhmxllj" path="res://Game/Assets/Images/Test arms player/idlecropped/0012.png" id="8_yg11q"]
+[ext_resource type="Texture2D" uid="uid://hr73d2wus820" path="res://Game/Assets/Images/Test arms player/climbSprite/0028.png" id="9_uyqn7"]
 [ext_resource type="Texture2D" uid="uid://dijcutoa0nn5s" path="res://Game/Assets/Images/Test arms player/idlecropped/0014.png" id="9_yvq7e"]
 [ext_resource type="Texture2D" uid="uid://8sosh0tqtrfg" path="res://Game/Assets/Images/Test arms player/idlecropped/0016.png" id="10_actya"]
+[ext_resource type="Texture2D" uid="uid://bn23yy0w251sq" path="res://Game/Assets/Images/Test arms player/climbSprite/0032.png" id="10_gv0ms"]
+[ext_resource type="Texture2D" uid="uid://igc0ujbai6o0" path="res://Game/Assets/Images/Test arms player/climbSprite/0036.png" id="11_k0cr3"]
 [ext_resource type="Texture2D" uid="uid://c0y0bo8j8a1bd" path="res://Game/Assets/Images/Test arms player/idlecropped/0018.png" id="11_mf585"]
 [ext_resource type="Texture2D" uid="uid://b7neip2yju0lw" path="res://Game/Assets/Images/Test arms player/idlecropped/0020.png" id="12_6flvt"]
+[ext_resource type="Texture2D" uid="uid://dpqdnmgp0kqu3" path="res://Game/Assets/Images/Test arms player/climbSprite/0040.png" id="12_fa7qh"]
 [ext_resource type="Texture2D" uid="uid://dpra2norlpsns" path="res://Game/Assets/Images/Test arms player/walkcropped/0000.png" id="13_34qno"]
+[ext_resource type="Texture2D" uid="uid://dsyshfkvgvvwi" path="res://Game/Assets/Images/Test arms player/climbSprite/0044.png" id="13_l8bc3"]
+[ext_resource type="Texture2D" uid="uid://ds4ktq44fuls3" path="res://Game/Assets/Images/Test arms player/climbSprite/0048.png" id="14_0611h"]
 [ext_resource type="Texture2D" uid="uid://fti4rcsdtx7b" path="res://Game/Assets/Images/Test arms player/walkcropped/0002.png" id="14_mluka"]
 [ext_resource type="Texture2D" uid="uid://cfau81qlxgu23" path="res://Game/Assets/Images/Test arms player/walkcropped/0004.png" id="15_ar3lq"]
+[ext_resource type="Texture2D" uid="uid://8v0lpb5mpq4v" path="res://Game/Assets/Images/Test arms player/climbSprite/0052.png" id="15_b56y1"]
+[ext_resource type="Texture2D" uid="uid://bsa4xj0a6m18m" path="res://Game/Assets/Images/Test arms player/climbSprite/0056.png" id="16_gdv58"]
 [ext_resource type="Texture2D" uid="uid://b6yc66dp0m80i" path="res://Game/Assets/Images/Test arms player/walkcropped/0006.png" id="16_ns8ky"]
 [ext_resource type="Texture2D" uid="uid://b5mvgko1gi35y" path="res://Game/Assets/Images/Test arms player/walkcropped/0008.png" id="17_fqi80"]
+[ext_resource type="Texture2D" uid="uid://csc6g0mhxjy2i" path="res://Game/Assets/Images/Test arms player/climbSprite/0060.png" id="17_ggngd"]
+[ext_resource type="Texture2D" uid="uid://b3hkrg1w8k8c2" path="res://Game/Assets/Images/Test arms player/climbIdle/0000.png" id="18_b7e2i"]
 [ext_resource type="Texture2D" uid="uid://cko4ego34nfh2" path="res://Game/Assets/Images/Test arms player/walkcropped/0010.png" id="18_e0sog"]
+[ext_resource type="Texture2D" uid="uid://dq4shbhdyloh1" path="res://Game/Assets/Images/Test arms player/climbIdle/0002.png" id="19_g23qq"]
 [ext_resource type="Texture2D" uid="uid://cxyyqbuevvyod" path="res://Game/Assets/Images/Test arms player/walkcropped/0012.png" id="19_u0qrw"]
+[ext_resource type="Texture2D" uid="uid://6c0t2gbjdfce" path="res://Game/Assets/Images/Test arms player/climbIdle/0004.png" id="20_cmw1u"]
 [ext_resource type="Texture2D" uid="uid://huqrqusyn22x" path="res://Game/Assets/Images/Test arms player/walkcropped/0014.png" id="20_hqj8f"]
 [ext_resource type="Texture2D" uid="uid://c5k5uk5dc1hql" path="res://Game/Assets/Images/Test arms player/walkcropped/0016.png" id="21_dcsoi"]
+[ext_resource type="Texture2D" uid="uid://l5tecw1hh1bh" path="res://Game/Assets/Images/Test arms player/climbIdle/0006.png" id="21_w65ip"]
+[ext_resource type="Texture2D" uid="uid://busrd75iao0q3" path="res://Game/Assets/Images/Test arms player/climbIdle/0008.png" id="22_4g3s5"]
 [ext_resource type="Texture2D" uid="uid://wqiug6ilx6w7" path="res://Game/Assets/Images/Test arms player/walkcropped/0018.png" id="22_oxnro"]
 [ext_resource type="Texture2D" uid="uid://dgb7mgmm4hu37" path="res://Game/Assets/Images/Test arms player/walkcropped/0020.png" id="23_q1p21"]
+[ext_resource type="Texture2D" uid="uid://ciyv7uhpritns" path="res://Game/Assets/Images/Test arms player/climbIdle/0010.png" id="23_vduo1"]
 [ext_resource type="Texture2D" uid="uid://clumo1va05k3v" path="res://Game/Assets/Images/Test arms player/walkcropped/0022.png" id="24_kcjdu"]
+[ext_resource type="Texture2D" uid="uid://dryd7t5rubemv" path="res://Game/Assets/Images/Test arms player/climbIdle/0012.png" id="24_s6sif"]
+[ext_resource type="Texture2D" uid="uid://cl517efqea1g8" path="res://Game/Assets/Images/Test arms player/climbIdle/0014.png" id="25_w046x"]
 [ext_resource type="Texture2D" uid="uid://m0qeeuni0egt" path="res://Game/Assets/Images/Test arms player/walkcropped/0024.png" id="25_yojij"]
 [ext_resource type="Texture2D" uid="uid://c1tq5fc83n8pn" path="res://Game/Assets/Images/Test arms player/walkcropped/0026.png" id="26_7q8qr"]
+[ext_resource type="Texture2D" uid="uid://ughuia5yww8c" path="res://Game/Assets/Images/Test arms player/climbIdle/0016.png" id="26_km2kk"]
 [ext_resource type="Texture2D" uid="uid://chkmh5u8pia40" path="res://Game/Assets/Images/Test arms player/walkcropped/0028.png" id="27_3dsyf"]
+[ext_resource type="Texture2D" uid="uid://0t7g5cedykyj" path="res://Game/Assets/Images/Test arms player/climbIdle/0018.png" id="27_8vh10"]
 [ext_resource type="Texture2D" uid="uid://e7fwujs2jxys" path="res://Game/Assets/Images/Test arms player/walkcropped/0030.png" id="28_02o58"]
+[ext_resource type="Texture2D" uid="uid://p44dru68nufj" path="res://Game/Assets/Images/Test arms player/climbIdle/0020.png" id="28_ule36"]
 [ext_resource type="Texture2D" uid="uid://170ge4fobxib" path="res://Game/Assets/Images/Test arms player/walkcropped/0032.png" id="29_swi3l"]
 [ext_resource type="Texture2D" uid="uid://vw7rivreopeq" path="res://Game/Assets/Images/Test arms player/walkcropped/0034.png" id="30_ge47i"]
 [ext_resource type="Texture2D" uid="uid://btmtslebpx5b3" path="res://Game/Assets/Images/Test arms player/walkcropped/0036.png" id="31_oa58q"]
@@ -51,6 +78,97 @@ load_path = "res://.godot/imported/0000.png-24e4556809b6a5fe1d65b602529b6399.cte
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rjjch"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_eyk0i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x3lbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_smdl4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cxsy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5pwno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_40krd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gmqri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uyqn7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gv0ms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_k0cr3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fa7qh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_l8bc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_0611h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_b56y1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_gdv58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ggngd")
+}],
+"loop": true,
+"name": &"climb",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_b7e2i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_g23qq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_cmw1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_w65ip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_4g3s5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_vduo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_s6sif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_w046x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_km2kk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_8vh10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ule36")
+}],
+"loop": true,
+"name": &"climbIdle",
+"speed": 13.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("CompressedTexture2D_t0oq4")
@@ -217,9 +335,8 @@ script = ExtResource("1_3g23n")
 position = Vector2(5, -40.529)
 scale = Vector2(0.0413589, 0.0454126)
 sprite_frames = SubResource("SpriteFrames_rjjch")
-animation = &"walk"
-frame = 14
-frame_progress = 0.730002
+animation = &"climbIdle"
+frame_progress = 0.475319
 centered = false
 
 [node name="Collision" type="CollisionShape2D" parent="."]
