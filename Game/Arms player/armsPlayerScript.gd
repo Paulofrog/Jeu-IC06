@@ -35,7 +35,8 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("armsLeft", "armsRight")
 	if direction:
 		velocity.x = direction * SPEED
-		if !Global.isArmsPlayerOnCeiling: $Appearance.animation = "walk"
+		if !Global.isArmsPlayerOnCeiling: 
+			$Appearance.play("walk")
 		$Appearance.flip_h = velocity.x < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)

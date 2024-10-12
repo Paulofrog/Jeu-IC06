@@ -1,15 +1,45 @@
-[gd_scene load_steps=8 format=3 uid="uid://biegw40cam53k"]
+[gd_scene load_steps=38 format=3 uid="uid://biegw40cam53k"]
 
 [ext_resource type="Script" path="res://Game/Arms player/armsPlayerScript.gd" id="1_3g23n"]
-[ext_resource type="Texture2D" uid="uid://ct3nav5fhsgbr" path="res://Game/Assets/Images/Test arms player/arms idle.png" id="1_ih3nu"]
-[ext_resource type="Texture2D" uid="uid://daywv6m1h4rkt" path="res://Game/Assets/Images/Test arms player/arms up.png" id="2_yqppv"]
-[ext_resource type="Texture2D" uid="uid://dgh83v410hfpx" path="res://Game/Assets/Images/Test arms player/arms walk.png" id="3_k6awh"]
+[ext_resource type="Texture2D" uid="uid://i6etkc1774bq" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0000.png" id="2_yjl87"]
+[ext_resource type="Texture2D" uid="uid://rbm0rayag6v6" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0002.png" id="3_34558"]
+[ext_resource type="Texture2D" uid="uid://cjq0md51fyyvh" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0004.png" id="4_ga103"]
+[ext_resource type="Texture2D" uid="uid://dar7117rvwpbb" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0006.png" id="5_3uv72"]
+[ext_resource type="Texture2D" uid="uid://ccjcs5xcpi336" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0008.png" id="6_tkd2c"]
+[ext_resource type="Texture2D" uid="uid://cdc7e4kpkb2v0" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0010.png" id="7_cnvgx"]
+[ext_resource type="Texture2D" uid="uid://dttgaumf23gw7" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0012.png" id="8_c6lik"]
+[ext_resource type="Texture2D" uid="uid://xky8sq42rrup" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0014.png" id="9_fyr48"]
+[ext_resource type="Texture2D" uid="uid://bfn10sb8mu5wx" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0016.png" id="10_oov14"]
+[ext_resource type="Texture2D" uid="uid://d3336nx8us48q" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0018.png" id="11_p0g0w"]
+[ext_resource type="Texture2D" uid="uid://cuasqhon6mebr" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0020.png" id="12_qfupo"]
+[ext_resource type="Texture2D" uid="uid://cwg2jsfh0iycs" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0022.png" id="13_klsnr"]
+[ext_resource type="Texture2D" uid="uid://3vyi6w3kgtm7" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0024.png" id="14_ggqel"]
+[ext_resource type="Texture2D" uid="uid://edrwc7x7fcqh" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0026.png" id="15_dr8pa"]
+[ext_resource type="Texture2D" uid="uid://baemwqkv0osy3" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0028.png" id="16_4vg3g"]
+[ext_resource type="Texture2D" uid="uid://gh342fpbkih3" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0030.png" id="17_akslq"]
+[ext_resource type="Texture2D" uid="uid://bvcauu87q4obo" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0032.png" id="18_2fucp"]
+[ext_resource type="Texture2D" uid="uid://rj2yt7xhgw60" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0034.png" id="19_q2v8e"]
+[ext_resource type="Texture2D" uid="uid://s47i645mq5y" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0036.png" id="20_q1qve"]
+[ext_resource type="Texture2D" uid="uid://xwr5a7aga24g" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0038.png" id="21_5evhn"]
+[ext_resource type="Texture2D" uid="uid://dqaxs4jkuakek" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0040.png" id="22_mnqnu"]
+[ext_resource type="Texture2D" uid="uid://d1yn0eu07jn1j" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0042.png" id="23_xmx32"]
+[ext_resource type="Texture2D" uid="uid://cgbxhu7s3adqj" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0044.png" id="24_6vmia"]
+[ext_resource type="Texture2D" uid="uid://mwkhk8rqde4e" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0046.png" id="25_gbx2e"]
+[ext_resource type="Texture2D" uid="uid://b8vr85rs5vdur" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0048.png" id="26_btswv"]
+[ext_resource type="Texture2D" uid="uid://c87xidm4tb8km" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0050.png" id="27_u4cyq"]
+[ext_resource type="Texture2D" uid="uid://cbbsjachsm7p8" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0052.png" id="28_106un"]
+[ext_resource type="Texture2D" uid="uid://bydhad4peqxsd" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0054.png" id="29_u2h30"]
+[ext_resource type="Texture2D" uid="uid://cgvdv1eie51wk" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0056.png" id="30_1u3ek"]
+[ext_resource type="Texture2D" uid="uid://1mv1fm41lrsb" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0058.png" id="31_e3x0l"]
+[ext_resource type="Texture2D" uid="uid://dgpwowbuhrse4" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0060.png" id="32_8w4jh"]
+[ext_resource type="Texture2D" uid="uid://d1blmykq0aayw" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0062.png" id="33_cpgqk"]
+[ext_resource type="Texture2D" uid="uid://cg8s6caet0iul" path="res://Game/Assets/Images/Test arms player/RobotArmsWalk/0064.png" id="34_85w41"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rjjch"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_yqppv")
+"texture": ExtResource("2_yjl87")
 }],
 "loop": true,
 "name": &"hang",
@@ -17,7 +47,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_ih3nu")
+"texture": ExtResource("2_yjl87")
 }],
 "loop": true,
 "name": &"idle",
@@ -25,11 +55,107 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_k6awh")
+"texture": ExtResource("2_yjl87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_34558")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ga103")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3uv72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tkd2c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cnvgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_c6lik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fyr48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_oov14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_p0g0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qfupo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_klsnr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ggqel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_dr8pa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_4vg3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_akslq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_2fucp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_q2v8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_q1qve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_5evhn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_mnqnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_xmx32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_6vmia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_gbx2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_btswv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_u4cyq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_106un")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_u2h30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_1u3ek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_e3x0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_8w4jh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_cpgqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_85w41")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 30.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mh60r"]
@@ -44,16 +170,18 @@ collision_mask = 6
 script = ExtResource("1_3g23n")
 
 [node name="Appearance" type="AnimatedSprite2D" parent="."]
-position = Vector2(18.5, -21.625)
-scale = Vector2(0.291666, 0.321428)
+position = Vector2(22, -18)
+scale = Vector2(0.0424297, 0.0467593)
 sprite_frames = SubResource("SpriteFrames_rjjch")
-animation = &"idle"
+animation = &"walk"
+frame = 11
+frame_progress = 0.876413
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(17, -21)
 shape = SubResource("RectangleShape2D_mh60r")
 
 [node name="AssembledCollision" type="CollisionShape2D" parent="."]
-position = Vector2(18, -5)
+position = Vector2(17, -5)
 shape = SubResource("RectangleShape2D_6c4an")
 disabled = true
