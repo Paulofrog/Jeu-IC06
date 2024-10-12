@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 		$Appearance.flip_h = velocity.x < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if !Global.isArmsPlayerOnCeiling : $Appearance.animation = "idle"
+		if !Global.isArmsPlayerOnCeiling : $Appearance.play("idle")
 		
 	if !Global.are_assembled or Global.isArmsPlayerOnCeiling:
 		move_and_slide()

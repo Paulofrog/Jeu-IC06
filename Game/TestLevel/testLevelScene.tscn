@@ -258,7 +258,7 @@ tile_set = SubResource("TileSet_a1yy4")
 position = Vector2(494, 408)
 
 [node name="ArmsPlayerSpawnPoint" type="Marker2D" parent="."]
-position = Vector2(586, 330)
+position = Vector2(697, 326)
 
 [node name="Ceiling" type="Area2D" parent="."]
 collision_layer = 64
