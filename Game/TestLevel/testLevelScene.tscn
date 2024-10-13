@@ -270,7 +270,7 @@ shape = SubResource("RectangleShape2D_xkx1n")
 [node name="Ladder" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder"]
-position = Vector2(814, 288.125)
+position = Vector2(814, 286)
 shape = SubResource("RectangleShape2D_i2mnf")
 
 [connection signal="body_entered" from="Ceiling" to="." method="_on_ceiling_body_entered"]

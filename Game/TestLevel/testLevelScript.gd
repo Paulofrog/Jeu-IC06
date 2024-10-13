@@ -14,12 +14,12 @@ func _process(_delta: float) -> void:
 
 
 func _on_ladder_body_entered(body: Node2D) -> void:
-	if body.name == "LegsPlayer":
+	if body.name == "ArmsPlayer":
 			Global.can_climb = true
 
 
 func _on_ladder_body_exited(body: Node2D) -> void:
-	if body.name == "LegsPlayer":
+	if body.name == "ArmsPlayer":
 			Global.can_climb = false
 
 
