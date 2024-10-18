@@ -5,6 +5,10 @@ const PROXIMITY_THRESHOLD = 50.0
 const PROXIMITYLABEL_OFFSET = Vector2(0, -45)
 var paused = false
 var pausemenu
+@onready var legs = $LegsPlayer
+@onready var arms = $ArmsPlayer
+@onready var completeplayer = $CompletePlayer
+
 
 func _ready() -> void:
 	pausemenu = $Camera/PauseMenu
@@ -62,15 +66,22 @@ func PlayerProximityDetection():
 	elif Global.are_assembled:
 		if Input.is_action_just_pressed("legsAssembly") != Input.is_action_just_pressed("armsAssembly"):
 			separate_players()
-			
-
+	
 func assemble_players() -> void:
 	Global.are_assembled = true
-	$ArmsPlayer.position = $LegsPlayer.position + Global.ARMSPLAYER_OFFSET
+	completeplayer.show()
+	completeplayer.position = arms.position
+	arms.hide()
+	legs.hide()
 	$MetalAudioPlayer.play()
 
 
 func separate_players() -> void:
 	Global.are_assembled = false
-	if Global.isArmsPlayerOnCeiling:
-		$LegsPlayer.velocity.y = -10
+	arms.show()
+	legs.show()
+	#if Global.isArmsPlayerOnCeiling:
+		#$LegsPlayer.velocity.y = -10
+	legs.position = completeplayer.position
+	arms.position = completeplayer.position + Global.ARMSPLAYER_OFFSET
+	completeplayer.hide()
