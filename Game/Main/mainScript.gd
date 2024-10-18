@@ -3,6 +3,15 @@ extends Node
 # Assembly
 const PROXIMITY_THRESHOLD = 50.0
 const PROXIMITYLABEL_OFFSET = Vector2(0, -45)
+
+#renommer ces variables pour la caméra
+const MAX_DISTANCE = 500.0  # La distance à partir de laquelle la caméra commence à dézoomer
+const MIN_ZOOM = Vector2(1, 1)  # Zoom par défaut
+const MAX_ZOOM = Vector2(2, 2)  # Maximum de zoom out (2x)
+var distance
+var zoom_factor
+var zoom
+
 var paused = false
 var pausemenu
 @onready var legs = $LegsPlayer
@@ -21,6 +30,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
 	UpdateCameraPosition()
+	#UpdateCameraZoom()
 	PlayerProximityDetection()
 
 
@@ -46,9 +56,15 @@ func SetSpawnPositions():
 func UpdateCameraPosition():
 	$Camera.position = ($ArmsPlayer.global_position + $LegsPlayer.global_position) / 2
 
+# à améliorer
+func UpdateCameraZoom():
+	distance = $ArmsPlayer.global_position.distance_to($LegsPlayer.global_position)
+	zoom_factor = clamp(distance / MAX_DISTANCE, 1.0, MAX_ZOOM.x)
+	$Camera.zoom = Vector2(zoom_factor, zoom_factor)
+
 
 func PlayerProximityDetection():
-	var distance = $LegsPlayer.global_position.distance_to($ArmsPlayer.global_position)
+	distance = $LegsPlayer.global_position.distance_to($ArmsPlayer.global_position)
 	if (distance < PROXIMITY_THRESHOLD):
 		if !Global.are_assembled:
 			$ProximityLabel.position = (($ArmsPlayer.global_position + $LegsPlayer.global_position) / (2)) \

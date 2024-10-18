@@ -36,7 +36,6 @@ func _physics_process(delta: float) -> void:
 			$Appearance.animation = "idle"
 	
 	if !(Global.isArmsPlayerOnCeiling and Global.are_assembled):
-		Global.directionX = directionX
 		move_and_slide()
 	else:
 		velocity.y = 0
