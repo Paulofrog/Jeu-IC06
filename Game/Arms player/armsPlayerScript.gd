@@ -19,12 +19,13 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor() and !Global.can_climb:
-		velocity += gravityDirection*get_gravity() * delta
+		velocity += gravityDirection * get_gravity() * delta
 
 	if isTouchingCeiling:
 		if Input.is_action_pressed("armsUp"):
 			Global.isArmsPlayerOnCeiling = true
-			gravityDirection = -1
+			#gravityDirection = -1
+			velocity.y = 0
 			$Appearance.animation = "hang"
 		else:
 			if Global.isArmsPlayerOnCeiling and Input.is_action_just_released("armsUp"):
@@ -46,8 +47,8 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("armsLeft", "armsRight")
 	if direction:
 		velocity.x = direction * SPEED
-		if !Global.isArmsPlayerOnCeiling: 
-			$Appearance.play("walk")
+		if !Global.isArmsPlayerOnCeiling:
+			$Appearance.play("walk")		# Ajouter l'animation "regarder sur le côté", pour remplacer walk quand on ne peut pas marcher
 		$Appearance.flip_h = velocity.x < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -57,6 +58,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	else:
 		self.position = $"../LegsPlayer".position + Global.ARMSPLAYER_OFFSET
+		$Appearance.stop()
 	
 	if Global.are_assembled and Global.isArmsPlayerOnCeiling:
 		$Collision.disabled = true

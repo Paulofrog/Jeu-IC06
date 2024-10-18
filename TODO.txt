@@ -1,18 +1,15 @@
 > > > > > > > > > > > > > > > Fonctionnalités à implémenter < < < < < < < < < < < < < < <
 
 > Paul
-	ArmsPlayer :
-		Créer sur le même modèle que legsPlayer
-			FAIT - Character2D, animatedSprite2D, collisionShape2D
-			EN COURS - créer son script de déplacement basique (pas de saut mais suspension ?)
 	ArmsPlayer et LegsPlayer : 
-		Possibilité de s'assembler
-			FAIT - détecter la proximité entre les 2 joueurs
-			EN COURS - afficher un message indiquant la touche à presser pour s'assembler pour chaque joueur (ces 2 commandes sont déjà configurées)
-			FAIT??? - gérer l'assemblage et les nouvelles restrictions et possibilités de déplacement
 		Gérer la caméra
 			EN COURS - modifier le mouvement de la caméra pour suivre dynamiquement les joueurs
-			FAIT restreindre les déplacements des joueurs au champ de la caméra
+			A DEBUGGER - restreindre les déplacements des joueurs au champ de la caméra
+		Suspension au plafond
+			EN COURS - Gérer sortie de zone suspension : chute brutale pour l'instant
+			A FAIRE - ne pas pouvoir se re-suspendre avant d'avoir totalement quitté le plafond
+		Assemblage
+			A FAIRE - faire en sorte qu'on ne puisse pas empêcher l'autre joueur de se désassembler
 
 > Romane
 	FAIT - Ajout d'écran d'accueil basique (start / quit)

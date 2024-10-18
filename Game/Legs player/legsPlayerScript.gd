@@ -10,7 +10,7 @@ func _ready() -> void:
 	$AssembledCollision.disabled = true
 
 
-func _physics_process(delta: float) -> void:	
+func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -32,6 +32,7 @@ func _physics_process(delta: float) -> void:
 	if !(Global.isArmsPlayerOnCeiling and Global.are_assembled):
 		move_and_slide()
 	else:
+		velocity.y = 0
 		self.position = $"../ArmsPlayer".position - Global.ARMSPLAYER_OFFSET
 	
 	if Global.are_assembled:

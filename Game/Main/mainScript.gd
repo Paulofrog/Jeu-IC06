@@ -69,19 +69,19 @@ func PlayerProximityDetection():
 	
 func assemble_players() -> void:
 	Global.are_assembled = true
-	completeplayer.show()
-	completeplayer.position = arms.position
-	arms.hide()
-	legs.hide()
+	#completeplayer.show()
+	#completeplayer.position = arms.position
+	#arms.hide()
+	#legs.hide()
 	$MetalAudioPlayer.play()
 
 
 func separate_players() -> void:
 	Global.are_assembled = false
-	arms.show()
-	legs.show()
+	#arms.show()
+	#legs.show()
 	#if Global.isArmsPlayerOnCeiling:
 		#$LegsPlayer.velocity.y = -10
-	legs.position = completeplayer.position
-	arms.position = completeplayer.position + Global.ARMSPLAYER_OFFSET
-	completeplayer.hide()
+	#legs.position = completeplayer.position
+	#arms.position = completeplayer.position + Global.ARMSPLAYER_OFFSET
+	#completeplayer.hide()
