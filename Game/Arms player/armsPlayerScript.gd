@@ -5,12 +5,10 @@ const SPEED = 300.0
 const CLIMB_SPEED = 5.0
 
 var isTouchingCeiling			# savoir si on est entré dans la zone de détection
-var gravityDirection
 signal leavingCeiling
 
 
 func _ready() -> void:
-	gravityDirection = 1
 	Global.isArmsPlayerOnCeiling = false
 	$Collision.disabled = false
 	$AssembledCollision.disabled = true
@@ -19,10 +17,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor() and !Global.can_climb:
-		velocity += gravityDirection * get_gravity() * delta
-
+		velocity += get_gravity() * delta
 	if isTouchingCeiling:
-		if Input.is_action_pressed("armsUp"):
+		if Input.is_action_pressed("armsUp") and $"../Timers/CeilingTimer".time_left == 0:
 			Global.isArmsPlayerOnCeiling = true
 			#gravityDirection = -1
 			velocity.y = 0
@@ -31,7 +28,6 @@ func _physics_process(delta: float) -> void:
 			if Global.isArmsPlayerOnCeiling and Input.is_action_just_released("armsUp"):
 				leavingCeiling.emit()
 			Global.isArmsPlayerOnCeiling = false
-			gravityDirection = 1
 	
 	var directionY := Input.get_axis("armsUp", "armsDown")
 	if Global.can_climb:
@@ -52,7 +48,8 @@ func _physics_process(delta: float) -> void:
 		$Appearance.flip_h = velocity.x < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if is_on_floor() and !Global.isArmsPlayerOnCeiling : $Appearance.play("idle")
+		if is_on_floor() and !Global.isArmsPlayerOnCeiling : 
+			$Appearance.play("idle")
 		
 	if !Global.are_assembled or Global.isArmsPlayerOnCeiling and !Global.can_climb:
 		move_and_slide()
@@ -61,7 +58,7 @@ func _physics_process(delta: float) -> void:
 		$Appearance.stop()
 	
 	if Global.are_assembled and Global.isArmsPlayerOnCeiling:
-		$Collision.disabled = true
+		#$Collision.disabled = true
 		$AssembledCollision.disabled = false
 	else:
 		$Collision.disabled = false
@@ -75,4 +72,4 @@ func _on_test_level_ceiling_exited() -> void:
 	isTouchingCeiling = false
 	$Appearance.animation = "idle"
 	Global.isArmsPlayerOnCeiling = false
-	gravityDirection = 1	
+	$"../Timers/CeilingTimer".start()

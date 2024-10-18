@@ -62,10 +62,12 @@ func PlayerProximityDetection():
 	
 	if not Global.are_assembled and distance < PROXIMITY_THRESHOLD:
 		if Input.is_action_pressed("legsAssembly") and Input.is_action_pressed("armsAssembly"):
-			assemble_players()
+			if $Timers/AssemblyTimer.time_left == 0:
+				assemble_players()
 	elif Global.are_assembled:
-		if Input.is_action_just_pressed("legsAssembly") != Input.is_action_just_pressed("armsAssembly"):
+		if Input.is_action_just_pressed("legsAssembly") or Input.is_action_just_pressed("armsAssembly"):
 			separate_players()
+			$Timers/AssemblyTimer.start()
 	
 func assemble_players() -> void:
 	Global.are_assembled = true
