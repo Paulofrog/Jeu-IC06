@@ -234,7 +234,7 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_rsw0o")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xkx1n"]
-size = Vector2(355, 3)
+size = Vector2(390, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i2mnf"]
 size = Vector2(27.5, 151.75)
@@ -264,7 +264,7 @@ position = Vector2(697, 326)
 collision_layer = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
-position = Vector2(578.5, 237.5)
+position = Vector2(596, 237.5)
 shape = SubResource("RectangleShape2D_xkx1n")
 
 [node name="Ladder" type="Area2D" parent="."]

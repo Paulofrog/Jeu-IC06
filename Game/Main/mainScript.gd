@@ -82,8 +82,8 @@ func separate_players() -> void:
 	Global.are_assembled = false
 	#arms.show()
 	#legs.show()
-	#if Global.isArmsPlayerOnCeiling:
-		#$LegsPlayer.velocity.y = -10
+	$LegsPlayer.velocity.y = 40
+	$ArmsPlayer.velocity.y = 0
 	#legs.position = completeplayer.position
 	#arms.position = completeplayer.position + Global.ARMSPLAYER_OFFSET
 	#completeplayer.hide()

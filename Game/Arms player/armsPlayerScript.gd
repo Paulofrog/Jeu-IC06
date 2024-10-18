@@ -40,17 +40,23 @@ func _physics_process(delta: float) -> void:
 				$Appearance.play("climbIdle")
 
 	# Get the input direction and handle the movement/deceleration.
-	var direction := Input.get_axis("armsLeft", "armsRight")
-	if direction:
-		velocity.x = direction * SPEED
+	var directionX := Input.get_axis("armsLeft", "armsRight")
+	if !Global.are_assembled or Global.isArmsPlayerOnCeiling and !Global.can_climb:
+		Global.directionX = directionX
+	if directionX and (directionX == Global.directionX):
+		velocity.x = directionX * SPEED
 		if !Global.isArmsPlayerOnCeiling:
 			$Appearance.play("walk")		# Ajouter l'animation "regarder sur le côté", pour remplacer walk quand on ne peut pas marcher
-		$Appearance.flip_h = velocity.x < 0
+		$Appearance.flip_h = directionX < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if is_on_floor() and !Global.isArmsPlayerOnCeiling : 
-			$Appearance.play("idle")
-		
+		if Global.directionX:
+			$Appearance.animation = "walk"
+			$Appearance.flip_h = Global.directionX < 0
+		else:
+			if !Global.isArmsPlayerOnCeiling :
+				$Appearance.play("idle")
+
 	if !Global.are_assembled or Global.isArmsPlayerOnCeiling and !Global.can_climb:
 		move_and_slide()
 	else:

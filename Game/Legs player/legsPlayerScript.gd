@@ -21,15 +21,22 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	var directionX = Input.get_axis("legsLeft", "legsRight")
-	if directionX:
+	if !(Global.isArmsPlayerOnCeiling and Global.are_assembled):
+		Global.directionX = directionX
+	if directionX and (directionX == Global.directionX):
 		velocity.x = directionX * SPEED
 		$Appearance.animation = "walk"
-		$Appearance.flip_h = velocity.x < 0
+		$Appearance.flip_h = directionX < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		$Appearance.animation = "idle"
+		if Global.directionX:
+			$Appearance.animation = "walk"
+			$Appearance.flip_h = Global.directionX < 0
+		else:
+			$Appearance.animation = "idle"
 	
 	if !(Global.isArmsPlayerOnCeiling and Global.are_assembled):
+		Global.directionX = directionX
 		move_and_slide()
 	else:
 		velocity.y = 0

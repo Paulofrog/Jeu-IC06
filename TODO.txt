@@ -5,11 +5,6 @@
 		Gérer la caméra
 			EN COURS - modifier le mouvement de la caméra pour suivre dynamiquement les joueurs
 			A DEBUGGER - restreindre les déplacements des joueurs au champ de la caméra
-		Suspension au plafond
-			EN COURS - Gérer sortie de zone suspension : chute brutale pour l'instant
-			A FAIRE - ne pas pouvoir se re-suspendre avant d'avoir totalement quitté le plafond
-		Assemblage
-			A FAIRE - faire en sorte qu'on ne puisse pas empêcher l'autre joueur de se désassembler
 
 > Romane
 	FAIT - Ajout d'écran d'accueil basique (start / quit)
