@@ -45,7 +45,9 @@ offset_right = -103.0
 offset_bottom = -37.0
 
 [node name="MovementArea" type="StaticBody2D" parent="Camera"]
-collision_layer = 32
+visible = false
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionArea" type="CollisionShape2D" parent="Camera/MovementArea"]
 position = Vector2(0, -283.5)

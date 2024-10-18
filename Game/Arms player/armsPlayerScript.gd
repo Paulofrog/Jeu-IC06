@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 			$Appearance.animation = "walk"
 			$Appearance.flip_h = Global.directionX < 0
 		else:
-			if !Global.isArmsPlayerOnCeiling :
+			if !Global.isArmsPlayerOnCeiling and is_on_floor():
 				$Appearance.play("idle")
 
 	if !Global.are_assembled or Global.isArmsPlayerOnCeiling and !Global.can_climb:

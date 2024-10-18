@@ -4,10 +4,9 @@ extends Node
 const PROXIMITY_THRESHOLD = 50.0
 const PROXIMITYLABEL_OFFSET = Vector2(0, -45)
 
-#renommer ces variables pour la caméra
-const MAX_DISTANCE = 500.0  # La distance à partir de laquelle la caméra commence à dézoomer
+const THRESHOLD_DISTANCE = 500.0  # La distance à partir de laquelle la caméra commence à dézoomer
 const MIN_ZOOM = Vector2(1, 1)  # Zoom par défaut
-const MAX_ZOOM = Vector2(2, 2)  # Maximum de zoom out (2x)
+const MAX_ZOOM = Vector2(4, 4)  # Maximum de zoom out (2x)
 var distance
 var zoom_factor
 var zoom
@@ -30,7 +29,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
 	UpdateCameraPosition()
-	#UpdateCameraZoom()
+	UpdateCameraZoom()
 	PlayerProximityDetection()
 
 
@@ -58,8 +57,8 @@ func UpdateCameraPosition():
 
 # à améliorer
 func UpdateCameraZoom():
-	distance = $ArmsPlayer.global_position.distance_to($LegsPlayer.global_position)
-	zoom_factor = clamp(distance / MAX_DISTANCE, 1.0, MAX_ZOOM.x)
+	distance = $LegsPlayer.global_position.distance_to($ArmsPlayer.global_position)
+	zoom_factor = clamp(3 - distance / THRESHOLD_DISTANCE, 1, MAX_ZOOM.x) #pourquoi 3 ??
 	$Camera.zoom = Vector2(zoom_factor, zoom_factor)
 
 
