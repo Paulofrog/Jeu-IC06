@@ -431,7 +431,7 @@ animations = [{
 size = Vector2(27, 41)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6c4an"]
-size = Vector2(30, 74)
+size = Vector2(30, 68)
 
 [node name="ArmsPlayer" type="CharacterBody2D"]
 texture_filter = 1
@@ -443,14 +443,12 @@ position = Vector2(17, -21)
 scale = Vector2(0.0413589, 0.0454126)
 sprite_frames = SubResource("SpriteFrames_rjjch")
 animation = &"walk"
-frame = 29
-frame_progress = 0.669301
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(17.5, -20.5)
 shape = SubResource("RectangleShape2D_mh60r")
 
 [node name="AssembledCollision" type="CollisionShape2D" parent="."]
-position = Vector2(17, -4)
+position = Vector2(17, -7)
 shape = SubResource("RectangleShape2D_6c4an")
 disabled = true

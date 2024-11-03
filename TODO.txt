@@ -8,9 +8,14 @@
 			A FAIRE - pas de modification du zoom si saut en cours
 		Gérer les animations
 			EN COURS - lancement des bonnes animations pour toutes les configurations
-			A FAIRE - quand animations immobiles (joueur assemblé), jouer une frame neutre, pas en mouvement bizarre
+			A AMELIORER - quand animations immobiles (joueur assemblé), jouer une frame neutre, pas en mouvement bizarre
+				--> FAIT, mais ce serait mieux de rajouter des animations de bras et de jambes qui se balancent légèrement ou au moins des frames spéciales pour ça
 			A FAIRE - gérer les animations de saut
-			A FAIRE - gérer le décalage horizontal entre joueurs
+			A FAIRE - régler la vitesse pour que les animations soient réalistes
+		Suspension au plafond
+			A FAIRE - coller les bras au plafond
+			A FAIRE - gérer le décalage horizontal entre joueurs au cours du déplacement au plafond
+
 			
 > Romane
 	FAIT - Ajout d'écran d'accueil basique (start / quit)

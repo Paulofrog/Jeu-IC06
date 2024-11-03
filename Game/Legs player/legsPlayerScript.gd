@@ -30,7 +30,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if Global.directionX:
-			$Appearance.play("walk")
+			$Appearance.animation = "walk"
+			$Appearance.stop()
+			$Appearance.frame = 16
 			$Appearance.flip_h = Global.directionX < 0
 		else:
 			$Appearance.play("idle")
@@ -39,11 +41,10 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	else:
 		velocity.y = 0
-		self.position = $"../ArmsPlayer".position - Global.ARMSPLAYER_OFFSET
-		$Appearance.stop()
+		self.position = $"../ArmsPlayer".position - Global.LEGSPLAYER_OFFSET - Vector2(-5*Global.directionX, 0)
 	
 	if Global.are_assembled:
-		$Collision.disabled = true
+		#$Collision.disabled = true
 		$AssembledCollision.disabled = false
 	else:
 		$Collision.disabled = false
@@ -52,4 +53,4 @@ func _physics_process(delta: float) -> void:
 
 func _on_arms_player_leaving_ceiling() -> void:
 	if Global.are_assembled:
-		velocity.y = -100
+		velocity.y = -10

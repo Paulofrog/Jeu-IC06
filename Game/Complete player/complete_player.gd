@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -540.0
 
 var isTouchingCeiling			# savoir si on est entré dans la zone de détection
 var gravityDirection
-signal leavingCeiling
+#signal leavingCeiling
 
 
 func _ready() -> void:

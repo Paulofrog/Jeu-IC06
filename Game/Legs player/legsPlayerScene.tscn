@@ -345,7 +345,7 @@ animations = [{
 size = Vector2(28, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dxe27"]
-size = Vector2(30, 73)
+size = Vector2(30, 59.5)
 
 [node name="LegsPlayer" type="CharacterBody2D"]
 texture_filter = 1
@@ -356,13 +356,13 @@ script = ExtResource("1_eh33y")
 position = Vector2(13, -18)
 scale = Vector2(0.0637427, 0.0630001)
 sprite_frames = SubResource("SpriteFrames_sk1vv")
-animation = &"frontJump"
+animation = &"walk"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(13, -17)
 shape = SubResource("RectangleShape2D_bfn42")
 
 [node name="AssembledCollision" type="CollisionShape2D" parent="."]
-position = Vector2(13, -36)
+position = Vector2(13, -29.25)
 shape = SubResource("RectangleShape2D_dxe27")
 disabled = true
