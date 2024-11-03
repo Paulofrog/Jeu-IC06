@@ -5,7 +5,13 @@
 		Gérer la caméra
 			EN COURS - modifier le mouvement de la caméra pour suivre dynamiquement les joueurs
 			A DEBUGGER - restreindre les déplacements des joueurs au champ de la caméra
-
+			A FAIRE - pas de modification du zoom si saut en cours
+		Gérer les animations
+			EN COURS - lancement des bonnes animations pour toutes les configurations
+			A FAIRE - quand animations immobiles (joueur assemblé), jouer une frame neutre, pas en mouvement bizarre
+			A FAIRE - gérer les animations de saut
+			A FAIRE - gérer le décalage horizontal entre joueurs
+			
 > Romane
 	FAIT - Ajout d'écran d'accueil basique (start / quit)
 	EN COURS - Ecran de pause
@@ -13,4 +19,4 @@
 > Gauthier
 
 >> A attribuer <<
-	
+	Gérer le zoom du menu, qui zoome avec la caméra alors qu'il doit être indépendant

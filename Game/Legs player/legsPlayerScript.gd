@@ -25,21 +25,22 @@ func _physics_process(delta: float) -> void:
 		Global.directionX = directionX
 	if directionX and (directionX == Global.directionX):
 		velocity.x = directionX * SPEED
-		$Appearance.animation = "walk"
+		$Appearance.play("walk")
 		$Appearance.flip_h = directionX < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if Global.directionX:
-			$Appearance.animation = "walk"
+			$Appearance.play("walk")
 			$Appearance.flip_h = Global.directionX < 0
 		else:
-			$Appearance.animation = "idle"
+			$Appearance.play("idle")
 	
 	if !(Global.isArmsPlayerOnCeiling and Global.are_assembled):
 		move_and_slide()
 	else:
 		velocity.y = 0
 		self.position = $"../ArmsPlayer".position - Global.ARMSPLAYER_OFFSET
+		$Appearance.stop()
 	
 	if Global.are_assembled:
 		$Collision.disabled = true
