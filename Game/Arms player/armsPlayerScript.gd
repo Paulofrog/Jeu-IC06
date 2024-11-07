@@ -20,6 +20,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor() and !Global.can_climb:
 		velocity += get_gravity() * delta
+	
 	if isTouchingCeiling:
 		if Input.is_action_pressed("armsUp") and $"../Timers/CeilingTimer".time_left == 0:
 			Global.isArmsPlayerOnCeiling = true
@@ -49,12 +50,13 @@ func _physics_process(delta: float) -> void:
 	var directionX := Input.get_axis("armsLeft", "armsRight")
 	if !Global.are_assembled or Global.isArmsPlayerOnCeiling and !Global.can_climb:
 		Global.directionX = directionX
-	if directionX and (directionX == Global.directionX):	# <==> le joueur arms peut bouger (soit tout seul soit assemblé et au plafond
+	if directionX and (directionX == Global.directionX):
 		velocity.x = directionX * SPEED
-		if !Global.isArmsPlayerOnCeiling:
-			$Appearance.play("walk")		# Ajouter l'animation "regarder sur le côté", pour remplacer walk quand on ne peut pas marcher
-		else:
-			$Appearance.play("hangWalk")
+		if !Global.are_assembled:
+			if !Global.isArmsPlayerOnCeiling:
+				$Appearance.play("walk")		# Ajouter l'animation "regarder sur le côté", pour remplacer walk quand on ne peut pas marcher
+			else:
+				$Appearance.play("hangWalk")
 		$Appearance.flip_h = directionX < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -64,7 +66,7 @@ func _physics_process(delta: float) -> void:
 			$Appearance.frame = 25
 			$Appearance.flip_h = Global.directionX < 0
 		else:
-			if !Global.isArmsPlayerOnCeiling:
+			if !Global.isArmsPlayerOnCeiling and !$"../LegsPlayer".isJumping:
 				$Appearance.play("idle")
 
 	if !Global.are_assembled or Global.isArmsPlayerOnCeiling and !Global.can_climb:
