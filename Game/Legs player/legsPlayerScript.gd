@@ -3,14 +3,13 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -540.0
-var isJumping
 var isJustLeavingCeiling
 
 
 func _ready() -> void:
 	$Collision.disabled = false
 	$AssembledCollision.disabled = true
-	isJumping = false
+	Global.isLegsPlayerJumping = false
 	isJustLeavingCeiling = false
 
 
@@ -20,8 +19,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		
 	if is_on_floor():
-		if isJumping:
-			isJumping = false
+		if Global.isLegsPlayerJumping:
+			Global.isLegsPlayerJumping = false
 			# jouer animation amortissement
 		elif isJustLeavingCeiling:
 			isJustLeavingCeiling = false
@@ -31,7 +30,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("legsJump") and is_on_floor():
-		isJumping = true
+		Global.isLegsPlayerJumping = true
 		velocity.y = JUMP_VELOCITY
 		if directionX:
 			$Appearance.play("sideJump")
@@ -43,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		Global.directionX = directionX
 	if directionX and (directionX == Global.directionX):
 		velocity.x = directionX * SPEED
-		if !isJumping:
+		if !Global.isLegsPlayerJumping:
 			$Appearance.play("walk")
 		$Appearance.flip_h = directionX < 0
 	else:
@@ -54,7 +53,7 @@ func _physics_process(delta: float) -> void:
 			$Appearance.frame = 16
 			$Appearance.flip_h = Global.directionX < 0
 		else:
-			if !isJumping or isJustLeavingCeiling:
+			if !Global.isLegsPlayerJumping or isJustLeavingCeiling:
 				$Appearance.play("idle")
 			if Global.are_assembled and Global.isArmsPlayerOnCeiling:
 				$Appearance.animation = "walk"

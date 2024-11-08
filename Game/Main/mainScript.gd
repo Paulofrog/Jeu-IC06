@@ -4,12 +4,11 @@ extends Node
 const PROXIMITY_THRESHOLD = 50.0
 const PROXIMITYLABEL_OFFSET = Vector2(0, -45)
 
-const THRESHOLD_DISTANCE = 500.0  # La distance à partir de laquelle la caméra commence à dézoomer
+"const THRESHOLD_DISTANCE = 500.0  # La distance à partir de laquelle la caméra commence à dézoomer
 const MIN_ZOOM = Vector2(1, 1)  # Zoom par défaut
-const MAX_ZOOM = Vector2(4, 4)  # Maximum de zoom out (2x)
+const MAX_ZOOM = Vector2(4, 4)  # Maximum de zoom out (2x)"
 var distance
 var zoom_factor
-var zoom
 
 var paused = false
 var pausemenu
@@ -25,11 +24,11 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
 	UpdateCameraPosition()
-	UpdateCameraZoom()
+	UpdateCameraZoom(delta)
 	PlayerProximityDetection()
 
 
@@ -55,11 +54,26 @@ func SetSpawnPositions():
 func UpdateCameraPosition():
 	$Camera.position = ($ArmsPlayer.global_position + $LegsPlayer.global_position) / 2
 
-# à améliorer
-func UpdateCameraZoom():
-	distance = $LegsPlayer.global_position.distance_to($ArmsPlayer.global_position)
-	zoom_factor = clamp(3 - distance / THRESHOLD_DISTANCE, 1, MAX_ZOOM.x) #pourquoi 3 ??
-	$Camera.zoom = Vector2(zoom_factor, zoom_factor)
+
+func UpdateCameraZoom(delta):
+	distance = abs(($ArmsPlayer.global_position - $LegsPlayer.global_position) / 2)
+	
+	if roundi(distance.x*9/16) >= distance.y:
+		if (0 <= distance.x and distance.x < 170):
+			zoom_factor = 4
+		elif (170 <= distance.x and distance.x < 350):
+			zoom_factor = 2
+		else:
+			zoom_factor = 1
+	else:
+		if (0 <= distance.y and distance.y < roundi(170.*9./16.)):
+			zoom_factor = 4
+		elif (roundi(170.*9./16.) <= distance.y and distance.y < roundi(350.*9./16.)):
+			zoom_factor = 2
+		else:
+			zoom_factor = 1
+	if !Global.isLegsPlayerJumping:
+		$Camera.zoom = $Camera.zoom.lerp(Vector2(zoom_factor, zoom_factor), ease(4 * delta, .8))
 
 
 func PlayerProximityDetection():
