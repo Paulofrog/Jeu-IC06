@@ -21,7 +21,9 @@
 	EN COURS - Ecran de pause
 
 > Gauthier
-
+	Finir le niveau 1 graphiquement parlant.
+	
+	
 >> A attribuer <<
 	Déroulement du jeu
 		A FAIRE - lancer le bon niveau dans MainScene en fonction de l'avancement du jeu
