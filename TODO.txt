@@ -2,21 +2,19 @@
 
 > Paul
 	ArmsPlayer et LegsPlayer : 
-		Gérer la caméra
-			EN COURS - modifier le mouvement de la caméra pour suivre dynamiquement les joueurs
-			A DEBUGGER - restreindre les déplacements des joueurs au champ de la caméra
-			A FAIRE - pas de modification du zoom si saut en cours
 		Gérer les animations
 			EN COURS - lancement des bonnes animations pour toutes les configurations
 			A AMELIORER - quand animations immobiles (joueur assemblé), jouer une frame neutre, pas en mouvement bizarre
 				--> FAIT, mais ce serait mieux de rajouter des animations de bras et de jambes qui se balancent comme quelqu'un qui court
 			A AMELIORER - gérer les animations de saut
 				--> FAIT, mais ce serait mieux de faire des demi-animations pour le saut et la réception
-			A FAIRE - déplacer verticalement arms pendant un saut
+			A FAIRE - déplacer verticalement arms pendant un saut ?
 			A FAIRE - régler la vitesse pour que les animations soient réalistes
-			
-			
-
+	Interface utilisateur :
+		Narration
+			A FAIRE - faire un écran de début pour expliquer le contexte du début du jeu (à définir en TD)
+		Ecran de pause
+			A FAIRE - rendre la taille de l'écran de pause indépendant du zoom de la caméra
 
 > Romane
 	FAIT - Ajout d'écran d'accueil basique (start / quit)
@@ -25,4 +23,8 @@
 > Gauthier
 
 >> A attribuer <<
-	Gérer le zoom du menu, qui zoome avec la caméra alors qu'il doit être indépendant
+	Déroulement du jeu
+		A FAIRE - lancer le bon niveau dans MainScene en fonction de l'avancement du jeu
+		A FAIRE - gérer le temps de chargement au lancement de la mainScene
+	Gestion des niveaux
+		A FAIRE - rendre le niveau Level1 jouable (intégration dans MainScene et intégration des éléments Ceiling et Ladder)

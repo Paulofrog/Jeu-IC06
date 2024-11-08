@@ -239,8 +239,7 @@ size = Vector2(402, 3)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i2mnf"]
 size = Vector2(27.5, 151.75)
 
-[node name="TestLevel" type="Node2D"]
-position = Vector2(-41, 77)
+[node name="TestLevel" type="Node"]
 script = ExtResource("1_wyk6a")
 
 [node name="Background" type="Sprite2D" parent="."]

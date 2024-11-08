@@ -15,11 +15,10 @@ size = Vector2(1070, 35)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8lhb"]
 size = Vector2(40, 532)
 
-[node name="MainScene" type="Node"]
+[node name="Main" type="Node"]
 script = ExtResource("1_cu2if")
 
 [node name="TestLevel" parent="." instance=ExtResource("1_3swin")]
-position = Vector2(0, 0)
 
 [node name="CompletePlayer" parent="." instance=ExtResource("3_gnold")]
 visible = false
@@ -49,19 +48,19 @@ visible = false
 collision_layer = 0
 collision_mask = 0
 
-[node name="CollisionArea" type="CollisionShape2D" parent="Camera/MovementArea"]
+[node name="CollisionAreaUp" type="CollisionShape2D" parent="Camera/MovementArea"]
 position = Vector2(0, -283.5)
 shape = SubResource("RectangleShape2D_4hff5")
 
-[node name="CollisionArea2" type="CollisionShape2D" parent="Camera/MovementArea"]
+[node name="CollisionAreaBottom" type="CollisionShape2D" parent="Camera/MovementArea"]
 position = Vector2(0, 283.5)
 shape = SubResource("RectangleShape2D_4hff5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/MovementArea"]
+[node name="CollisionAreaLeft" type="CollisionShape2D" parent="Camera/MovementArea"]
 position = Vector2(-515, 0)
 shape = SubResource("RectangleShape2D_w8lhb")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera/MovementArea"]
+[node name="CollisionAreaRight" type="CollisionShape2D" parent="Camera/MovementArea"]
 position = Vector2(515, 0)
 shape = SubResource("RectangleShape2D_w8lhb")
 

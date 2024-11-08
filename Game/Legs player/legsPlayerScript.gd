@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -540.0
 var isJustLeavingCeiling
+var frontJump
 
 
 func _ready() -> void:
@@ -21,6 +22,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		if Global.isLegsPlayerJumping:
 			Global.isLegsPlayerJumping = false
+			frontJump = false
 			# jouer animation amortissement
 		elif isJustLeavingCeiling:
 			isJustLeavingCeiling = false
@@ -36,13 +38,14 @@ func _physics_process(delta: float) -> void:
 			$Appearance.play("sideJump")
 		else:
 			$Appearance.play("frontJump")
+			frontJump = true
 
 	# Handle the movement/deceleration.
 	if !(Global.isArmsPlayerOnCeiling and Global.are_assembled):
 		Global.directionX = directionX
 	if directionX and (directionX == Global.directionX):
 		velocity.x = directionX * SPEED
-		if !Global.isLegsPlayerJumping:
+		if !Global.isLegsPlayerJumping or frontJump:
 			$Appearance.play("walk")
 		$Appearance.flip_h = directionX < 0
 	else:
