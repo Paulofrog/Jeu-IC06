@@ -49,37 +49,37 @@
 [ext_resource type="Texture2D" uid="uid://6tb6mr1ybvcx" path="res://Game/Assets/Images/Legs player sprites/SideJumpLegs2/00000013.png" id="47_t330n"]
 [ext_resource type="Texture2D" uid="uid://cclp3cejgfqyf" path="res://Game/Assets/Images/Legs player sprites/SideJumpLegs2/00000014.png" id="48_k6foq"]
 [ext_resource type="Texture2D" uid="uid://bdlcebphfca7y" path="res://Game/Assets/Images/Legs player sprites/SideJumpLegs2/00000015.png" id="49_0qip1"]
-[ext_resource type="Texture2D" uid="uid://brxi1lm2m1ccf" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0000.png" id="50_wi1jr"]
-[ext_resource type="Texture2D" uid="uid://bycli0mdooun3" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0002.png" id="51_vsfia"]
-[ext_resource type="Texture2D" uid="uid://heko6017npux" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0004.png" id="52_s2aov"]
-[ext_resource type="Texture2D" uid="uid://dmram76w3a54n" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0006.png" id="53_ynnnu"]
-[ext_resource type="Texture2D" uid="uid://byaf4o5fyfysw" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0008.png" id="54_j4wka"]
-[ext_resource type="Texture2D" uid="uid://dv182m6ji6i6v" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0010.png" id="55_boqpa"]
-[ext_resource type="Texture2D" uid="uid://ci3a5bt033by7" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0012.png" id="56_5mak2"]
-[ext_resource type="Texture2D" uid="uid://ceh4027waacno" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0014.png" id="57_dhktf"]
-[ext_resource type="Texture2D" uid="uid://b2jlbgclnviht" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0016.png" id="58_x251a"]
-[ext_resource type="Texture2D" uid="uid://di8gg4b5b0q3s" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0018.png" id="59_e58qv"]
-[ext_resource type="Texture2D" uid="uid://rlehsvmmpc6d" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0020.png" id="60_3xcx1"]
-[ext_resource type="Texture2D" uid="uid://7exnmhrt8wc0" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0022.png" id="61_cos3y"]
-[ext_resource type="Texture2D" uid="uid://0eeg8tsllg7m" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0024.png" id="62_0a1xk"]
-[ext_resource type="Texture2D" uid="uid://dsy1pui4flkfs" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0026.png" id="63_rad58"]
-[ext_resource type="Texture2D" uid="uid://bsf67b01onhye" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0028.png" id="64_u17v5"]
-[ext_resource type="Texture2D" uid="uid://cjhu0ym5gebay" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0030.png" id="65_ac0ps"]
-[ext_resource type="Texture2D" uid="uid://b2twa0of1o40x" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0032.png" id="66_2ljtb"]
-[ext_resource type="Texture2D" uid="uid://b666464ntiqtc" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0034.png" id="67_fquux"]
-[ext_resource type="Texture2D" uid="uid://blj7ouc2k06u8" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0036.png" id="68_im62h"]
-[ext_resource type="Texture2D" uid="uid://bt7v3gli82ueg" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0038.png" id="69_44dfr"]
-[ext_resource type="Texture2D" uid="uid://cia1xt6g5cund" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0040.png" id="70_kfviy"]
-[ext_resource type="Texture2D" uid="uid://cnqtlpu42tyje" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0042.png" id="71_xjjfr"]
-[ext_resource type="Texture2D" uid="uid://jcj1njmgg337" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0044.png" id="72_7df05"]
-[ext_resource type="Texture2D" uid="uid://yams3h8do34p" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0046.png" id="73_jvuyo"]
-[ext_resource type="Texture2D" uid="uid://yjqhbytvlkxr" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0048.png" id="74_kndsk"]
-[ext_resource type="Texture2D" uid="uid://b1r7xl4064oi4" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0050.png" id="75_uyr7o"]
-[ext_resource type="Texture2D" uid="uid://cfysds8weainy" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0052.png" id="76_kvwqr"]
-[ext_resource type="Texture2D" uid="uid://gd6ofl077lak" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0054.png" id="77_vrqmk"]
-[ext_resource type="Texture2D" uid="uid://bgedihofd1vvr" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0056.png" id="78_5d55b"]
-[ext_resource type="Texture2D" uid="uid://b11b7bcpjpm8a" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0058.png" id="79_7oily"]
-[ext_resource type="Texture2D" uid="uid://dtagdux3b5k4m" path="res://Game/Assets/Images/Legs player sprites/WalkLegs/0060.png" id="80_vsjn1"]
+[ext_resource type="Texture2D" uid="uid://unwgvn8mpyr4" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/000000.png" id="50_dur23"]
+[ext_resource type="Texture2D" uid="uid://ywmi5nja3am6" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/000001.png" id="51_0b30e"]
+[ext_resource type="Texture2D" uid="uid://bukspblgtg5rm" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/000002.png" id="52_0y0wu"]
+[ext_resource type="Texture2D" uid="uid://rn7dd2kupens" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/000003.png" id="53_0m3rj"]
+[ext_resource type="Texture2D" uid="uid://p44q6cm6r5t6" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/000004.png" id="54_cfmxp"]
+[ext_resource type="Texture2D" uid="uid://b3shd0via6sgw" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/000005.png" id="55_1en0a"]
+[ext_resource type="Texture2D" uid="uid://bs23ukmainlq1" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/000006.png" id="56_v7glq"]
+[ext_resource type="Texture2D" uid="uid://cm1i2fu5emp14" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/000007.png" id="57_qrf6p"]
+[ext_resource type="Texture2D" uid="uid://xetyps4pedou" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/000008.png" id="58_upa6p"]
+[ext_resource type="Texture2D" uid="uid://lbtmo8pilxdm" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/000009.png" id="59_feihv"]
+[ext_resource type="Texture2D" uid="uid://dh4q2qnx853ed" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/0000010.png" id="60_t1k74"]
+[ext_resource type="Texture2D" uid="uid://bllosbvpbhend" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/0000011.png" id="61_ietal"]
+[ext_resource type="Texture2D" uid="uid://5kf414x76g3d" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/0000012.png" id="62_8ywg1"]
+[ext_resource type="Texture2D" uid="uid://djn341jt0rcf5" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/0000013.png" id="63_5ybh1"]
+[ext_resource type="Texture2D" uid="uid://pvibgflpy8qy" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/0000014.png" id="64_i56m3"]
+[ext_resource type="Texture2D" uid="uid://dxmxy52dqsh8s" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/0000015.png" id="65_exss5"]
+[ext_resource type="Texture2D" uid="uid://l0nfti52lqls" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/0000016.png" id="66_rce4p"]
+[ext_resource type="Texture2D" uid="uid://dgylg0y3jjyrw" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/0000017.png" id="67_jy2jg"]
+[ext_resource type="Texture2D" uid="uid://bxvy1pfuppn5k" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/0000018.png" id="68_odxqe"]
+[ext_resource type="Texture2D" uid="uid://c76trwcnx7gyh" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/0000019.png" id="69_3eqmf"]
+[ext_resource type="Texture2D" uid="uid://gi1x2fhd1h8i" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/0000020.png" id="70_elc7x"]
+[ext_resource type="Texture2D" uid="uid://in6hxpqwjcuc" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/0000021.png" id="71_n6i4r"]
+[ext_resource type="Texture2D" uid="uid://b6csd5la0w1h3" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/00000022.png" id="72_o60r3"]
+[ext_resource type="Texture2D" uid="uid://b04cpnhkpq1qd" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/00000023.png" id="73_dvktq"]
+[ext_resource type="Texture2D" uid="uid://d3ulsbv8ku0ka" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/00000024.png" id="74_trfic"]
+[ext_resource type="Texture2D" uid="uid://c41ac7bmn4n5" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/00000025.png" id="75_2jaff"]
+[ext_resource type="Texture2D" uid="uid://bt6biwas8wb6x" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/00000026.png" id="76_urb8i"]
+[ext_resource type="Texture2D" uid="uid://doaay1l0dme81" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/00000027.png" id="77_7ujjm"]
+[ext_resource type="Texture2D" uid="uid://delkvkidtd0oi" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/00000028.png" id="78_37ga8"]
+[ext_resource type="Texture2D" uid="uid://dtnvom6fpsmyl" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/00000029.png" id="79_a7wb8"]
+[ext_resource type="Texture2D" uid="uid://denb8ihqu68ve" path="res://Game/Assets/Images/Legs player sprites/WalkLegs2/00000030.png" id="80_oa84n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sk1vv"]
 animations = [{
@@ -244,101 +244,101 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("50_wi1jr")
+"texture": ExtResource("50_dur23")
 }, {
 "duration": 1.0,
-"texture": ExtResource("51_vsfia")
+"texture": ExtResource("51_0b30e")
 }, {
 "duration": 1.0,
-"texture": ExtResource("52_s2aov")
+"texture": ExtResource("52_0y0wu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("53_ynnnu")
+"texture": ExtResource("53_0m3rj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("54_j4wka")
+"texture": ExtResource("54_cfmxp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("55_boqpa")
+"texture": ExtResource("55_1en0a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("56_5mak2")
+"texture": ExtResource("56_v7glq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("57_dhktf")
+"texture": ExtResource("57_qrf6p")
 }, {
 "duration": 1.0,
-"texture": ExtResource("58_x251a")
+"texture": ExtResource("58_upa6p")
 }, {
 "duration": 1.0,
-"texture": ExtResource("59_e58qv")
+"texture": ExtResource("59_feihv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("60_3xcx1")
+"texture": ExtResource("60_t1k74")
 }, {
 "duration": 1.0,
-"texture": ExtResource("61_cos3y")
+"texture": ExtResource("61_ietal")
 }, {
 "duration": 1.0,
-"texture": ExtResource("62_0a1xk")
+"texture": ExtResource("62_8ywg1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("63_rad58")
+"texture": ExtResource("63_5ybh1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("64_u17v5")
+"texture": ExtResource("64_i56m3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("65_ac0ps")
+"texture": ExtResource("65_exss5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("66_2ljtb")
+"texture": ExtResource("66_rce4p")
 }, {
 "duration": 1.0,
-"texture": ExtResource("67_fquux")
+"texture": ExtResource("67_jy2jg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("68_im62h")
+"texture": ExtResource("68_odxqe")
 }, {
 "duration": 1.0,
-"texture": ExtResource("69_44dfr")
+"texture": ExtResource("69_3eqmf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("70_kfviy")
+"texture": ExtResource("70_elc7x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("71_xjjfr")
+"texture": ExtResource("71_n6i4r")
 }, {
 "duration": 1.0,
-"texture": ExtResource("72_7df05")
+"texture": ExtResource("72_o60r3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("73_jvuyo")
+"texture": ExtResource("73_dvktq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("74_kndsk")
+"texture": ExtResource("74_trfic")
 }, {
 "duration": 1.0,
-"texture": ExtResource("75_uyr7o")
+"texture": ExtResource("75_2jaff")
 }, {
 "duration": 1.0,
-"texture": ExtResource("76_kvwqr")
+"texture": ExtResource("76_urb8i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("77_vrqmk")
+"texture": ExtResource("77_7ujjm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("78_5d55b")
+"texture": ExtResource("78_37ga8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("79_7oily")
+"texture": ExtResource("79_a7wb8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("80_vsjn1")
+"texture": ExtResource("80_oa84n")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 25.0
+"speed": 19.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfn42"]
@@ -357,6 +357,8 @@ position = Vector2(13, -18)
 scale = Vector2(0.0637427, 0.0630001)
 sprite_frames = SubResource("SpriteFrames_sk1vv")
 animation = &"walk"
+frame = 13
+frame_progress = 0.960566
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(13, -17)
