@@ -15,6 +15,9 @@
 			A FAIRE - faire un écran de début pour expliquer le contexte du début du jeu (à définir en TD)
 		Ecran de pause
 			A FAIRE - rendre la taille de l'écran de pause indépendant du zoom de la caméra
+	Déroulement du jeu
+		A FAIRE - lancer le bon niveau dans MainScene en fonction de l'avancement du jeu
+		A FAIRE - gérer le temps de chargement au lancement de la mainScene
 
 > Romane
 	FAIT - Ajout d'écran d'accueil basique (start / quit)
@@ -25,8 +28,7 @@
 	
 	
 >> A attribuer <<
-	Déroulement du jeu
-		A FAIRE - lancer le bon niveau dans MainScene en fonction de l'avancement du jeu
-		A FAIRE - gérer le temps de chargement au lancement de la mainScene
 	Gestion des niveaux
 		A FAIRE - rendre le niveau Level1 jouable (intégration dans MainScene et intégration des éléments Ceiling et Ladder)
+	Autres
+		A FAIRE - faire du tri dans les assets et ne pas utiliser d'assets dans les dossiers de scènes

@@ -4,32 +4,55 @@ extends Node
 const PROXIMITY_THRESHOLD = 50.0
 const PROXIMITYLABEL_OFFSET = Vector2(0, -45)
 
-"const THRESHOLD_DISTANCE = 500.0  # La distance à partir de laquelle la caméra commence à dézoomer
-const MIN_ZOOM = Vector2(1, 1)  # Zoom par défaut
-const MAX_ZOOM = Vector2(4, 4)  # Maximum de zoom out (2x)"
 var distance
 var zoom_factor
 
 var paused = false
 var pausemenu
-@onready var legs = $LegsPlayer
-@onready var arms = $ArmsPlayer
-@onready var completeplayer = $CompletePlayer
+
+var currentLevel
+var levelScene
+var levelInstance
+
+var legs
+var arms
+var completeplayer
 
 
 func _ready() -> void:
 	pausemenu = $Camera/PauseMenu
-	SetSpawnPositions()
-	Global.are_assembled = false
+	arms = $ArmsPlayer
+	legs = $LegsPlayer
+	completeplayer = $CompletePlayer
+	currentLevel = 0
+	levelSetUp()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
 	UpdateCameraPosition()
 	UpdateCameraZoom(delta)
 	PlayerProximityDetection()
+
+
+func levelSetUp() -> void:
+	match currentLevel:
+		0:
+			levelScene = preload("res://Game/TestLevel/testLevelScene.tscn")
+		1:
+			remove_child(levelInstance)
+			levelScene = preload("res://Game/Level 1/level1Scene.tscn")
+	levelInstance = levelScene.instantiate()
+	add_child(levelInstance)
+	move_child(levelInstance, 0)
+	
+	SetSpawnPositions()
+	Global.are_assembled = false
+
+
+func nextLevel() -> void:
+	currentLevel += 1
+	levelSetUp()
 
 
 func pauseMenu() -> void:
@@ -45,8 +68,8 @@ func pauseMenu() -> void:
 
 
 func SetSpawnPositions():
-	var legsPlayerSpawnPoint = $TestLevel/LegsPlayerSpawnPoint.position
-	var armsPlayerSpawnPoint = $TestLevel/ArmsPlayerSpawnPoint.position
+	var legsPlayerSpawnPoint = levelInstance.get_node("LegsPlayerSpawnPoint").position
+	var armsPlayerSpawnPoint = levelInstance.get_node("ArmsPlayerSpawnPoint").position
 	$LegsPlayer.position = legsPlayerSpawnPoint
 	$ArmsPlayer.position = armsPlayerSpawnPoint
 

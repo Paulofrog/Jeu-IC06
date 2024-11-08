@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=3 uid="uid://b2om6os6haj1"]
+[gd_scene load_steps=10 format=3 uid="uid://b2om6os6haj1"]
 
-[ext_resource type="PackedScene" uid="uid://ckak4h5n30ila" path="res://Game/TestLevel/testLevelScene.tscn" id="1_3swin"]
 [ext_resource type="Script" path="res://Game/Main/mainScript.gd" id="1_cu2if"]
 [ext_resource type="PackedScene" uid="uid://p0uq6callbul" path="res://Game/Legs player/legsPlayerScene.tscn" id="2_08djd"]
 [ext_resource type="PackedScene" uid="uid://b4h4ifr2nlcq2" path="res://Game/Complete player/completePlayer.tscn" id="3_gnold"]
@@ -18,17 +17,15 @@ size = Vector2(40, 532)
 [node name="Main" type="Node"]
 script = ExtResource("1_cu2if")
 
-[node name="TestLevel" parent="." instance=ExtResource("1_3swin")]
-
 [node name="CompletePlayer" parent="." instance=ExtResource("3_gnold")]
-visible = false
+position = Vector2(18, -37)
 
 [node name="LegsPlayer" parent="." instance=ExtResource("2_08djd")]
-position = Vector2(233, -150)
+position = Vector2(94, -45)
 collision_mask = 38
 
 [node name="ArmsPlayer" parent="." instance=ExtResource("4_hms30")]
-position = Vector2(93, -150)
+position = Vector2(91, -139)
 collision_mask = 102
 
 [node name="Camera" type="Camera2D" parent="."]
@@ -98,6 +95,10 @@ one_shot = true
 wait_time = 0.4
 one_shot = true
 
-[connection signal="ceilingEntered" from="TestLevel" to="ArmsPlayer" method="_on_test_level_ceiling_entered"]
-[connection signal="ceilingExited" from="TestLevel" to="ArmsPlayer" method="_on_test_level_ceiling_exited"]
+[node name="NextScene (temporary)" type="Timer" parent="Timers"]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
 [connection signal="leavingCeiling" from="ArmsPlayer" to="LegsPlayer" method="_on_arms_player_leaving_ceiling"]
+[connection signal="timeout" from="Timers/NextScene (temporary)" to="." method="nextLevel"]
