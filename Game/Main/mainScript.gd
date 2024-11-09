@@ -14,6 +14,9 @@ var currentLevel
 var levelScene
 var levelInstance
 
+var levelTest
+var level1
+
 var legs
 var arms
 var completeplayer
@@ -24,6 +27,8 @@ func _ready() -> void:
 	arms = $ArmsPlayer
 	legs = $LegsPlayer
 	completeplayer = $CompletePlayer
+	levelTest = preload("res://Game/Levels/TestLevel/testLevelScene.tscn")
+	level1 = preload("res://Game/Levels/Level 1/level1Scene.tscn")
 	currentLevel = 0
 	levelSetUp()
 
@@ -38,13 +43,15 @@ func _process(delta: float) -> void:
 func levelSetUp() -> void:
 	match currentLevel:
 		0:
-			levelScene = preload("res://Game/TestLevel/testLevelScene.tscn")
+			levelScene = levelTest
 		1:
 			remove_child(levelInstance)
-			levelScene = preload("res://Game/Level 1/level1Scene.tscn")
+			levelScene = level1
 	levelInstance = levelScene.instantiate()
 	add_child(levelInstance)
 	move_child(levelInstance, 0)
+	levelInstance.ceilingEntered.connect(Callable($ArmsPlayer, "_on_test_level_ceiling_entered"))
+	levelInstance.ceilingExited.connect(Callable($ArmsPlayer, "_on_test_level_ceiling_exited"))
 	
 	SetSpawnPositions()
 	Global.are_assembled = false

@@ -15,20 +15,19 @@
 			A FAIRE - faire un écran de début pour expliquer le contexte du début du jeu (à définir en TD)
 		Ecran de pause
 			A FAIRE - rendre la taille de l'écran de pause indépendant du zoom de la caméra
-	Déroulement du jeu
-		A FAIRE - lancer le bon niveau dans MainScene en fonction de l'avancement du jeu
-		A FAIRE - gérer le temps de chargement au lancement de la mainScene
 
 > Romane
 	FAIT - Ajout d'écran d'accueil basique (start / quit)
 	EN COURS - Ecran de pause
 
 > Gauthier
-	Finir le niveau 1 graphiquement parlant.
-	
-	
->> A attribuer <<
-	Gestion des niveaux
-		A FAIRE - rendre le niveau Level1 jouable (intégration dans MainScene et intégration des éléments Ceiling et Ladder)
+	Level Design
+		EN COURS - finir le niveau 1 graphiquement parlant.
+		EN COURS - rendre le niveau Level1 jouable (intégration des éléments Ceiling et Ladder + peindre les collisions sur les tuiles)
 	Autres
 		A FAIRE - faire du tri dans les assets et ne pas utiliser d'assets dans les dossiers de scènes
+
+>> A attribuer <<
+	Gestion du son
+		A FAIRE - diversifier les effets sonores
+		A FAIRE - rendre le son global et non localisé en un point de la scène
