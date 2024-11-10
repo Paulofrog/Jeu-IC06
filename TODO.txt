@@ -18,7 +18,12 @@
 
 > Romane
 	FAIT - Ajout d'écran d'accueil basique (start / quit)
-	EN COURS - Ecran de pause
+	FAIT - Ecran de pause
+	Sprites manquants :
+		A FAIRE - CompletePlayer Hang et HangIdle
+		A FAIRE - CompletePlayer Climb et ClimbIdle
+		A FAIRE - Sprites StartMenu
+	A FAIRE - Clean scripts Arms et Legs --> Bcp de superflu
 
 > Gauthier
 	Level Design

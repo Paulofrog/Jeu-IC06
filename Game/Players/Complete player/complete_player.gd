@@ -5,9 +5,6 @@ const SPEED = 300.0
 const CLIMB_SPEED = 5.0
 const JUMP_VELOCITY = -450.0
 
-
-var isTouchingCeiling			# savoir si on est entré dans la zone de détection
-var gravityDirection
 var inJump
 var inHang
 var inFall
@@ -15,9 +12,6 @@ var inFall
 
 
 func _ready() -> void:
-	gravityDirection = 1
-	Global.isArmsPlayerOnCeiling = false
-	$Collision.disabled = false
 	inJump = false
 	inHang = false
 	inFall = false
@@ -60,6 +54,7 @@ func _physics_process(delta: float) -> void:
 		if directionY and Input.is_action_pressed("legsJump"):
 			velocity.y = 0
 			position.y += directionY * CLIMB_SPEED
+			$Appearance.play("climb")
 		else:
 			if !is_on_floor():
 				$Appearance.play("climbIdle")
