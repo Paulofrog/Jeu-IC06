@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://p0uq6callbul"]
+[gd_scene load_steps=83 format=3 uid="uid://p0uq6callbul"]
 
 [ext_resource type="Script" path="res://Game/Players/Legs player/legsPlayerScript.gd" id="1_eh33y"]
 [ext_resource type="Texture2D" uid="uid://dipo57qwc6crh" path="res://Game/Assets/Images/Legs player sprites/FrontJumpLegs2/0000.png" id="2_7jxwq"]
@@ -344,9 +344,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfn42"]
 size = Vector2(28, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxe27"]
-size = Vector2(30, 59.5)
-
 [node name="LegsPlayer" type="CharacterBody2D"]
 texture_filter = 1
 collision_mask = 6
@@ -361,8 +358,3 @@ animation = &"sideJump"
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(13, -17)
 shape = SubResource("RectangleShape2D_bfn42")
-
-[node name="AssembledCollision" type="CollisionShape2D" parent="."]
-position = Vector2(13, -29.25)
-shape = SubResource("RectangleShape2D_dxe27")
-disabled = true

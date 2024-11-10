@@ -2,84 +2,49 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -540.0
-var isJustLeavingCeiling
-var frontJump
+const CLIMB_SPEED = 5.0
+const JUMP_VELOCITY = -520.0
+
+var inJump
 
 
 func _ready() -> void:
-	$Collision.disabled = false
-	$AssembledCollision.disabled = true
-	Global.isLegsPlayerJumping = false
-	isJustLeavingCeiling = false
-
+	inJump = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		
+
 	if is_on_floor():
-		if Global.isLegsPlayerJumping:
-			Global.isLegsPlayerJumping = false
-			frontJump = false
-			# jouer animation amortissement
-		elif isJustLeavingCeiling:
-			isJustLeavingCeiling = false
-	
-	# Get the input direction.
+		inJump = false
+		
 	var directionX = Input.get_axis("legsLeft", "legsRight")
-	
-	# Handle jump.
+
+	if directionX:
+		velocity.x = directionX * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	# Handle jump.				
 	if Input.is_action_just_pressed("legsJump") and is_on_floor():
-		Global.isLegsPlayerJumping = true
 		velocity.y = JUMP_VELOCITY
+		inJump = true
 		if directionX:
 			$Appearance.play("sideJump")
 		else:
 			$Appearance.play("frontJump")
-			frontJump = true
-
-	# Handle the movement/deceleration.
-	if !(Global.isArmsPlayerOnCeiling and Global.are_assembled):
-		Global.directionX = directionX
-	if directionX and (directionX == Global.directionX):
-		velocity.x = directionX * SPEED
-		if !Global.isLegsPlayerJumping or frontJump:
-			$Appearance.play("walk")
-		$Appearance.flip_h = directionX < 0
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if Global.directionX:
-			$Appearance.animation = "walk"
-			$Appearance.stop()
-			$Appearance.frame = 16
-			$Appearance.flip_h = Global.directionX < 0
-		else:
-			if !Global.isLegsPlayerJumping or isJustLeavingCeiling:
-				$Appearance.play("idle")
-			if Global.are_assembled and Global.isArmsPlayerOnCeiling:
-				$Appearance.animation = "walk"
-				$Appearance.stop()
-				$Appearance.frame = 16
-				$Appearance.flip_h = $"../ArmsPlayer/Appearance".flip_h 
-		
-	if !(Global.isArmsPlayerOnCeiling and Global.are_assembled):
-		move_and_slide()
-	else:
-		velocity.y = 0
-		$Appearance.stop()
-		self.position = $"../ArmsPlayer".position - Global.LEGSPLAYER_OFFSET - Vector2(-5*Global.directionX, 0)
 	
-	if Global.are_assembled:
-		#$Collision.disabled = true
-		$AssembledCollision.disabled = false
+	if !inJump:
+		if directionX:
+			$Appearance.play("walk")
+			$Appearance.flip_h = directionX < 0
+		else:
+			$Appearance.play("idle")
 	else:
-		$Collision.disabled = false
-		$AssembledCollision.disabled = true
-
-
-func _on_arms_player_leaving_ceiling() -> void:
-	isJustLeavingCeiling = true
-	if Global.are_assembled:
-		velocity.y = -10
+		if directionX:
+			$Appearance.play("sideJump")
+			$Appearance.flip_h = directionX < 0
+		else:
+			$Appearance.play("frontJump")
+	move_and_slide()

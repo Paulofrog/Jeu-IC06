@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://biegw40cam53k"]
+[gd_scene load_steps=102 format=3 uid="uid://biegw40cam53k"]
 
 [ext_resource type="Script" path="res://Game/Players/Arms player/armsPlayerScript.gd" id="1_3g23n"]
 [ext_resource type="Texture2D" uid="uid://ds7a3oohp37ts" path="res://Game/Assets/Images/Test arms player/climbSprite/0000.png" id="2_eyk0i"]
@@ -430,9 +430,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mh60r"]
 size = Vector2(27, 41)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6c4an"]
-size = Vector2(30, 68)
-
 [node name="ArmsPlayer" type="CharacterBody2D"]
 texture_filter = 1
 collision_mask = 6
@@ -447,8 +444,3 @@ animation = &"walk"
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(17.5, -20.5)
 shape = SubResource("RectangleShape2D_mh60r")
-
-[node name="AssembledCollision" type="CollisionShape2D" parent="."]
-position = Vector2(17, -7)
-shape = SubResource("RectangleShape2D_6c4an")
-disabled = true
