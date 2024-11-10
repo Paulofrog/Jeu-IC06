@@ -342,7 +342,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mh60r"]
-size = Vector2(31.5, 79.5)
+size = Vector2(27.75, 68.75)
 
 [node name="CompletePlayer" type="CharacterBody2D"]
 texture_filter = 1
@@ -350,11 +350,11 @@ collision_mask = 6
 script = ExtResource("1_q0yyi")
 
 [node name="Appearance" type="AnimatedSprite2D" parent="."]
-position = Vector2(17, -40)
-scale = Vector2(0.0869377, 0.0867628)
+position = Vector2(13.3942, -34.3608)
+scale = Vector2(0.0754177, 0.075266)
 sprite_frames = SubResource("SpriteFrames_rjjch")
-animation = &"idle"
+animation = &"sideJump"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(17, -40)
+position = Vector2(13.125, -33.625)
 shape = SubResource("RectangleShape2D_mh60r")

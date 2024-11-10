@@ -10,35 +10,45 @@ var zoom_factor
 var paused = false
 var pausemenu
 
+var legsInstance
+var armsInstance
+var completeInstance
+
 var currentLevel
 var levelScene
 var levelInstance
 
-var levelTest
-var level1
-
-var legs
-var arms
-var completeplayer
+var legsScene = preload("res://Game/Players/Legs player/legsPlayerScene.tscn")
+var armsScene = preload("res://Game/Players/Arms player/armsPlayerScene.tscn")
+var completeplayerScene = preload("res://Game/Players/Complete player/completePlayer.tscn")
+var levelTest = preload("res://Game/Levels/TestLevel/testLevelScene.tscn")
+var level1 = preload("res://Game/Levels/Level 1/level1Scene.tscn")
 
 
 func _ready() -> void:
-	pausemenu = $Camera/PauseMenu
-	arms = $ArmsPlayer
-	legs = $LegsPlayer
-	completeplayer = $CompletePlayer
-	levelTest = preload("res://Game/Levels/TestLevel/testLevelScene.tscn")
-	level1 = preload("res://Game/Levels/Level 1/level1Scene.tscn")
+	pausemenu = $CanvasLayer/PauseMenu
 	currentLevel = 0
+	playerSetUp()
 	levelSetUp()
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
-	UpdateCameraPosition()
-	UpdateCameraZoom(delta)
-	PlayerProximityDetection()
+	if !Global.are_assembled:
+		UpdateCameraPosition()
+		UpdateCameraZoom(delta)
+		PlayerProximityDetection()
+	else:
+		UpdateCameraPositionAssembled()
 
+func playerSetUp() -> void:
+	armsInstance = armsScene.instantiate()
+	add_child(armsInstance)
+	move_child(armsInstance, 0)
+	legsInstance = legsScene.instantiate()
+	add_child(legsInstance)
+	move_child(legsInstance, 1)
+	Global.are_assembled = false
 
 func levelSetUp() -> void:
 	match currentLevel:
@@ -54,7 +64,6 @@ func levelSetUp() -> void:
 	levelInstance.ceilingExited.connect(Callable($ArmsPlayer, "_on_test_level_ceiling_exited"))
 	
 	SetSpawnPositions()
-	Global.are_assembled = false
 
 
 func nextLevel() -> void:
@@ -84,7 +93,9 @@ func SetSpawnPositions():
 func UpdateCameraPosition():
 	$Camera.position = ($ArmsPlayer.global_position + $LegsPlayer.global_position) / 2
 
-
+func UpdateCameraPositionAssembled():
+	$Camera.position = $CompletePlayer.global_position
+	
 func UpdateCameraZoom(delta):
 	distance = abs(($ArmsPlayer.global_position - $LegsPlayer.global_position) / 2)
 	
@@ -130,19 +141,25 @@ func PlayerProximityDetection():
 	
 func assemble_players() -> void:
 	Global.are_assembled = true
-	#completeplayer.show()
-	#completeplayer.position = arms.position
-	#arms.hide()
-	#legs.hide()
+	completeInstance = completeplayerScene.instantiate()
+	add_child(completeInstance)
+	move_child(completeInstance, 1)
+	$CompletePlayer.position = $ArmsPlayer.position
+	armsInstance.queue_free()
+	legsInstance.queue_free()
 	$MetalAudioPlayer.play()
 
 
 func separate_players() -> void:
 	Global.are_assembled = false
-	#arms.show()
-	#legs.show()
-	$LegsPlayer.velocity.y = 40
-	$ArmsPlayer.velocity.y = 0
-	#legs.position = completeplayer.position
-	#arms.position = completeplayer.position + Global.ARMSPLAYER_OFFSET
-	#completeplayer.hide()
+	armsInstance = armsScene.instantiate()
+	add_child(armsInstance)
+	move_child(armsInstance, 1)
+	legsInstance = legsScene.instantiate()
+	add_child(legsInstance)
+	move_child(legsInstance, 2)
+	#$LegsPlayer.velocity.y = 40
+	#$ArmsPlayer.velocity.y = 0
+	$LegsPlayer.position = $CompletePlayer.position
+	$ArmsPlayer.position = $CompletePlayer.position + Global.ARMSPLAYER_OFFSET
+	completeInstance.queue_free()

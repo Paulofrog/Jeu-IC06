@@ -1,9 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://b2om6os6haj1"]
+[gd_scene load_steps=9 format=3 uid="uid://b2om6os6haj1"]
 
 [ext_resource type="Script" path="res://Game/Main/mainScript.gd" id="1_cu2if"]
-[ext_resource type="PackedScene" uid="uid://p0uq6callbul" path="res://Game/Players/Legs player/legsPlayerScene.tscn" id="2_08djd"]
-[ext_resource type="PackedScene" uid="uid://b4h4ifr2nlcq2" path="res://Game/Players/Complete player/completePlayer.tscn" id="3_gnold"]
-[ext_resource type="PackedScene" uid="uid://biegw40cam53k" path="res://Game/Players/Arms player/armsPlayerScene.tscn" id="4_hms30"]
+[ext_resource type="Texture2D" uid="uid://b2tppdo6go33h" path="res://Game/Assets/Images/metal.jpeg" id="4_r7xrd"]
 [ext_resource type="PackedScene" uid="uid://b5bicbah67v4c" path="res://Game/UI/PauseScreen/pauseScreenScene.tscn" id="5_hwaqx"]
 [ext_resource type="Texture2D" uid="uid://bnh48vb6ac2i4" path="res://Game/Assets/Images/Ecrou sprites/0000000004.png" id="5_i74h2"]
 [ext_resource type="AudioStream" uid="uid://dl5b4d8qagm1" path="res://Game/Assets/Musique/maou_bgm_cyber21.mp3" id="6_hlepm"]
@@ -18,47 +16,10 @@ size = Vector2(40, 532)
 [node name="Main" type="Node"]
 script = ExtResource("1_cu2if")
 
-[node name="CompletePlayer" parent="." instance=ExtResource("3_gnold")]
-position = Vector2(18, -37)
-
-[node name="LegsPlayer" parent="." instance=ExtResource("2_08djd")]
-position = Vector2(94, -45)
-collision_mask = 38
-
-[node name="ArmsPlayer" parent="." instance=ExtResource("4_hms30")]
-position = Vector2(91, -139)
-collision_mask = 102
-
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(715, 357)
 zoom = Vector2(1.795, 1.795)
 position_smoothing_speed = 10.0
-
-[node name="HUD" type="Control" parent="Camera"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="EcrouScore" type="Label" parent="Camera/HUD"]
-layout_mode = 0
-offset_left = -491.0
-offset_top = -292.0
-offset_right = -457.0
-offset_bottom = -265.0
-text = "0"
-
-[node name="Sprite2D" type="Sprite2D" parent="Camera/HUD"]
-position = Vector2(-512, -281)
-scale = Vector2(0.0269556, 0.0269556)
-texture = ExtResource("5_i74h2")
-
-[node name="PauseMenu" parent="Camera" instance=ExtResource("5_hwaqx")]
-visible = false
-offset_left = -103.0
-offset_top = -44.0
-offset_right = -103.0
-offset_bottom = -37.0
 
 [node name="MovementArea" type="StaticBody2D" parent="Camera"]
 visible = false
@@ -119,5 +80,41 @@ one_shot = true
 wait_time = 10000.0
 autostart = true
 
-[connection signal="leavingCeiling" from="ArmsPlayer" to="LegsPlayer" method="_on_arms_player_leaving_ceiling"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 715.0
+offset_top = 357.0
+offset_right = 755.0
+offset_bottom = 397.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD"]
+layout_mode = 0
+texture = ExtResource("4_r7xrd")
+expand_mode = 1
+
+[node name="EcrouScore" type="Label" parent="CanvasLayer/HUD"]
+layout_mode = 0
+offset_left = -646.0
+offset_top = -361.0
+offset_right = -554.0
+offset_bottom = -292.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/HUD"]
+position = Vector2(-683.875, -326.546)
+scale = Vector2(0.0483615, 0.0483615)
+texture = ExtResource("5_i74h2")
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_hwaqx")]
+visible = false
+offset_left = 843.0
+offset_top = 474.0
+offset_right = 843.0
+offset_bottom = 481.0
+
 [connection signal="timeout" from="Timers/NextScene (temporary)" to="." method="nextLevel"]
