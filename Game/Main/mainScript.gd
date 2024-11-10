@@ -37,8 +37,9 @@ func _process(delta: float) -> void:
 	if !Global.are_assembled:
 		UpdateCameraPosition()
 		UpdateCameraZoom(delta)
-		PlayerProximityDetection()
+		AssembleCheck()
 	else:
+		DisassembleCheck()
 		UpdateCameraPositionAssembled()
 
 func playerSetUp() -> void:
@@ -60,9 +61,6 @@ func levelSetUp() -> void:
 	levelInstance = levelScene.instantiate()
 	add_child(levelInstance)
 	move_child(levelInstance, 0)
-	levelInstance.ceilingEntered.connect(Callable($ArmsPlayer, "_on_test_level_ceiling_entered"))
-	levelInstance.ceilingExited.connect(Callable($ArmsPlayer, "_on_test_level_ceiling_exited"))
-	
 	SetSpawnPositions()
 
 
@@ -117,7 +115,7 @@ func UpdateCameraZoom(delta):
 		$Camera.zoom = $Camera.zoom.lerp(Vector2(zoom_factor, zoom_factor), ease(4 * delta, .8))
 
 
-func PlayerProximityDetection():
+func AssembleCheck():
 	distance = $LegsPlayer.global_position.distance_to($ArmsPlayer.global_position)
 	if (distance < PROXIMITY_THRESHOLD):
 		if !Global.are_assembled:
@@ -130,14 +128,15 @@ func PlayerProximityDetection():
 	else:
 		$ProximityLabel.hide()
 	
-	if not Global.are_assembled and distance < PROXIMITY_THRESHOLD:
+	if distance < PROXIMITY_THRESHOLD:
 		if Input.is_action_pressed("legsAssembly") and Input.is_action_pressed("armsAssembly"):
 			if $Timers/AssemblyTimer.time_left == 0:
 				assemble_players()
-	elif Global.are_assembled:
-		if Input.is_action_just_pressed("legsAssembly") or Input.is_action_just_pressed("armsAssembly"):
-			separate_players()
-			$Timers/AssemblyTimer.start()
+	
+func DisassembleCheck():	
+	if Input.is_action_just_pressed("legsAssembly") or Input.is_action_just_pressed("armsAssembly"):
+		separate_players()
+		$Timers/AssemblyTimer.start()
 	
 func assemble_players() -> void:
 	Global.are_assembled = true
@@ -158,8 +157,6 @@ func separate_players() -> void:
 	legsInstance = legsScene.instantiate()
 	add_child(legsInstance)
 	move_child(legsInstance, 2)
-	#$LegsPlayer.velocity.y = 40
-	#$ArmsPlayer.velocity.y = 0
 	$LegsPlayer.position = $CompletePlayer.position
 	$ArmsPlayer.position = $CompletePlayer.position + Global.ARMSPLAYER_OFFSET
 	completeInstance.queue_free()

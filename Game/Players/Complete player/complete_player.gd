@@ -8,13 +8,14 @@ const JUMP_VELOCITY = -450.0
 var inJump
 var inHang
 var inFall
-#signal leavingCeiling
+var inClimb 
 
 
 func _ready() -> void:
 	inJump = false
 	inHang = false
 	inFall = false
+	inClimb = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -25,6 +26,7 @@ func _physics_process(delta: float) -> void:
 		inJump = false
 		inHang = false
 		inFall = false
+		inClimb = false
 		
 	var directionX = Input.get_axis("legsLeft", "legsRight")
 	var directionY := Input.get_axis("armsUp", "armsDown")
@@ -34,30 +36,34 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	if Global.can_hang and Input.is_action_just_pressed("armsUp") and !inFall:
+	if Global.can_hang and Input.is_action_just_pressed("armsHang") and !inFall:
 		$"../Timers/CeilingTimer".start()
 		inHang = true
 		velocity.y = 0
-	if inHang and Input.is_action_pressed("armsUp") and !inFall:
+	if inHang and Input.is_action_pressed("armsHang") and !inFall:
 		if $"../Timers/CeilingTimer".get_time_left() == 0:
 			$"../Timers/CeilingTimer".stop()
 			inFall = true
 			inHang = false
 		velocity.y = 0		
-	if inHang and Input.is_action_just_released("armsUp") and !inFall:
+	if inHang and Input.is_action_just_released("armsHang") and !inFall:
 		$"../Timers/CeilingTimer".stop()
 		inFall = true
 		inHang = false
 		
 	# Handle jump.
 	if Global.can_climb:
+		inClimb = true
 		if directionY and Input.is_action_pressed("legsJump"):
 			velocity.y = 0
 			position.y += directionY * CLIMB_SPEED
 			$Appearance.play("climb")
 		else:
 			if !is_on_floor():
+				velocity.y = 0
 				$Appearance.play("climbIdle")
+			else:
+				inClimb = false
 				
 	if Input.is_action_just_pressed("legsJump") and is_on_floor() and !Global.can_climb:
 		velocity.y = JUMP_VELOCITY
@@ -67,7 +73,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			$Appearance.play("frontJump")
 	
-	if !inJump and !inHang:
+	if !inJump and !inHang and !inClimb:
 		if directionX:
 			$Appearance.play("walk")
 			$Appearance.flip_h = directionX < 0
