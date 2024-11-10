@@ -23,7 +23,10 @@
 		A FAIRE - CompletePlayer Hang et HangIdle
 		A FAIRE - CompletePlayer Climb et ClimbIdle
 		A FAIRE - Sprites StartMenu
-	A FAIRE - Clean scripts Arms et Legs --> Bcp de superflu
+	Sprites existants : 
+		A FAIRE - Calibrer sprites jambes 
+		A FAIRE - Calibrer sprites corps complet
+	FAIT - Clean scripts Arms et Legs --> Bcp de superflu
 
 > Gauthier
 	Level Design
