@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://ckak4h5n30ila"]
+[gd_scene load_steps=9 format=4 uid="uid://ckak4h5n30ila"]
 
 [ext_resource type="Texture2D" uid="uid://c1ctx7k0snu53" path="res://Game/Assets/Images/Tilemap environnement test/ciel.png" id="1_e2k6n"]
 [ext_resource type="Script" path="res://Game/Levels/TestLevel/testLevelScript.gd" id="1_wyk6a"]
 [ext_resource type="Texture2D" uid="uid://7afrse223tfl" path="res://Game/Assets/Images/Tilemap environnement test/tilemap_packed.png" id="2_k8x23"]
+[ext_resource type="PackedScene" uid="uid://cughft0iyembk" path="res://Game/Collectables/Ecrou.tscn" id="4_m7kkd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rsw0o"]
 texture = ExtResource("2_k8x23")
@@ -271,6 +272,20 @@ shape = SubResource("RectangleShape2D_xkx1n")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder"]
 position = Vector2(814, 286)
 shape = SubResource("RectangleShape2D_i2mnf")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Ecrou" parent="Node2D" instance=ExtResource("4_m7kkd")]
+position = Vector2(248, 456)
+
+[node name="Ecrou2" parent="Node2D" instance=ExtResource("4_m7kkd")]
+position = Vector2(1037, 361)
+
+[node name="Ecrou3" parent="Node2D" instance=ExtResource("4_m7kkd")]
+position = Vector2(445, 217)
+
+[node name="Ecrou4" parent="Node2D" instance=ExtResource("4_m7kkd")]
+position = Vector2(458, 375)
 
 [connection signal="body_entered" from="Ceiling" to="." method="_on_ceiling_body_entered"]
 [connection signal="body_exited" from="Ceiling" to="." method="_on_ceiling_body_exited"]

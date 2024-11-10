@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://cughft0iyembk"]
+
+[ext_resource type="Texture2D" uid="uid://dbdvjyo453twe" path="res://Game/Assets/Images/Ecrou sprites/0000000000.png" id="1_4myfe"]
+[ext_resource type="Script" path="res://Game/Collectables/ecrou.gd" id="1_enq8s"]
+[ext_resource type="Texture2D" uid="uid://bteqclnc26fy4" path="res://Game/Assets/Images/Ecrou sprites/0000000001.png" id="2_3hlr6"]
+[ext_resource type="Texture2D" uid="uid://c3yvfpkw1v5rs" path="res://Game/Assets/Images/Ecrou sprites/0000000002.png" id="3_a81xu"]
+[ext_resource type="Texture2D" uid="uid://dwhu20qvsk0dt" path="res://Game/Assets/Images/Ecrou sprites/0000000003.png" id="4_4qglg"]
+[ext_resource type="Texture2D" uid="uid://bnh48vb6ac2i4" path="res://Game/Assets/Images/Ecrou sprites/0000000004.png" id="5_vrpte"]
+[ext_resource type="Texture2D" uid="uid://cmes7eu0magpy" path="res://Game/Assets/Images/Ecrou sprites/0000000005.png" id="6_7qbyb"]
+[ext_resource type="Texture2D" uid="uid://bx5tri15sj5d1" path="res://Game/Assets/Images/Ecrou sprites/0000000006.png" id="7_4bsr0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_llmhg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4myfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3hlr6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_a81xu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4qglg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vrpte")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7qbyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4bsr0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_141oi"]
+size = Vector2(18, 20)
+
+[node name="Ecrou" type="Node2D"]
+script = ExtResource("1_enq8s")
+
+[node name="Appearance" type="AnimatedSprite2D" parent="."]
+position = Vector2(10.25, -11.8671)
+scale = Vector2(0.0184989, 0.0184989)
+sprite_frames = SubResource("SpriteFrames_llmhg")
+animation = &"idle"
+frame_progress = 0.36641
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(10, -10)
+shape = SubResource("RectangleShape2D_141oi")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b2om6os6haj1"]
+[gd_scene load_steps=11 format=3 uid="uid://b2om6os6haj1"]
 
 [ext_resource type="Script" path="res://Game/Main/mainScript.gd" id="1_cu2if"]
 [ext_resource type="PackedScene" uid="uid://p0uq6callbul" path="res://Game/Players/Legs player/legsPlayerScene.tscn" id="2_08djd"]
 [ext_resource type="PackedScene" uid="uid://b4h4ifr2nlcq2" path="res://Game/Players/Complete player/completePlayer.tscn" id="3_gnold"]
 [ext_resource type="PackedScene" uid="uid://biegw40cam53k" path="res://Game/Players/Arms player/armsPlayerScene.tscn" id="4_hms30"]
 [ext_resource type="PackedScene" uid="uid://b5bicbah67v4c" path="res://Game/UI/PauseScreen/pauseScreenScene.tscn" id="5_hwaqx"]
+[ext_resource type="Texture2D" uid="uid://bnh48vb6ac2i4" path="res://Game/Assets/Images/Ecrou sprites/0000000004.png" id="5_i74h2"]
 [ext_resource type="AudioStream" uid="uid://dl5b4d8qagm1" path="res://Game/Assets/Musique/maou_bgm_cyber21.mp3" id="6_hlepm"]
 [ext_resource type="AudioStream" uid="uid://frt5m4m3t0ay" path="res://Game/Assets/Sound Effects/metal-beaten-sfx-230501.mp3" id="8_2bgkw"]
 
@@ -32,6 +33,25 @@ collision_mask = 102
 position = Vector2(715, 357)
 zoom = Vector2(1.795, 1.795)
 position_smoothing_speed = 10.0
+
+[node name="HUD" type="Control" parent="Camera"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EcrouScore" type="Label" parent="Camera/HUD"]
+layout_mode = 0
+offset_left = -491.0
+offset_top = -292.0
+offset_right = -457.0
+offset_bottom = -265.0
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera/HUD"]
+position = Vector2(-512, -281)
+scale = Vector2(0.0269556, 0.0269556)
+texture = ExtResource("5_i74h2")
 
 [node name="PauseMenu" parent="Camera" instance=ExtResource("5_hwaqx")]
 visible = false
