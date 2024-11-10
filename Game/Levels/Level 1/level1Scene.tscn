@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=4 uid="uid://c1twm6qw3aove"]
+[gd_scene load_steps=24 format=4 uid="uid://c1twm6qw3aove"]
 
 [ext_resource type="Texture2D" uid="uid://cf0mtqki23qw2" path="res://Game/Levels/Level 1/IndustrialTile_81-0.png" id="1_dbu7c"]
+[ext_resource type="Script" path="res://Game/Levels/Level 1/level1Script.gd" id="1_v0f40"]
 [ext_resource type="Texture2D" uid="uid://y882m3xrokym" path="res://Game/Levels/Level 1/Background levels 3.PNG" id="1_wvpya"]
 [ext_resource type="Texture2D" uid="uid://31sj72rkjao6" path="res://Game/Assets/Images/Ladder2-0.png" id="3_8e15i"]
 [ext_resource type="PackedScene" uid="uid://biegw40cam53k" path="res://Game/Players/Arms player/armsPlayerScene.tscn" id="4_jbopj"]
@@ -474,6 +475,7 @@ size = Vector2(29.5, 256)
 size = Vector2(23.5, 176)
 
 [node name="Level1" type="Node"]
+script = ExtResource("1_v0f40")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(963.807, 502.826)
@@ -561,3 +563,8 @@ position = Vector2(203, 381)
 
 [node name="LegsPlayer" parent="." instance=ExtResource("5_g1vjm")]
 position = Vector2(79, 830)
+
+[connection signal="body_entered" from="Ceiling" to="." method="_on_ceiling_body_entered"]
+[connection signal="body_exited" from="Ceiling" to="." method="_on_ceiling_body_exited"]
+[connection signal="body_entered" from="Ladder" to="." method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Ladder" to="." method="_on_ladder_body_exited"]
