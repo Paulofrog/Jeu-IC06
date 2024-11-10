@@ -1,6 +1,7 @@
 extends Node
 
 var can_climb = false
+var can_hang = false
 var are_assembled = false
 var ecrous = 0
 var isArmsPlayerOnCeiling					# action de se suspendre au plafond
