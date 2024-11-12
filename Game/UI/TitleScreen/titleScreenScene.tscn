@@ -1,7 +1,75 @@
-[gd_scene load_steps=3 format=3 uid="uid://ke6k8ufdjwdj"]
+[gd_scene load_steps=18 format=3 uid="uid://ke6k8ufdjwdj"]
 
 [ext_resource type="Script" path="res://Game/UI/TitleScreen/title_screen_scene.gd" id="1_fgq64"]
 [ext_resource type="Texture2D" uid="uid://bk3nycovn6fkt" path="res://Game/Assets/Images/Title Screen/robot escape.png" id="2_1lky6"]
+[ext_resource type="Texture2D" uid="uid://bl5lo01xugi56" path="res://Game/Assets/Images/StartMenu Sprites/startarms/0000.png" id="3_0wbqy"]
+[ext_resource type="Texture2D" uid="uid://bqaebos8y63lc" path="res://Game/Assets/Images/StartMenu Sprites/startarms/0004.png" id="4_0n8a3"]
+[ext_resource type="Texture2D" uid="uid://b16be4js28i7v" path="res://Game/Assets/Images/StartMenu Sprites/startarms/0008.png" id="5_qn4p7"]
+[ext_resource type="Texture2D" uid="uid://bx0ypfh1owbg1" path="res://Game/Assets/Images/StartMenu Sprites/startarms/0012.png" id="6_ua6qu"]
+[ext_resource type="Texture2D" uid="uid://b3l4gpmblynov" path="res://Game/Assets/Images/StartMenu Sprites/startarms/0016.png" id="7_owqbx"]
+[ext_resource type="Texture2D" uid="uid://dah7u6f504ifp" path="res://Game/Assets/Images/StartMenu Sprites/startarms/0020.png" id="8_d5jx3"]
+[ext_resource type="Texture2D" uid="uid://c17y4gxybceco" path="res://Game/Assets/Images/StartMenu Sprites/startlegs/0000000.png" id="9_xy1hm"]
+[ext_resource type="Texture2D" uid="uid://cirf20eu5xwv7" path="res://Game/Assets/Images/StartMenu Sprites/startlegs/0000001.png" id="10_nlgr7"]
+[ext_resource type="Texture2D" uid="uid://dyu23mcai0ic2" path="res://Game/Assets/Images/StartMenu Sprites/startlegs/0000002.png" id="11_f7gl2"]
+[ext_resource type="Texture2D" uid="uid://crk67jgelvput" path="res://Game/Assets/Images/StartMenu Sprites/startlegs/0000003.png" id="12_k073p"]
+[ext_resource type="Texture2D" uid="uid://c6qxvhg114mvq" path="res://Game/Assets/Images/StartMenu Sprites/startlegs/0000004.png" id="13_djkyb"]
+[ext_resource type="Texture2D" uid="uid://iqm42vdyoy1l" path="res://Game/Assets/Images/StartMenu Sprites/startlegs/0000005.png" id="14_r6vu1"]
+[ext_resource type="Texture2D" uid="uid://cgt1i8bgthlbt" path="res://Game/Assets/Images/StartMenu Sprites/startlegs/0000006.png" id="15_k1h5r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0tior"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0wbqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0n8a3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qn4p7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ua6qu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_owqbx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_d5jx3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q1las"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_xy1hm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nlgr7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_f7gl2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_k073p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_djkyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_r6vu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_k1h5r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [node name="TitleScreenScene" type="Control"]
 layout_mode = 3
@@ -35,6 +103,36 @@ offset_top = 709.0
 offset_right = 1184.0
 offset_bottom = 824.0
 text = "QUIT"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 309.0
+offset_top = 91.0
+offset_right = 720.0
+offset_bottom = 497.0
+color = Color(0.10748, 0.10748, 0.10748, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1218.0
+offset_top = 91.0
+offset_right = 1629.0
+offset_bottom = 497.0
+color = Color(0.10748, 0.10748, 0.10748, 1)
+
+[node name="Arms" type="AnimatedSprite2D" parent="."]
+position = Vector2(1360, 295)
+scale = Vector2(0.604558, 0.604558)
+sprite_frames = SubResource("SpriteFrames_0tior")
+frame = 2
+frame_progress = 0.78733
+
+[node name="Legs" type="AnimatedSprite2D" parent="."]
+position = Vector2(499, 309)
+scale = Vector2(0.604558, 0.604558)
+sprite_frames = SubResource("SpriteFrames_q1las")
+frame = 5
+frame_progress = 0.135469
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

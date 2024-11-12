@@ -20,12 +20,13 @@
 	FAIT - Ajout d'écran d'accueil basique (start / quit)
 	FAIT - Ecran de pause
 	Sprites manquants :
-		A FAIRE - CompletePlayer Hang et HangIdle
-		A FAIRE - CompletePlayer Climb et ClimbIdle
-		A FAIRE - Sprites StartMenu
+		FAIT - CompletePlayer Hang et HangIdle
+		FAIT - CompletePlayer Climb et ClimbIdle
+		FAIT MAIS MOCHE.... - Sprites StartMenu
 	Sprites existants : 
-		A FAIRE - Calibrer sprites jambes 
-		A FAIRE - Calibrer sprites corps complet
+		A FAIRE - Calibrer sprites bras 
+		FAIT - Calibrer sprites corps complet
+		A FAIRE - Mettre chaque animation dans une sprite sheet
 	FAIT - Clean scripts Arms et Legs --> Bcp de superflu
 
 > Gauthier
