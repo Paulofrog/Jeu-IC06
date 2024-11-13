@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ildpg2exa3mo"
-path="res://.godot/imported/stopH.png-893ca1b397d90cbc748e6ef2c412147f.ctex"
+uid="uid://d1pakmr6spmua"
+path="res://.godot/imported/background.jpg-3026ba7c699ef76b2ed26ef9b01a1dda.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Assets/Images/Title Screen/stopH.png"
-dest_files=["res://.godot/imported/stopH.png-893ca1b397d90cbc748e6ef2c412147f.ctex"]
+source_file="res://Game/Assets/Images/Title Screen/background.jpg"
+dest_files=["res://.godot/imported/background.jpg-3026ba7c699ef76b2ed26ef9b01a1dda.ctex"]
 
 [params]
 
