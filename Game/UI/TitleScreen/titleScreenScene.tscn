@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ke6k8ufdjwdj"]
+[gd_scene load_steps=24 format=3 uid="uid://ke6k8ufdjwdj"]
 
 [ext_resource type="Script" path="res://Game/UI/TitleScreen/title_screen_scene.gd" id="1_fgq64"]
 [ext_resource type="Texture2D" uid="uid://bk3nycovn6fkt" path="res://Game/Assets/Images/Title Screen/robot escape.png" id="2_1lky6"]
@@ -15,6 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://c6qxvhg114mvq" path="res://Game/Assets/Images/StartMenu Sprites/startlegs/0000004.png" id="13_djkyb"]
 [ext_resource type="Texture2D" uid="uid://iqm42vdyoy1l" path="res://Game/Assets/Images/StartMenu Sprites/startlegs/0000005.png" id="14_r6vu1"]
 [ext_resource type="Texture2D" uid="uid://cgt1i8bgthlbt" path="res://Game/Assets/Images/StartMenu Sprites/startlegs/0000006.png" id="15_k1h5r"]
+[ext_resource type="Texture2D" uid="uid://bcs4anoekh7k2" path="res://Game/Assets/Images/Title Screen/startN.png" id="16_si4v2"]
+[ext_resource type="Texture2D" uid="uid://d172ak5upysyh" path="res://Game/Assets/Images/Title Screen/startP.png" id="17_vvpwm"]
+[ext_resource type="Texture2D" uid="uid://d0r7ypnh5qu4o" path="res://Game/Assets/Images/Title Screen/startH.png" id="18_dcj2t"]
+[ext_resource type="Texture2D" uid="uid://uj7ecjbdlj2v" path="res://Game/Assets/Images/Title Screen/stopN.png" id="19_bk0yp"]
+[ext_resource type="Texture2D" uid="uid://bqd7lppgc4wfu" path="res://Game/Assets/Images/Title Screen/stopP.png" id="20_r5qft"]
+[ext_resource type="Texture2D" uid="uid://cowxvlro22qeh" path="res://Game/Assets/Images/Title Screen/stopH.png" id="21_nlm6v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0tior"]
 animations = [{
@@ -133,6 +139,26 @@ scale = Vector2(0.604558, 0.604558)
 sprite_frames = SubResource("SpriteFrames_q1las")
 frame = 5
 frame_progress = 0.135469
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 405.0
+offset_top = 571.0
+offset_right = 845.0
+offset_bottom = 880.0
+texture_normal = ExtResource("16_si4v2")
+texture_pressed = ExtResource("17_vvpwm")
+texture_hover = ExtResource("18_dcj2t")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1070.0
+offset_top = 566.0
+offset_right = 1531.0
+offset_bottom = 857.0
+texture_normal = ExtResource("19_bk0yp")
+texture_pressed = ExtResource("20_r5qft")
+texture_hover = ExtResource("21_nlm6v")
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
