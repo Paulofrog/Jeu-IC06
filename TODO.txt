@@ -11,8 +11,6 @@
 			A AMELIORER - faire un écran de début pour expliquer le contexte du début du jeu
 				--> FAIT, mais les graphismes sont absolument horribles
 			A FAIRE - implémenter les messages d'erreur de Gauthier
-		Ecran de pause
-			A FAIRE - rendre la taille de l'écran de pause indépendant du zoom de la caméra
 
 > Romane
 	FAIT - Ajout d'écran d'accueil basique (start / quit)

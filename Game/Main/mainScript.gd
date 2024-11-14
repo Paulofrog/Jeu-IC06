@@ -33,16 +33,19 @@ func _ready() -> void:
 	playerSetUp()
 	levelSetUp()
 
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
 	if !Global.are_assembled:
-		UpdateCameraPosition()
-		UpdateCameraZoom(delta)
+		if currentLevel == 0:
+			UpdateCameraPosition()
+			UpdateCameraZoom(delta)
 		AssembleCheck()
 	else:
 		DisassembleCheck()
 		UpdateCameraPositionAssembled()
+
 
 func playerSetUp() -> void:
 	armsInstance = armsScene.instantiate()
@@ -53,7 +56,9 @@ func playerSetUp() -> void:
 	move_child(legsInstance, 1)
 	Global.are_assembled = false
 
+
 func levelSetUp() -> void:
+	resetCamera()
 	match currentLevel:
 		0:
 			levelScene = levelTest
@@ -91,6 +96,11 @@ func pauseMenu() -> void:
 func SetSpawnPositions():
 	$LegsPlayer.position = legsPlayerSpawnPoint
 	$ArmsPlayer.position = armsPlayerSpawnPoint
+
+
+func resetCamera() -> void:
+	$Camera.position = Vector2(960, 505)
+	$Camera.zoom = Vector2(1, 1)
 
 
 func UpdateCameraPosition():
