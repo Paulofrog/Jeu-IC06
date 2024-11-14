@@ -8,7 +8,9 @@
 			A FAIRE - régler la vitesse pour que les animations soient réalistes
 	Interface utilisateur :
 		Narration
-			A FAIRE - faire un écran de début pour expliquer le contexte du début du jeu (à définir en TD)
+			A AMELIORER - faire un écran de début pour expliquer le contexte du début du jeu
+				--> FAIT, mais les graphismes sont absolument horribles
+			A FAIRE - implémenter les messages d'erreur de Gauthier
 		Ecran de pause
 			A FAIRE - rendre la taille de l'écran de pause indépendant du zoom de la caméra
 
@@ -36,3 +38,5 @@
 	Gestion du son
 		A FAIRE - diversifier les effets sonores
 		A FAIRE - rendre le son global et non localisé en un point de la scène
+	Interface utilisateur
+		A FAIRE - trouver une BELLE police et la mettre pour tous les textes
