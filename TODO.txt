@@ -3,12 +3,8 @@
 > Paul
 	ArmsPlayer et LegsPlayer : 
 		Gérer les animations
-			EN COURS - lancement des bonnes animations pour toutes les configurations
-			A AMELIORER - quand animations immobiles (joueur assemblé), jouer une frame neutre, pas en mouvement bizarre
-				--> FAIT, mais ce serait mieux de rajouter des animations de bras et de jambes qui se balancent comme quelqu'un qui court
 			A AMELIORER - gérer les animations de saut
 				--> FAIT, mais ce serait mieux de faire des demi-animations pour le saut et la réception
-			A FAIRE - déplacer verticalement arms pendant un saut ?
 			A FAIRE - régler la vitesse pour que les animations soient réalistes
 	Interface utilisateur :
 		Narration

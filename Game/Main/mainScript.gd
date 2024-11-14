@@ -17,6 +17,8 @@ var completeInstance
 var currentLevel
 var levelScene
 var levelInstance
+var legsPlayerSpawnPoint
+var armsPlayerSpawnPoint
 
 var legsScene = preload("res://Game/Players/Legs player/legsPlayerScene.tscn")
 var armsScene = preload("res://Game/Players/Arms player/armsPlayerScene.tscn")
@@ -61,6 +63,11 @@ func levelSetUp() -> void:
 	levelInstance = levelScene.instantiate()
 	add_child(levelInstance)
 	move_child(levelInstance, 0)
+	if currentLevel >= 1:
+		levelInstance.killLegsPlayer.connect(Callable(self, "kill_legs_player"))
+		levelInstance.killArmsPlayer.connect(Callable(self, "kill_arms_player"))
+	legsPlayerSpawnPoint = levelInstance.get_node("LegsPlayerSpawnPoint").position
+	armsPlayerSpawnPoint = levelInstance.get_node("ArmsPlayerSpawnPoint").position
 	SetSpawnPositions()
 
 
@@ -82,8 +89,6 @@ func pauseMenu() -> void:
 
 
 func SetSpawnPositions():
-	var legsPlayerSpawnPoint = levelInstance.get_node("LegsPlayerSpawnPoint").position
-	var armsPlayerSpawnPoint = levelInstance.get_node("ArmsPlayerSpawnPoint").position
 	$LegsPlayer.position = legsPlayerSpawnPoint
 	$ArmsPlayer.position = armsPlayerSpawnPoint
 
@@ -160,3 +165,13 @@ func separate_players() -> void:
 	$LegsPlayer.position = $CompletePlayer.position
 	$ArmsPlayer.position = $CompletePlayer.position + Global.ARMSPLAYER_OFFSET
 	completeInstance.queue_free()
+
+
+func kill_arms_player() -> void:
+	$ArmsPlayer.velocity = Vector2(0, 0)
+	$ArmsPlayer.position = armsPlayerSpawnPoint
+
+
+func kill_legs_player() -> void:
+	$LegsPlayer.velocity = Vector2(0, 0)
+	$LegsPlayer.position = legsPlayerSpawnPoint
