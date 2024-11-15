@@ -14,7 +14,7 @@
 	Ajouter écrous niveau 1
 	Faire fin niveau 1
 	Taille camera = taille écran
-	Initialiser toutes les scènes de niveaux
+	FAIT - Initialiser toutes les scènes de niveaux
 
 > Romane
 	FAIT - Ajout d'écran d'accueil basique (start / quit)

@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjrv4cok8382"]
+
+[sub_resource type="TileSet" id="TileSet_kf6an"]
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bt8h"]
+size = Vector2(262.5, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxrvk"]
+size = Vector2(26, 358)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtilf"]
+size = Vector2(286, 234)
+
+[node name="Level3" type="Node"]
+
+[node name="Background" type="Sprite2D" parent="."]
+
+[node name="TileMap" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_kf6an")
+
+[node name="LegsPlayerSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(279, 362)
+
+[node name="ArmsPlayerSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(286, 508)
+
+[node name="Ceiling" type="Area2D" parent="."]
+
+[node name="DefaultCeiling" type="CollisionShape2D" parent="Ceiling"]
+position = Vector2(-195.25, 46.5)
+shape = SubResource("RectangleShape2D_0bt8h")
+debug_color = Color(0.337255, 0.427451, 0.862745, 0.419608)
+
+[node name="Ladder" type="Area2D" parent="."]
+
+[node name="DefaultLadder" type="CollisionShape2D" parent="Ladder"]
+position = Vector2(-203, 296)
+shape = SubResource("RectangleShape2D_fxrvk")
+
+[node name="DeathZone" type="Area2D" parent="."]
+
+[node name="DefaultDeathZone" type="CollisionShape2D" parent="DeathZone"]
+position = Vector2(-184, 634)
+shape = SubResource("RectangleShape2D_dtilf")
+debug_color = Color(0.776471, 0.407843, 0.435294, 0.419608)
