@@ -11,6 +11,10 @@
 			A AMELIORER - faire un écran de début pour expliquer le contexte du début du jeu
 				--> FAIT, mais les graphismes sont absolument horribles
 			A FAIRE - implémenter les messages d'erreur de Gauthier
+	Ajouter écrous niveau 1
+	Faire fin niveau 1
+	Taille camera = taille écran
+	Initialiser toutes les scènes de niveaux
 
 > Romane
 	FAIT - Ajout d'écran d'accueil basique (start / quit)
@@ -20,21 +24,27 @@
 		FAIT - CompletePlayer Climb et ClimbIdle
 		FAIT MAIS MOCHE.... - Sprites StartMenu
 	Sprites existants : 
-		A FAIRE - Calibrer sprites bras 
+		FAIT - Calibrer sprites bras 
 		FAIT - Calibrer sprites corps complet
 		A FAIRE - Mettre chaque animation dans une sprite sheet
 	FAIT - Clean scripts Arms et Legs --> Bcp de superflu
+	Interface utilisateur
+		A FAIRE - trouver une BELLE police et la mettre pour tous les textes
+		A FAIRE - Faire messages narratifs pour aider le joueur
+		A FAIRE - Animations à lier correctement
+		A FAIRE - Mécaniques de jeu qui marchent
 
 > Gauthier
 	Level Design
-		EN COURS - finir le niveau 1 graphiquement parlant.
-		EN COURS - rendre le niveau Level1 jouable (intégration des éléments Ceiling et Ladder + peindre les collisions sur les tuiles)
+		FAIT - finir le niveau 1 graphiquement parlant.
+		FAIT - rendre le niveau Level1 jouable (intégration des éléments Ceiling et Ladder + peindre les collisions sur les tuiles)
+		A FAIRE - Level design niveau 2
 	Autres
 		A FAIRE - faire du tri dans les assets et ne pas utiliser d'assets dans les dossiers de scènes
-
->> A attribuer <<
 	Gestion du son
 		A FAIRE - diversifier les effets sonores
 		A FAIRE - rendre le son global et non localisé en un point de la scène
-	Interface utilisateur
-		A FAIRE - trouver une BELLE police et la mettre pour tous les textes
+		A FAIRE - musique menu
+
+>> A attribuer <<
+	
