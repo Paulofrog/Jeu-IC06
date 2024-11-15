@@ -94,24 +94,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_v7y4n")
 
-[node name="StartButton" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 738.0
-offset_top = 581.0
-offset_right = 1187.0
-offset_bottom = 696.0
-text = "START"
-
-[node name="QuitButton" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 738.0
-offset_top = 709.0
-offset_right = 1184.0
-offset_bottom = 824.0
-text = "QUIT"
-
 [node name="Arms" type="AnimatedSprite2D" parent="."]
 position = Vector2(1422.38, 267.875)
 scale = Vector2(0.406837, 0.406837)
@@ -146,7 +128,5 @@ texture_normal = ExtResource("19_bk0yp")
 texture_pressed = ExtResource("20_r5qft")
 texture_hover = ExtResource("21_nlm6v")
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="stop" to="." method="_on_stop_pressed"]

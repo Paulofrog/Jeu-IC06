@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhl4dipccvjml"]
+
+[ext_resource type="Script" path="res://Game/UI/NarrativeDisplay/dialogues.gd" id="1_dgqr2"]
+[ext_resource type="Texture2D" uid="uid://btm1jbyjomcy1" path="res://Game/Assets/Images/Dialogues/dialogue_box.png" id="2_d0ghr"]
+
+[node name="Dialogues" type="CanvasLayer"]
+script = ExtResource("1_dgqr2")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 20.0
+offset_top = 837.0
+offset_right = 1904.0
+offset_bottom = 1054.0
+texture = ExtResource("2_d0ghr")
+region_rect = Rect2(-14, -14, 60, 57)
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 17
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 45.0
+offset_top = 865.0
+offset_right = 1883.0
+offset_bottom = 1031.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo finibus imperdiet. Quisque mollis libero purus, a feugiat felis tempus non. Proin orci lorem, iaculis et quam eget, porta ornare nulla. Curabitur dapibus sodales felis, non dapibus dolor faucibus quis."
