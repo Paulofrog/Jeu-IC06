@@ -12,6 +12,7 @@
 				--> FAIT, mais les graphismes sont absolument horribles
 			A FAIRE - implémenter les messages d'erreur de Gauthier
 	Ajouter écrous niveau 1
+	Réinitialiser le nombre d'écrous entre les niveaux
 	Faire fin niveau 1
 	Taille camera = taille écran
 	FAIT - Initialiser toutes les scènes de niveaux

@@ -25,10 +25,13 @@ var armsScene = preload("res://Game/Players/Arms player/armsPlayerScene.tscn")
 var completeplayerScene = preload("res://Game/Players/Complete player/completePlayer.tscn")
 var levelTest = preload("res://Game/Levels/TestLevel/testLevelScene.tscn")
 var level1 = preload("res://Game/Levels/Level 1/level1Scene.tscn")
+var level2 = preload("res://Game/Levels/Level 2/level2Scene.tscn")
+var level3 = preload("res://Game/Levels/Level 3/level3Scene.tscn")
 
 
 func _ready() -> void:
 	pausemenu = $CanvasLayer/PauseMenu
+	Global.ecrous = 0
 	currentLevel = 0
 	playerSetUp()
 	levelSetUp()
@@ -58,6 +61,7 @@ func playerSetUp() -> void:
 
 
 func levelSetUp() -> void:
+	Global.ecrous = 0
 	resetCamera()
 	match currentLevel:
 		0:
@@ -65,6 +69,15 @@ func levelSetUp() -> void:
 		1:
 			remove_child(levelInstance)
 			levelScene = level1
+		2:
+			remove_child(levelInstance)
+			levelScene = level2
+		3:
+			remove_child(levelInstance)
+			levelScene = level3
+		_:
+			remove_child(levelInstance)
+			get_tree().change_scene_to_file("res://Game/UI/TitleScreen/titleScreenScene.tscn")
 	levelInstance = levelScene.instantiate()
 	add_child(levelInstance)
 	move_child(levelInstance, 0)

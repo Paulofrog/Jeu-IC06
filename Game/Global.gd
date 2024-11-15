@@ -3,7 +3,7 @@ extends Node
 var can_climb = false
 var can_hang = false
 var are_assembled = false
-var ecrous = 0
+var ecrous
 var isArmsPlayerOnCeiling					# action de se suspendre au plafond
 var isLegsPlayerJumping
 var directionX								# -1 = à gauche, 1 = à droite
