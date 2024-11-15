@@ -10,6 +10,7 @@ var inJump
 
 func _ready() -> void:
 	inJump = false
+	Global.isLegsPlayerJumping = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -18,6 +19,7 @@ func _physics_process(delta: float) -> void:
 
 	if is_on_floor():
 		inJump = false
+		Global.isLegsPlayerJumping = false
 		
 	var directionX = Input.get_axis("legsLeft", "legsRight")
 
@@ -30,6 +32,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("legsJump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		inJump = true
+		Global.isLegsPlayerJumping = true
 		if directionX:
 			$Appearance.play("sideJump")
 		else:
