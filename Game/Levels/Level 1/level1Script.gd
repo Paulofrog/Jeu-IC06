@@ -5,12 +5,16 @@ signal ceilingExited
 signal killLegsPlayer
 signal killArmsPlayer
 
-# Called when the node enters the scene tree for the first time.
+var isLegsPlayerInEndZone
+var isArmsPlayerInEndZone
+
+
 func _ready() -> void:
-	pass # Replace with function body.
+	$EndZone/DetectionZone/DetectionShape.disabled = true
+	isLegsPlayerInEndZone = false
+	isArmsPlayerInEndZone = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 
@@ -42,3 +46,34 @@ func _on_death_zone_body_entered(body: Node2D) -> void:
 		killLegsPlayer.emit()
 	elif body.name == "ArmsPlayer":
 		killArmsPlayer.emit()
+
+
+func _on_ecrou_nut_just_collected() -> void:
+	# le but de cette fonction est de ne pas avoir cette condition dans le _process, alors qu'elle ne s'exécutera qu'une seule fois
+	if Global.ecrous == $Ecrous.get_child_count():
+		$EndZone/DetectionZone/DetectionShape.disabled = false
+
+
+func _on_end_zone_body_entered(body: Node2D) -> void:
+	if body.name == "LegsPlayer":
+		isLegsPlayerInEndZone = true
+	elif body.name == "ArmsPlayer":
+		isArmsPlayerInEndZone = true
+	
+	if isLegsPlayerInEndZone and isArmsPlayerInEndZone:
+		Global.can_change_assembly_state = true
+	else:
+		Global.can_change_assembly_state = false
+
+
+func _on_end_zone_body_exited(body: Node2D) -> void:
+	if body.name == "LegsPlayer":
+		isLegsPlayerInEndZone = false
+	elif body.name == "ArmsPlayer":
+		isArmsPlayerInEndZone = false
+
+
+func endLevel() -> void:	# cette fonction est lancée par mainScript
+	print("Coder l'animation de fin de niveau")
+	# Contrôles désactivés
+	# porte qui s'ouvre et perso marche en dehors de l'écran

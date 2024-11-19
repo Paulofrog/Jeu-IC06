@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2om6os6haj1"]
+[gd_scene load_steps=8 format=3 uid="uid://b2om6os6haj1"]
 
 [ext_resource type="Script" path="res://Game/Main/mainScript.gd" id="1_cu2if"]
-[ext_resource type="Texture2D" uid="uid://b2tppdo6go33h" path="res://Game/Assets/Images/metal.jpeg" id="4_r7xrd"]
 [ext_resource type="PackedScene" uid="uid://b5bicbah67v4c" path="res://Game/UI/PauseScreen/pauseScreenScene.tscn" id="5_hwaqx"]
 [ext_resource type="Texture2D" uid="uid://bnh48vb6ac2i4" path="res://Game/Assets/Images/Ecrou sprites/0000000004.png" id="5_i74h2"]
 [ext_resource type="AudioStream" uid="uid://dl5b4d8qagm1" path="res://Game/Assets/Musique/maou_bgm_cyber21.mp3" id="6_hlepm"]
@@ -93,7 +92,6 @@ offset_bottom = 397.0
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD"]
 layout_mode = 0
-texture = ExtResource("4_r7xrd")
 expand_mode = 1
 
 [node name="EcrouScore" type="Label" parent="CanvasLayer/HUD"]

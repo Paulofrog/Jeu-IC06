@@ -3,6 +3,7 @@ extends Node
 var can_climb = false
 var can_hang = false
 var are_assembled = false
+var can_change_assembly_state = true
 var ecrous
 var isArmsPlayerOnCeiling					# action de se suspendre au plafond
 var isLegsPlayerJumping

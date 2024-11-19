@@ -66,15 +66,19 @@ func levelSetUp() -> void:
 	match currentLevel:
 		0:
 			levelScene = levelTest
+			Global.can_change_assembly_state = false
 		1:
 			remove_child(levelInstance)
 			levelScene = level1
+			Global.can_change_assembly_state = true
 		2:
 			remove_child(levelInstance)
 			levelScene = level2
+			Global.can_change_assembly_state = false # jsp ce qu'on avait dit, à vérifier
 		3:
 			remove_child(levelInstance)
 			levelScene = level3
+			Global.can_change_assembly_state = true
 		_:
 			remove_child(levelInstance)
 			get_tree().change_scene_to_file("res://Game/UI/TitleScreen/titleScreenScene.tscn")
@@ -119,9 +123,11 @@ func resetCamera() -> void:
 func UpdateCameraPosition():
 	$Camera.position = ($ArmsPlayer.global_position + $LegsPlayer.global_position) / 2
 
+
 func UpdateCameraPositionAssembled():
 	$Camera.position = $CompletePlayer.global_position
-	
+
+
 func UpdateCameraZoom(delta):
 	distance = abs(($ArmsPlayer.global_position - $LegsPlayer.global_position) / 2)
 	
@@ -144,28 +150,32 @@ func UpdateCameraZoom(delta):
 
 
 func AssembleCheck():
-	distance = $LegsPlayer.global_position.distance_to($ArmsPlayer.global_position)
-	if (distance < PROXIMITY_THRESHOLD):
-		if !Global.are_assembled:
-			$ProximityLabel.position = (($ArmsPlayer.global_position + $LegsPlayer.global_position) / (2)) \
-										- ($ProximityLabel.get_size() / 2) \
-										+ PROXIMITYLABEL_OFFSET
-			$ProximityLabel.show()
+	if Global.can_change_assembly_state:
+		distance = $LegsPlayer.global_position.distance_to($ArmsPlayer.global_position)
+		if (distance < PROXIMITY_THRESHOLD):
+			if !Global.are_assembled:
+				$ProximityLabel.position = (($ArmsPlayer.global_position + $LegsPlayer.global_position) / (2)) \
+											- ($ProximityLabel.get_size() / 2) \
+											+ PROXIMITYLABEL_OFFSET
+				$ProximityLabel.show()
+			else:
+				$ProximityLabel.hide()
 		else:
 			$ProximityLabel.hide()
-	else:
-		$ProximityLabel.hide()
-	
-	if distance < PROXIMITY_THRESHOLD:
-		if Input.is_action_pressed("legsAssembly") and Input.is_action_pressed("armsAssembly"):
-			if $Timers/AssemblyTimer.time_left == 0:
-				assemble_players()
-	
-func DisassembleCheck():	
-	if Input.is_action_just_pressed("legsAssembly") or Input.is_action_just_pressed("armsAssembly"):
-		separate_players()
-		$Timers/AssemblyTimer.start()
-	
+		
+		if distance < PROXIMITY_THRESHOLD:
+			if Input.is_action_pressed("legsAssembly") and Input.is_action_pressed("armsAssembly"):
+				if $Timers/AssemblyTimer.time_left == 0:
+					assemble_players()
+
+
+func DisassembleCheck():
+	if Global.can_change_assembly_state:
+		if Input.is_action_just_pressed("legsAssembly") or Input.is_action_just_pressed("armsAssembly"):
+			separate_players()
+			$Timers/AssemblyTimer.start()
+
+
 func assemble_players() -> void:
 	Global.are_assembled = true
 	completeInstance = completeplayerScene.instantiate()
@@ -175,6 +185,10 @@ func assemble_players() -> void:
 	armsInstance.queue_free()
 	legsInstance.queue_free()
 	$MetalAudioPlayer.play()
+	
+	if currentLevel >= 1 and currentLevel <= 1:
+		# incrémenter la deuxième condition quand on aura fait les autres endAniamtions
+		levelInstance.endLevel()
 
 
 func separate_players() -> void:

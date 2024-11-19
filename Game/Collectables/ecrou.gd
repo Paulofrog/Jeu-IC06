@@ -3,6 +3,8 @@ extends Node2D
 var targetPos
 var label
 
+signal nutJustCollected
+
 func _ready() -> void:
 	$Appearance.play("idle")
 	targetPos = get_tree().current_scene.get_node("CanvasLayer/HUD/Sprite2D").global_position
@@ -11,6 +13,7 @@ func _ready() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if(body.name == "LegsPlayer" or body.name == "ArmsPlayer" or body.name == "CompletePlayer"):
 		Global.ecrous += 1
+		nutJustCollected.emit()
 		var tween = get_tree().create_tween()
 		#tween.tween_property(self, "global_position", targetPos, 0.5).set_ease(Tween.EASE_IN)
 		tween.chain().tween_property(self, "visible", false, 0.0)

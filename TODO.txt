@@ -11,11 +11,12 @@
 			A AMELIORER - faire un écran de début pour expliquer le contexte du début du jeu
 				--> FAIT, mais les graphismes sont absolument horribles
 			A FAIRE - implémenter les messages d'erreur de Gauthier
-	Ajouter écrous niveau 1
-	Réinitialiser le nombre d'écrous entre les niveaux
-	Faire fin niveau 1
-	Taille camera = taille écran
-	FAIT - Initialiser toutes les scènes de niveaux
+	Niveaux : 
+			EN COURS - faire fin niveau 1
+				--> /!\ A TESTER ! 
+				--> A FAIRE - animation de fin de niveau
+			A FAIRE - taille camera = taille écran
+			FAIT - initialiser toutes les scènes de niveaux
 
 > Romane
 	FAIT - Ajout d'écran d'accueil basique (start / quit)

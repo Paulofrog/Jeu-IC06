@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://c1twm6qw3aove"]
+[gd_scene load_steps=24 format=4 uid="uid://c1twm6qw3aove"]
 
 [ext_resource type="Texture2D" uid="uid://cf0mtqki23qw2" path="res://Game/Levels/Level 1/IndustrialTile_81-0.png" id="1_dbu7c"]
 [ext_resource type="Script" path="res://Game/Levels/Level 1/level1Script.gd" id="1_v0f40"]
@@ -542,6 +542,18 @@ size = Vector2(878, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_og0pt"]
 size = Vector2(446, 32)
 
+[sub_resource type="Gradient" id="Gradient_qk24m"]
+offsets = PackedFloat32Array(0.202381, 1)
+colors = PackedColorArray(0.277041, 0.116985, 0.035564, 1, 0.924548, 0.554675, 0.446394, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h1mee"]
+gradient = SubResource("Gradient_qk24m")
+fill_from = Vector2(0.474138, 1)
+fill_to = Vector2(0.456897, 0.0215517)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b640g"]
+size = Vector2(185, 116)
+
 [node name="Level1" type="Node"]
 script = ExtResource("1_v0f40")
 
@@ -642,8 +654,32 @@ position = Vector2(68, 597)
 [node name="Ecrou6" parent="Ecrous" instance=ExtResource("5_6kgi7")]
 position = Vector2(1108, 600)
 
+[node name="EndZone" type="Node2D" parent="."]
+
+[node name="Door (texture to be changed)" type="Sprite2D" parent="EndZone"]
+position = Vector2(1877.5, 911.5)
+scale = Vector2(0.828125, 1.79688)
+texture = SubResource("GradientTexture2D_h1mee")
+
+[node name="DetectionZone" type="Area2D" parent="EndZone"]
+collision_layer = 16
+collision_mask = 3
+
+[node name="DetectionShape" type="CollisionShape2D" parent="EndZone/DetectionZone"]
+position = Vector2(1811.5, 912)
+shape = SubResource("RectangleShape2D_b640g")
+debug_color = Color(0, 0.647653, 0.20496, 0.42)
+
 [connection signal="body_entered" from="Ceiling" to="." method="_on_ceiling_body_entered"]
 [connection signal="body_exited" from="Ceiling" to="." method="_on_ceiling_body_exited"]
 [connection signal="body_entered" from="Ladder" to="." method="_on_ladder_body_entered"]
 [connection signal="body_exited" from="Ladder" to="." method="_on_ladder_body_exited"]
 [connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
+[connection signal="nutJustCollected" from="Ecrous/Ecrou" to="." method="_on_ecrou_nut_just_collected"]
+[connection signal="nutJustCollected" from="Ecrous/Ecrou2" to="." method="_on_ecrou_nut_just_collected"]
+[connection signal="nutJustCollected" from="Ecrous/Ecrou3" to="." method="_on_ecrou_nut_just_collected"]
+[connection signal="nutJustCollected" from="Ecrous/Ecrou4" to="." method="_on_ecrou_nut_just_collected"]
+[connection signal="nutJustCollected" from="Ecrous/Ecrou5" to="." method="_on_ecrou_nut_just_collected"]
+[connection signal="nutJustCollected" from="Ecrous/Ecrou6" to="." method="_on_ecrou_nut_just_collected"]
+[connection signal="body_entered" from="EndZone/DetectionZone" to="." method="_on_end_zone_body_entered"]
+[connection signal="body_exited" from="EndZone/DetectionZone" to="." method="_on_end_zone_body_exited"]
