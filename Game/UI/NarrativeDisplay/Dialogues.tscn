@@ -18,7 +18,7 @@ patch_margin_top = 20
 patch_margin_right = 20
 patch_margin_bottom = 17
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Text" type="RichTextLabel" parent="."]
 offset_left = 45.0
 offset_top = 865.0
 offset_right = 1883.0

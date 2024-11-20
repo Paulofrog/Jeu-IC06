@@ -31,6 +31,7 @@ var level3 = preload("res://Game/Levels/Level 3/level3Scene.tscn")
 
 func _ready() -> void:
 	pausemenu = $CanvasLayer/PauseMenu
+	print(Global.dialogues.example)
 	Global.ecrous = 0
 	currentLevel = 0
 	playerSetUp()
