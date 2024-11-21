@@ -4,15 +4,20 @@ signal ceilingEntered
 signal ceilingExited
 signal killLegsPlayer
 signal killArmsPlayer
+signal nextLevel
 
 var isLegsPlayerInEndZone
 var isArmsPlayerInEndZone
 
+var ecrousCount
+var everyNutFound
+
 
 func _ready() -> void:
-	$EndZone/DetectionZone/DetectionShape.disabled = true
 	isLegsPlayerInEndZone = false
 	isArmsPlayerInEndZone = false
+	everyNutFound = false
+	ecrousCount = $Ecrous.get_child_count()
 
 
 func _process(_delta: float) -> void:
@@ -50,8 +55,9 @@ func _on_death_zone_body_entered(body: Node2D) -> void:
 
 func _on_ecrou_nut_just_collected() -> void:
 	# le but de cette fonction est de ne pas avoir cette condition dans le _process, alors qu'elle ne s'exécutera qu'une seule fois
-	if Global.ecrous == $Ecrous.get_child_count():
-		$EndZone/DetectionZone/DetectionShape.disabled = false
+	if Global.ecrous == ecrousCount:
+		everyNutFound = true
+		$"..".dialogue("everyNutFound")
 
 
 func _on_end_zone_body_entered(body: Node2D) -> void:
@@ -59,9 +65,14 @@ func _on_end_zone_body_entered(body: Node2D) -> void:
 		isLegsPlayerInEndZone = true
 	elif body.name == "ArmsPlayer":
 		isArmsPlayerInEndZone = true
+	if body.name == "LegsPlayer" or body.name == "ArmsPlayer":
+		if !everyNutFound:
+			$"..".dialogue("notEnoughNuts")
 	
 	if isLegsPlayerInEndZone and isArmsPlayerInEndZone:
 		Global.can_change_assembly_state = true
+		if everyNutFound:
+			$"..".dialogue("canEndLevel1")
 	else:
 		Global.can_change_assembly_state = false
 
@@ -69,11 +80,16 @@ func _on_end_zone_body_entered(body: Node2D) -> void:
 func _on_end_zone_body_exited(body: Node2D) -> void:
 	if body.name == "LegsPlayer":
 		isLegsPlayerInEndZone = false
+		Global.can_change_assembly_state = false
 	elif body.name == "ArmsPlayer":
 		isArmsPlayerInEndZone = false
+		Global.can_change_assembly_state = false
+	if everyNutFound:
+		$"..".dialogue("leavingEndZone")
 
 
 func endLevel() -> void:	# cette fonction est lancée par mainScript
-	print("Coder l'animation de fin de niveau")
 	# Contrôles désactivés
-	# porte qui s'ouvre et perso marche en dehors de l'écran
+	$"..".dialogue("endingLevel")
+	# animation : porte qui s'ouvre et perso marche en dehors de l'écran
+	nextLevel.emit()

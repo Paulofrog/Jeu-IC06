@@ -13,6 +13,7 @@ var pausemenu
 var legsInstance
 var armsInstance
 var completeInstance
+var instance #dialogueInstance
 
 var currentLevel
 var levelScene
@@ -33,6 +34,7 @@ var dialogueScene = preload("res://Game/UI/NarrativeDisplay/Dialogues.tscn")
 
 func _ready() -> void:
 	pausemenu = $CanvasLayer/PauseMenu
+	$ProximityLabel.hide()
 	Global.ecrous = 0
 	currentLevel = 1
 	levelSetUp()
@@ -60,11 +62,13 @@ func twoPlayerSetUp() -> void:
 	move_child(legsInstance, 1)
 	Global.are_assembled = false
 
+
 func completePlayerSetUp() -> void:
 	completeInstance = completeplayerScene.instantiate()
 	add_child(completeInstance)
 	move_child(completeInstance, 0)
 	Global.are_assembled = true
+
 
 func levelSetUp() -> void:
 	Global.ecrous = 0
@@ -83,10 +87,11 @@ func levelSetUp() -> void:
 		1:
 			levelScene = level1
 			twoPlayerSetUp()
-			Global.can_change_assembly_state = true
+			Global.can_change_assembly_state = false
 			levelInstance = levelScene.instantiate()
 			add_child(levelInstance)
 			move_child(levelInstance, 0)
+			levelInstance.nextLevel.connect(Callable(self, "nextLevel"))
 			levelInstance.killLegsPlayer.connect(Callable(self, "kill_legs_player"))
 			levelInstance.killArmsPlayer.connect(Callable(self, "kill_arms_player"))
 			legsPlayerSpawnPoint = levelInstance.get_node("LegsPlayerSpawnPoint").position
@@ -100,6 +105,7 @@ func levelSetUp() -> void:
 			levelInstance = levelScene.instantiate()
 			add_child(levelInstance)
 			move_child(levelInstance, 0)
+			# levelInstance.nextLevel.connect(Callable(self, "nextLevel")) A décommenter quand le signal nextLevel sera implémenté dans le script du lv2
 			completePlayerSpawnPoint = levelInstance.get_node("CompletePlayerSpawnPoint").position
 			SetCompletePlayerSpawnPosition()
 		3:
@@ -109,6 +115,7 @@ func levelSetUp() -> void:
 			levelInstance = levelScene.instantiate()
 			add_child(levelInstance)
 			move_child(levelInstance, 0)
+			# levelInstance.nextLevel.connect(Callable(self, "nextLevel")) A décommenter quand le signal nextLevel sera implémenté dans le script du lv2
 			completePlayerSpawnPoint = levelInstance.get_node("CompletePlayerSpawnPoint").position
 			SetCompletePlayerSpawnPosition()
 		_:
@@ -137,8 +144,10 @@ func SetTwoPlayersSpawnPositions():
 	$LegsPlayer.position = legsPlayerSpawnPoint
 	$ArmsPlayer.position = armsPlayerSpawnPoint
 
+
 func SetCompletePlayerSpawnPosition():
 	$CompletePlayer.position = completePlayerSpawnPoint
+
 
 func resetCamera() -> void:
 	$Camera.position = Vector2(960, 505)
@@ -239,7 +248,10 @@ func kill_legs_player() -> void:
 	$LegsPlayer.velocity = Vector2(0, 0)
 	$LegsPlayer.position = legsPlayerSpawnPoint
 
+
 func dialogue(key):
-	var instance = dialogueScene.instantiate()
+	if instance != null:
+		instance.queue_free()
+	instance = dialogueScene.instantiate()
 	instance.displayDialogs(key)
-	add_child(instance)
+	add_child.call_deferred(instance)
