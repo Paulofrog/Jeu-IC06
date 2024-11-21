@@ -91,5 +91,8 @@ func _on_end_zone_body_exited(body: Node2D) -> void:
 func endLevel() -> void:	# cette fonction est lancée par mainScript
 	# Contrôles désactivés
 	$"..".dialogue("endingLevel")
-	# animation : porte qui s'ouvre et perso marche en dehors de l'écran
+	# animation
+	# 1) zoom de camera
+	# 2) perso saute
+	# 3) porte s'ouvre et perso sort de l'écran
 	nextLevel.emit()
