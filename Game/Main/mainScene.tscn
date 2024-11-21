@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2om6os6haj1"]
+[gd_scene load_steps=8 format=3 uid="uid://b2om6os6haj1"]
 
 [ext_resource type="Script" path="res://Game/Main/mainScript.gd" id="1_cu2if"]
 [ext_resource type="PackedScene" uid="uid://b5bicbah67v4c" path="res://Game/UI/PauseScreen/pauseScreenScene.tscn" id="5_hwaqx"]
 [ext_resource type="Texture2D" uid="uid://bnh48vb6ac2i4" path="res://Game/Assets/Images/Ecrou sprites/0000000004.png" id="5_i74h2"]
 [ext_resource type="AudioStream" uid="uid://dl5b4d8qagm1" path="res://Game/Assets/Musique/maou_bgm_cyber21.mp3" id="6_hlepm"]
-[ext_resource type="PackedScene" uid="uid://dhl4dipccvjml" path="res://Game/UI/NarrativeDisplay/Dialogues.tscn" id="6_m0dba"]
 [ext_resource type="AudioStream" uid="uid://frt5m4m3t0ay" path="res://Game/Assets/Sound Effects/metal-beaten-sfx-230501.mp3" id="8_2bgkw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hff5"]
@@ -77,7 +76,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="NextScene (temporary)" type="Timer" parent="Timers"]
-wait_time = 8.0
+wait_time = 20.0
 one_shot = true
 autostart = true
 
@@ -116,7 +115,5 @@ offset_left = 843.0
 offset_top = 474.0
 offset_right = 843.0
 offset_bottom = 481.0
-
-[node name="Dialogues" parent="CanvasLayer" instance=ExtResource("6_m0dba")]
 
 [connection signal="timeout" from="Timers/NextScene (temporary)" to="." method="nextLevel"]

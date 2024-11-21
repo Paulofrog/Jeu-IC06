@@ -27,11 +27,11 @@ var levelTest = preload("res://Game/Levels/TestLevel/testLevelScene.tscn")
 var level1 = preload("res://Game/Levels/Level 1/level1Scene.tscn")
 var level2 = preload("res://Game/Levels/Level 2/level2Scene.tscn")
 var level3 = preload("res://Game/Levels/Level 3/level3Scene.tscn")
+var dialogueScene = preload("res://Game/UI/NarrativeDisplay/Dialogues.tscn")
 
 
 func _ready() -> void:
 	pausemenu = $CanvasLayer/PauseMenu
-	print(Global.dialogues.example)
 	Global.ecrous = 0
 	currentLevel = 0
 	playerSetUp()
@@ -67,7 +67,7 @@ func levelSetUp() -> void:
 	match currentLevel:
 		0:
 			levelScene = levelTest
-			Global.can_change_assembly_state = false
+			Global.can_change_assembly_state = true
 		1:
 			remove_child(levelInstance)
 			levelScene = level1
@@ -186,6 +186,7 @@ func assemble_players() -> void:
 	armsInstance.queue_free()
 	legsInstance.queue_free()
 	$MetalAudioPlayer.play()
+	dialogue("example")
 	
 	if currentLevel >= 1 and currentLevel <= 1:
 		# incrémenter la deuxième condition quand on aura fait les autres endAniamtions
@@ -213,3 +214,8 @@ func kill_arms_player() -> void:
 func kill_legs_player() -> void:
 	$LegsPlayer.velocity = Vector2(0, 0)
 	$LegsPlayer.position = legsPlayerSpawnPoint
+
+func dialogue(key):
+	var instance = dialogueScene.instantiate()
+	instance.displayDialogs(key)
+	add_child(instance)
