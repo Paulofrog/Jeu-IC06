@@ -2,5 +2,14 @@
 	"example": [
 		"This is an example!",
 		"This the second line!!"
+	],
+	"expositionSequence": [
+		"Vous etes dans le monde de ???, monde apocalyptique dans lequel la science est devenue hors de controle.",
+		"Vous incarnez un robot du nom de ???, cree par un scientifique fou.",
+		"Lors de sa derniere experience sur l’autonomie, il vous a coupe en deux. C’est la goutte de trop!",
+		"Vous cherchez maintenant a vous enfuir de son laboratoire.",
+		"La premiere etape pour vous est de vous rassembler.",
+		"Il semblerait aussi y avoir des engrenages un peu partout dans la piece ou vous vous trouvez.",
+		"Peut-etre qu’ils pourraient vous servir a quelque chose…"
 	]
 }

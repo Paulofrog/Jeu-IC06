@@ -87,8 +87,8 @@ func _physics_process(delta: float) -> void:
 			$Appearance.play("frontJump")
 	elif inHang:
 		if directionX:
-			$Appearance.play("walk")
+			$Appearance.play("hang")
 			$Appearance.flip_h = directionX < 0
 		else:
-			$Appearance.play("idle")
+			$Appearance.play("hangIdle")
 	move_and_slide()

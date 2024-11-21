@@ -1,31 +1,31 @@
 [gd_scene load_steps=4 format=3 uid="uid://dhl4dipccvjml"]
 
 [ext_resource type="Script" path="res://Game/UI/NarrativeDisplay/dialogues.gd" id="1_dgqr2"]
-[ext_resource type="Texture2D" uid="uid://ch8v8ym0p26o8" path="res://Game/Assets/Dialogue/border 2.png" id="2_jnonj"]
+[ext_resource type="Texture2D" uid="uid://chnwwh34e0ydh" path="res://Game/Assets/Dialogue/borderWithBg.png" id="2_4q43i"]
 [ext_resource type="FontFile" uid="uid://tqfw2dtq3amj" path="res://Game/Assets/Fonts/cc.yal.6w6.block.ttf" id="2_jty2f"]
 
 [node name="Dialogues" type="CanvasLayer"]
 script = ExtResource("1_dgqr2")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-offset_left = 20.0
-offset_top = 793.0
+offset_left = 22.0
+offset_top = 844.0
 offset_right = 1904.0
-offset_bottom = 1054.0
-texture = ExtResource("2_jnonj")
-region_rect = Rect2(1, 1, 115, 57)
-patch_margin_left = 24
-patch_margin_top = 17
-patch_margin_right = 32
-patch_margin_bottom = 14
+offset_bottom = 1028.0
+texture = ExtResource("2_4q43i")
+region_rect = Rect2(1, 1, 599, 301)
+patch_margin_left = 124
+patch_margin_top = 103
+patch_margin_right = 173
+patch_margin_bottom = 81
 
 [node name="Text" type="RichTextLabel" parent="."]
-offset_left = 124.0
-offset_top = 877.0
-offset_right = 1886.0
-offset_bottom = 1043.0
+offset_left = 91.0
+offset_top = 885.0
+offset_right = 1878.0
+offset_bottom = 965.0
 theme_override_colors/default_color = Color(0.565369, 0.889971, 1, 1)
-theme_override_constants/line_separation = 10
+theme_override_constants/line_separation = 5
 theme_override_fonts/normal_font = ExtResource("2_jty2f")
 theme_override_font_sizes/normal_font_size = 40
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo finibus imperdiet. Quisque mollis libero purus, a feugiat felis tempus non. Proin orci lorem, iaculis et quam eget, porta ornare nulla. Curabitur dapibus sodales felis, non dapibus dolor faucibus quis."

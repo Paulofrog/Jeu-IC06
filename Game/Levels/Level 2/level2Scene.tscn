@@ -20,11 +20,8 @@ size = Vector2(164, 137)
 [node name="TileMap" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_38wou")
 
-[node name="LegsPlayerSpawnPoint" type="Marker2D" parent="."]
+[node name="CompletePlayerSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(261, 336)
-
-[node name="ArmsPlayerSpawnPoint" type="Marker2D" parent="."]
-position = Vector2(266, 489)
 
 [node name="Ceiling" type="Area2D" parent="."]
 

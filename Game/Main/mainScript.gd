@@ -19,6 +19,7 @@ var levelScene
 var levelInstance
 var legsPlayerSpawnPoint
 var armsPlayerSpawnPoint
+var completePlayerSpawnPoint
 
 var legsScene = preload("res://Game/Players/Legs player/legsPlayerScene.tscn")
 var armsScene = preload("res://Game/Players/Arms player/armsPlayerScene.tscn")
@@ -33,8 +34,7 @@ var dialogueScene = preload("res://Game/UI/NarrativeDisplay/Dialogues.tscn")
 func _ready() -> void:
 	pausemenu = $CanvasLayer/PauseMenu
 	Global.ecrous = 0
-	currentLevel = 0
-	playerSetUp()
+	currentLevel = 1
 	levelSetUp()
 
 
@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 		UpdateCameraPositionAssembled()
 
 
-func playerSetUp() -> void:
+func twoPlayerSetUp() -> void:
 	armsInstance = armsScene.instantiate()
 	add_child(armsInstance)
 	move_child(armsInstance, 0)
@@ -60,6 +60,11 @@ func playerSetUp() -> void:
 	move_child(legsInstance, 1)
 	Global.are_assembled = false
 
+func completePlayerSetUp() -> void:
+	completeInstance = completeplayerScene.instantiate()
+	add_child(completeInstance)
+	move_child(completeInstance, 0)
+	Global.are_assembled = true
 
 func levelSetUp() -> void:
 	Global.ecrous = 0
@@ -67,35 +72,52 @@ func levelSetUp() -> void:
 	match currentLevel:
 		0:
 			levelScene = levelTest
+			twoPlayerSetUp()
 			Global.can_change_assembly_state = true
+			levelInstance = levelScene.instantiate()
+			add_child(levelInstance)
+			move_child(levelInstance, 0)
+			legsPlayerSpawnPoint = levelInstance.get_node("LegsPlayerSpawnPoint").position
+			armsPlayerSpawnPoint = levelInstance.get_node("ArmsPlayerSpawnPoint").position
+			SetTwoPlayersSpawnPositions()
 		1:
-			remove_child(levelInstance)
 			levelScene = level1
+			twoPlayerSetUp()
 			Global.can_change_assembly_state = true
+			levelInstance = levelScene.instantiate()
+			add_child(levelInstance)
+			move_child(levelInstance, 0)
+			levelInstance.killLegsPlayer.connect(Callable(self, "kill_legs_player"))
+			levelInstance.killArmsPlayer.connect(Callable(self, "kill_arms_player"))
+			legsPlayerSpawnPoint = levelInstance.get_node("LegsPlayerSpawnPoint").position
+			armsPlayerSpawnPoint = levelInstance.get_node("ArmsPlayerSpawnPoint").position
+			SetTwoPlayersSpawnPositions()
+			dialogue("expositionSequence")
 		2:
-			remove_child(levelInstance)
 			levelScene = level2
+			completePlayerSetUp()
 			Global.can_change_assembly_state = false # jsp ce qu'on avait dit, à vérifier
+			levelInstance = levelScene.instantiate()
+			add_child(levelInstance)
+			move_child(levelInstance, 0)
+			completePlayerSpawnPoint = levelInstance.get_node("CompletePlayerSpawnPoint").position
+			SetCompletePlayerSpawnPosition()
 		3:
-			remove_child(levelInstance)
 			levelScene = level3
+			completePlayerSetUp()
 			Global.can_change_assembly_state = true
+			levelInstance = levelScene.instantiate()
+			add_child(levelInstance)
+			move_child(levelInstance, 0)
+			completePlayerSpawnPoint = levelInstance.get_node("CompletePlayerSpawnPoint").position
+			SetCompletePlayerSpawnPosition()
 		_:
-			remove_child(levelInstance)
 			get_tree().change_scene_to_file("res://Game/UI/TitleScreen/titleScreenScene.tscn")
-	levelInstance = levelScene.instantiate()
-	add_child(levelInstance)
-	move_child(levelInstance, 0)
-	if currentLevel >= 1:
-		levelInstance.killLegsPlayer.connect(Callable(self, "kill_legs_player"))
-		levelInstance.killArmsPlayer.connect(Callable(self, "kill_arms_player"))
-	legsPlayerSpawnPoint = levelInstance.get_node("LegsPlayerSpawnPoint").position
-	armsPlayerSpawnPoint = levelInstance.get_node("ArmsPlayerSpawnPoint").position
-	SetSpawnPositions()
 
 
 func nextLevel() -> void:
 	currentLevel += 1
+	remove_child(levelInstance)
 	levelSetUp()
 
 
@@ -111,10 +133,12 @@ func pauseMenu() -> void:
 	paused = !paused
 
 
-func SetSpawnPositions():
+func SetTwoPlayersSpawnPositions():
 	$LegsPlayer.position = legsPlayerSpawnPoint
 	$ArmsPlayer.position = armsPlayerSpawnPoint
 
+func SetCompletePlayerSpawnPosition():
+	$CompletePlayer.position = completePlayerSpawnPoint
 
 func resetCamera() -> void:
 	$Camera.position = Vector2(960, 505)
