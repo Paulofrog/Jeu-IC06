@@ -71,6 +71,7 @@ func completePlayerSetUp() -> void:
 
 func levelSetUp() -> void:
 	Global.ecrous = 0
+	Global.can_move = true
 	resetCamera()
 	match currentLevel:
 		0:

@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://74lkrgkyi8pa"]
+[gd_scene load_steps=12 format=4 uid="uid://74lkrgkyi8pa"]
 
+[ext_resource type="Script" path="res://Game/Levels/Level 2/level2Script.gd" id="1_2g57p"]
 [ext_resource type="Texture2D" uid="uid://dph7bw0sa5do3" path="res://Game/Levels/Level 1/1.png" id="1_gg1of"]
 [ext_resource type="Texture2D" uid="uid://cf0mtqki23qw2" path="res://Game/Levels/Level 1/IndustrialTile_81-0.png" id="2_6cope"]
 [ext_resource type="Texture2D" uid="uid://dmly0jh2qxtu8" path="res://Game/Levels/Level 1/Ladder2-0.png" id="3_36p7h"]
@@ -428,6 +429,7 @@ size = Vector2(18, 204)
 size = Vector2(164, 137)
 
 [node name="Level2" type="Node"]
+script = ExtResource("1_2g57p")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(544, 496)

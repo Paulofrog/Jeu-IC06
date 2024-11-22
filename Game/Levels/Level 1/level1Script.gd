@@ -89,10 +89,21 @@ func _on_end_zone_body_exited(body: Node2D) -> void:
 
 
 func endLevel() -> void:	# cette fonction est lancée par mainScript
-	# Contrôles désactivés
+	Global.can_move = false
 	$"..".dialogue("endingLevel")
 	# animation
 	# 1) zoom de camera
 	# 2) perso saute
+	Input.action_press("legsJump")
+	Input.action_release("legsJump")
+	await get_tree().create_timer(3).timeout
+	Input.action_press("legsJump")
+	Input.action_release("legsJump")
+	await get_tree().create_timer(3).timeout
+	Input.action_press("legsRight")
+	
+	# régler prblème can_move ...
+	
 	# 3) porte s'ouvre et perso sort de l'écran
+	await get_tree().create_timer(7).timeout
 	nextLevel.emit()

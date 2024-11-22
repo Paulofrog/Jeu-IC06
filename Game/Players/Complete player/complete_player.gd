@@ -43,6 +43,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
+	
+	if Global.can_move:
+		if directionX:
+			velocity.x = directionX * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+		
 	if Global.can_hang and Input.is_action_just_pressed("armsHang") and !inFall:
 		$"../Timers/CeilingTimer".start()
 		inHang = true
