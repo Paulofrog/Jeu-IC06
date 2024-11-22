@@ -36,7 +36,7 @@ func _ready() -> void:
 	pausemenu = $CanvasLayer/PauseMenu
 	$ProximityLabel.hide()
 	Global.ecrous = 0
-	currentLevel = 1
+	currentLevel = 2
 	levelSetUp()
 
 
@@ -106,6 +106,8 @@ func levelSetUp() -> void:
 			levelInstance = levelScene.instantiate()
 			add_child(levelInstance)
 			move_child(levelInstance, 0)
+			levelInstance.killPlayer.connect(Callable(self, "kill_player"))
+			
 			# levelInstance.nextLevel.connect(Callable(self, "nextLevel")) A décommenter quand le signal nextLevel sera implémenté dans le script du lv2
 			completePlayerSpawnPoint = levelInstance.get_node("CompletePlayerSpawnPoint").position
 			SetCompletePlayerSpawnPosition()
@@ -249,6 +251,10 @@ func kill_legs_player() -> void:
 	$LegsPlayer.velocity = Vector2(0, 0)
 	$LegsPlayer.position = legsPlayerSpawnPoint
 
+
+func kill_player() -> void:
+	$CompletePlayer.velocity = Vector2(0, 0)
+	$CompletePlayer.position = completePlayerSpawnPoint
 
 func dialogue(key):
 	if instance != null:
