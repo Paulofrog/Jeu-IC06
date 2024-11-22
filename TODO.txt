@@ -3,14 +3,10 @@
 > Paul
 	ArmsPlayer et LegsPlayer : 
 		Gérer les animations
-			A AMELIORER - gérer les animations de saut
-				--> FAIT, mais ce serait mieux de faire des demi-animations pour le saut et la réception
 			A FAIRE - régler la vitesse pour que les animations soient réalistes
 	Interface utilisateur :
 		Narration
-			A AMELIORER - faire un écran de début pour expliquer le contexte du début du jeu
-				--> FAIT, mais les graphismes sont absolument horribles
-			A FAIRE - implémenter les messages d'erreur de Gauthier
+			A VOIR - implémenter les messages d'erreur de Gauthier
 	Niveaux : 
 			EN COURS - faire fin niveau 1
 				--> A FAIRE - animation de fin de niveau

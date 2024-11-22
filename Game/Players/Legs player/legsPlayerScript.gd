@@ -12,6 +12,7 @@ func _ready() -> void:
 	inJump = false
 	Global.isLegsPlayerJumping = false
 
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -22,11 +23,12 @@ func _physics_process(delta: float) -> void:
 		Global.isLegsPlayerJumping = false
 		
 	var directionX = Input.get_axis("legsLeft", "legsRight")
-
-	if directionX:
-		velocity.x = directionX * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	if Global.can_move:
+		if directionX:
+			velocity.x = directionX * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	# Handle jump.				
 	if Input.is_action_just_pressed("legsJump") and is_on_floor():
