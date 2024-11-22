@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
+const CLIMBHORIZONTALSPEED = 50.0
 const CLIMB_SPEED = 5.0
 const JUMP_VELOCITY = -450.0
 
@@ -29,7 +30,19 @@ func _physics_process(delta: float) -> void:
 		inClimb = false
 		
 	var directionX = Input.get_axis("legsLeft", "legsRight")
+	var directionXarms = Input.get_axis("armsLeft", "armsRight")
 	var directionY := Input.get_axis("armsUp", "armsDown")
+
+	if directionX and !inHang:
+		if inClimb:
+			velocity.x = directionX * CLIMBHORIZONTALSPEED
+		else:
+			velocity.x = directionX * SPEED
+	elif directionXarms and inHang:
+		velocity.x = directionXarms * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
 	
 	if Global.can_move:
 		if directionX:

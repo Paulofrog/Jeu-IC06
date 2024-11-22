@@ -2,6 +2,11 @@ extends Control
 
 @onready var main = $"../../"
 
+func _process(delta: float) -> void:
+	#if Input.is_action_just_pressed("pause"):
+			#main.pauseMenu()
+	pass
+
 func _on_resume_pressed() -> void:
 	main.pauseMenu()
 

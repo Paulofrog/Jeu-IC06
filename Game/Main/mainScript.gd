@@ -31,7 +31,6 @@ var level2 = preload("res://Game/Levels/Level 2/level2Scene.tscn")
 var level3 = preload("res://Game/Levels/Level 3/level3Scene.tscn")
 var dialogueScene = preload("res://Game/UI/NarrativeDisplay/Dialogues.tscn")
 
-
 func _ready() -> void:
 	pausemenu = $CanvasLayer/PauseMenu
 	$ProximityLabel.hide()
@@ -261,4 +260,5 @@ func dialogue(key):
 		instance.queue_free()
 	instance = dialogueScene.instantiate()
 	instance.displayDialogs(key)
-	add_child.call_deferred(instance)
+	add_child(instance)
+	move_child(instance, 0)
