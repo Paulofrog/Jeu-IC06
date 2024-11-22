@@ -106,3 +106,20 @@ func _physics_process(delta: float) -> void:
 		else:
 			$Appearance.play("hangIdle")
 	move_and_slide()
+
+
+func endAnimation() -> void:
+	velocity.y = JUMP_VELOCITY
+	$Appearance.play("frontJump")
+	await get_tree().create_timer(1.5).timeout
+	
+	velocity.y = JUMP_VELOCITY
+	$Appearance.play("frontJump")
+	await get_tree().create_timer(1.5).timeout
+	
+	velocity.x = move_toward(velocity.x, 0, SPEED/2.)	# marche pas pour l'instant
+	$Appearance.play("walk")
+	await get_tree().create_timer(1.5).timeout
+	velocity.x = 0
+	
+	# durée totale : 4 secondes
