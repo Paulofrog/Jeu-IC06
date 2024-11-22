@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://tqfw2dtq3amj"
-path="res://.godot/imported/cc.yal.6w6.block.ttf-d1ba67bf165daa85482fc220ad4f1664.fontdata"
+uid="uid://defjoe54te0kd"
+path="res://.godot/imported/Yulong-Italic.ttf-a89d741e95547c18e07b3be87887acc9.fontdata"
 
 [deps]
 
-source_file="res://Game/Assets/Fonts/cc.yal.6w6.block.ttf"
-dest_files=["res://.godot/imported/cc.yal.6w6.block.ttf-d1ba67bf165daa85482fc220ad4f1664.fontdata"]
+source_file="res://Game/Assets/Fonts/Yulong-Italic.ttf"
+dest_files=["res://.godot/imported/Yulong-Italic.ttf-a89d741e95547c18e07b3be87887acc9.fontdata"]
 
 [params]
 

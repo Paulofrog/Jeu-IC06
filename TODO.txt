@@ -31,8 +31,8 @@
 	FAIT - Clean scripts Arms et Legs --> Bcp de superflu
 	Interface utilisateur
 		A FAIRE - trouver une BELLE police et la mettre pour tous les textes
-		A FAIRE - Faire messages narratifs pour aider le joueur
-		A FAIRE - Animations à lier correctement
+		FAIT - Faire messages narratifs pour aider le joueur
+		FAIT - Animations à lier correctement
 		A FAIRE - Mécaniques de jeu qui marchent
 
 > Gauthier

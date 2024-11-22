@@ -516,7 +516,7 @@ size = Vector2(686, 5)
 size = Vector2(670, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh7c6"]
-size = Vector2(24, 256)
+size = Vector2(5, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cnie5"]
 size = Vector2(22, 176)
@@ -594,7 +594,7 @@ debug_color = Color(0.337255, 0.427451, 0.862745, 0.419608)
 [node name="Ladder" type="Area2D" parent="."]
 
 [node name="Ladder1" type="CollisionShape2D" parent="Ladder"]
-position = Vector2(300, 345)
+position = Vector2(300.5, 345)
 shape = SubResource("RectangleShape2D_sh7c6")
 
 [node name="Ladder2" type="CollisionShape2D" parent="Ladder"]
