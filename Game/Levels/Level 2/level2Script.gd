@@ -77,5 +77,5 @@ func endLevel() -> void:	# cette fonction est lancée par mainScript
 	nextLevel.emit()
 
 
-func _on_death_zone_body_exited(body: Node2D) -> void:
+func _on_death_zone_body_exited(_body: Node2D) -> void:
 	pass # Replace with function body.

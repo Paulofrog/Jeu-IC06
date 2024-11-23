@@ -35,7 +35,7 @@ func _ready() -> void:
 	pausemenu = $CanvasLayer/PauseMenu
 	$ProximityLabel.hide()
 	Global.ecrous = 0
-	currentLevel = 2
+	currentLevel = 1
 	levelSetUp()
 
 
@@ -225,7 +225,6 @@ func assemble_players() -> void:
 	
 	if currentLevel >= 1 and currentLevel <= 1:
 		# incrémenter la deuxième condition quand on aura fait les autres endAniamtions
-		await get_tree().create_timer(3).timeout		# temporaire, pour debug
 		Global.can_move = false
 		await get_tree().create_timer(.3).timeout
 		dialogue("endingLevel")

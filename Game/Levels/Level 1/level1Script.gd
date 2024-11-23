@@ -18,7 +18,7 @@ func _ready() -> void:
 	isArmsPlayerInEndZone = false
 	everyNutFound = false
 	ecrousCount = $Ecrous.get_child_count()
-	# $"..".assemble_players()      (pour debug l'animation de fin)
+	# $"..".assemble_players()      #(pour debug l'animation de fin)
 
 
 func _process(_delta: float) -> void:
@@ -85,7 +85,7 @@ func _on_end_zone_body_exited(body: Node2D) -> void:
 	elif body.name == "ArmsPlayer":
 		isArmsPlayerInEndZone = false
 		Global.can_change_assembly_state = false
-	if everyNutFound:
+	if everyNutFound and $"..".currentLevel == 1:
 		$"..".dialogue("leavingEndZone")
 
 
@@ -95,6 +95,6 @@ func endLevel() -> void:	# cette fonction est lancée par mainScript
 	# 2) perso saute	
 	# 3) porte s'ouvre et perso sort de l'écran
 	$"..".playEndAnimation()
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(4.5).timeout
 	nextLevel.emit()
 	Global.can_move = true
