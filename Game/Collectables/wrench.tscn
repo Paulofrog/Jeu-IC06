@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://cuhj0dworrtjk"]
+
+[ext_resource type="Script" path="res://Game/Collectables/wrench.gd" id="1_1w2b2"]
+[ext_resource type="Texture2D" uid="uid://c4tmb8p04quh5" path="res://Game/Assets/Images/Wrench sprites/0000.png" id="2_jorym"]
+[ext_resource type="Texture2D" uid="uid://c3q6mhr4uevgq" path="res://Game/Assets/Images/Wrench sprites/0005.png" id="3_qxjl5"]
+[ext_resource type="Texture2D" uid="uid://crsf5uksu1c4i" path="res://Game/Assets/Images/Wrench sprites/0010.png" id="4_bgwl8"]
+[ext_resource type="Texture2D" uid="uid://dnseibduc83qv" path="res://Game/Assets/Images/Wrench sprites/0015.png" id="5_xo0ro"]
+[ext_resource type="Texture2D" uid="uid://km54adj6xbu0" path="res://Game/Assets/Images/Wrench sprites/0020.png" id="6_djtyd"]
+[ext_resource type="Texture2D" uid="uid://b7pbopc7fwruq" path="res://Game/Assets/Images/Wrench sprites/0025.png" id="7_l1bhq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r5h17"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jorym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qxjl5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bgwl8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xo0ro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_djtyd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_l1bhq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1q1hf"]
+size = Vector2(16, 21)
+
+[node name="Wrench" type="Node2D"]
+script = ExtResource("1_1w2b2")
+
+[node name="Appearance" type="AnimatedSprite2D" parent="."]
+position = Vector2(8.26732, -10.6916)
+scale = Vector2(0.022125, 0.022125)
+sprite_frames = SubResource("SpriteFrames_r5h17")
+animation = &"idle"
+frame = 2
+frame_progress = 0.659097
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(8, -10.5)
+shape = SubResource("RectangleShape2D_1q1hf")
