@@ -9,9 +9,10 @@
 			A VOIR - implémenter les messages d'erreur de Gauthier
 	Niveaux : 
 			EN COURS - faire fin niveau 1
-				--> A FAIRE - animation de fin de niveau
+				--> EN COURS - animation de fin de niveau
 			A FAIRE - taille camera = taille écran
-			A FAIRE - écrire des bases des scripts pour lv 2 et lv 3
+			EN COURS - écrire des bases des scripts pour lv 2 et lv 3
+			A FAIRE - faire la gestion de la caméra pour assemblage lv1 et pour lv2 et 3
 
 > Romane
 	FAIT - Ajout d'écran d'accueil basique (start / quit)

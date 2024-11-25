@@ -11,6 +11,10 @@ var inHang
 var inFall
 var inClimb 
 
+var directionX = 0
+var directionXarms = 0
+var directionY = 0
+
 
 func _ready() -> void:
 	inJump = false
@@ -28,10 +32,11 @@ func _physics_process(delta: float) -> void:
 		inHang = false
 		inFall = false
 		inClimb = false
-		
-	var directionX = Input.get_axis("legsLeft", "legsRight")
-	var directionXarms = Input.get_axis("armsLeft", "armsRight")
-	var directionY := Input.get_axis("armsUp", "armsDown")
+	
+	if Global.can_move:
+		directionX = Input.get_axis("legsLeft", "legsRight")
+		directionXarms = Input.get_axis("armsLeft", "armsRight")
+		directionY = Input.get_axis("armsUp", "armsDown")
 
 	if directionX and !inHang:
 		if inClimb:
@@ -44,11 +49,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	
-	if Global.can_move:
-		if directionX:
-			velocity.x = directionX * SPEED
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+	if directionX:
+		velocity.x = directionX * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	if Global.can_hang and Input.is_action_just_pressed("armsHang") and !inFall:
 		$"../Timers/CeilingTimer".start()
@@ -106,3 +110,19 @@ func _physics_process(delta: float) -> void:
 		else:
 			$Appearance.play("hangIdle")
 	move_and_slide()
+
+
+func endAnimation() -> void:
+	velocity.y = JUMP_VELOCITY
+	$Appearance.play("frontJump")
+	await get_tree().create_timer(1.5).timeout
+	
+	velocity.y = JUMP_VELOCITY
+	$Appearance.play("frontJump")
+	await get_tree().create_timer(1.5).timeout
+	
+	directionX = 1
+	await get_tree().create_timer(.5).timeout
+	directionX = 0
+	
+	# durée totale : 3.5 secondes

@@ -13,7 +13,7 @@ var pausemenu
 var legsInstance
 var armsInstance
 var completeInstance
-var instance #dialogueInstance
+var dialogueInstance
 
 var currentLevel
 var levelScene
@@ -35,7 +35,7 @@ func _ready() -> void:
 	pausemenu = $CanvasLayer/PauseMenu
 	$ProximityLabel.hide()
 	Global.ecrous = 0
-	currentLevel = 2
+	currentLevel = 1
 	levelSetUp()
 
 
@@ -225,7 +225,17 @@ func assemble_players() -> void:
 	
 	if currentLevel >= 1 and currentLevel <= 1:
 		# incrémenter la deuxième condition quand on aura fait les autres endAniamtions
+		Global.can_move = false
+		await get_tree().create_timer(.3).timeout
+		dialogue("endingLevel")
+		while dialogueInstance != null:
+				await get_tree().process_frame
+		await get_tree().create_timer(.3).timeout
 		levelInstance.endLevel()
+
+
+func playEndAnimation() -> void:
+	$CompletePlayer.endAnimation()
 
 
 func separate_players() -> void:
@@ -256,9 +266,9 @@ func kill_player() -> void:
 	$CompletePlayer.position = completePlayerSpawnPoint
 
 func dialogue(key):
-	if instance != null:
-		instance.queue_free()
-	instance = dialogueScene.instantiate()
-	instance.displayDialogs(key)
-	add_child(instance)
-	move_child(instance, 0)
+	if dialogueInstance != null:
+		dialogueInstance.queue_free()
+	dialogueInstance = dialogueScene.instantiate()
+	dialogueInstance.displayDialogs(key)
+	add_child(dialogueInstance)
+	move_child(dialogueInstance, 0)
