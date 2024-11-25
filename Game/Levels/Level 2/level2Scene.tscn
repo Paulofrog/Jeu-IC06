@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=4 uid="uid://74lkrgkyi8pa"]
 
 [ext_resource type="Script" path="res://Game/Levels/Level 2/level2Script.gd" id="1_2g57p"]
-[ext_resource type="Texture2D" uid="uid://dph7bw0sa5do3" path="res://Game/Levels/Level 1/1.png" id="1_gg1of"]
+[ext_resource type="Texture2D" uid="uid://bot6aryi0ybpw" path="res://Game/Levels/Level 1/1.png" id="1_gg1of"]
 [ext_resource type="Texture2D" uid="uid://cf0mtqki23qw2" path="res://Game/Levels/Level 1/IndustrialTile_81-0.png" id="2_6cope"]
 [ext_resource type="Texture2D" uid="uid://dmly0jh2qxtu8" path="res://Game/Levels/Level 1/Ladder2-0.png" id="3_36p7h"]
 
@@ -505,7 +505,7 @@ tile_map_data = PackedByteArray("AABAAFoAAAAMAAYAAABAAFsAAAAMAAcAAABBAFoAAAANAAY
 tile_set = SubResource("TileSet_ucm51")
 
 [node name="CompletePlayerSpawnPoint" type="Marker2D" parent="."]
-position = Vector2(939, 60)
+position = Vector2(49, 1619)
 
 [node name="Ceiling" type="Area2D" parent="."]
 
