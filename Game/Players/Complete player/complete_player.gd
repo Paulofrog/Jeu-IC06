@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	if Global.can_hang and Input.is_action_just_pressed("armsHang") and !inFall:
+	if Global.can_hang and Input.is_action_pressed("armsHang") and !inFall:
 		$"../Timers/CeilingTimer".start()
 		inHang = true
 		velocity.y = 0
@@ -74,13 +74,13 @@ func _physics_process(delta: float) -> void:
 		
 	# Handle jump.
 	if Global.can_climb:
-		inClimb = true
 		if (Input.is_action_pressed("armsUp") and Input.is_action_pressed("legsJump")) or (Input.is_action_pressed("armsDown") and Input.is_action_pressed("legsDown")):
 			velocity.y = 0
 			position.y += directionY * CLIMB_SPEED
+			inClimb = true
 			$Appearance.play("climb")
 		else:
-			if !is_on_floor():
+			if !is_on_floor() and inClimb:
 				velocity.y = 0
 				$Appearance.play("climbIdle")
 			else:
@@ -100,7 +100,7 @@ func _physics_process(delta: float) -> void:
 			$Appearance.flip_h = directionX < 0
 		else:
 			$Appearance.play("idle")
-	elif inJump:
+	elif inJump and !inHang:
 		if directionX:
 			$Appearance.play("sideJump")
 			$Appearance.flip_h = directionX < 0
