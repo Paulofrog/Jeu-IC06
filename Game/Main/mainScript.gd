@@ -167,7 +167,7 @@ func SetCompletePlayerSpawnPosition():
 func resetCamera() -> void:
 	levelWitdh = levelInstance.get_node("Background").scale.x * levelInstance.get_node("Background").texture.get_width()
 	screenWitdh = get_viewport().get_visible_rect().size.x
-	$Camera.position = Vector2(levelWitdh/2, levelWitdh/2.*0.521)
+	$Camera.position = Vector2(levelWitdh/2., levelWitdh/2.*0.521)
 	var ratio = screenWitdh / levelWitdh
 	$Camera.zoom = Vector2(ratio, ratio)
 
@@ -177,8 +177,9 @@ func UpdateCameraPosition():
 
 
 func UpdateCameraPositionAssembled():
-	$Camera.position = $CompletePlayer.global_position
-
+	$Camera.position.y = $CompletePlayer.global_position.y - 260
+	# clamp($Camera.position.y, 0, 1420 )
+	# à fix
 
 func UpdateCameraZoom(delta):
 	distance = abs(($ArmsPlayer.global_position - $LegsPlayer.global_position) / 2)
