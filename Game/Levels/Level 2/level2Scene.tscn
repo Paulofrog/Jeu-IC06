@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=4 uid="uid://74lkrgkyi8pa"]
+[gd_scene load_steps=21 format=4 uid="uid://74lkrgkyi8pa"]
 
 [ext_resource type="Script" path="res://Game/Levels/Level 2/level2Script.gd" id="1_2g57p"]
 [ext_resource type="Texture2D" uid="uid://cf0mtqki23qw2" path="res://Game/Levels/Level 1/IndustrialTile_81-0.png" id="2_6cope"]
 [ext_resource type="Texture2D" uid="uid://otn3syq7nl0l" path="res://Game/Levels/Level 2/Niveau 2.png" id="2_h6ygq"]
 [ext_resource type="Texture2D" uid="uid://dmly0jh2qxtu8" path="res://Game/Levels/Level 1/Ladder2-0.png" id="3_36p7h"]
+[ext_resource type="PackedScene" uid="uid://cuhj0dworrtjk" path="res://Game/Collectables/wrench.tscn" id="5_ju4xb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jbmu2"]
 texture = ExtResource("2_6cope")
@@ -566,6 +567,9 @@ shape = SubResource("RectangleShape2D_i5ycp")
 position = Vector2(626, 1677)
 shape = SubResource("RectangleShape2D_nvxo8")
 debug_color = Color(0.776471, 0.407843, 0.435294, 0.419608)
+
+[node name="Wrench" parent="." instance=ExtResource("5_ju4xb")]
+position = Vector2(25, -555)
 
 [connection signal="body_entered" from="Ceiling" to="." method="_on_ceiling_body_entered"]
 [connection signal="body_exited" from="Ceiling" to="." method="_on_ceiling_body_exited"]

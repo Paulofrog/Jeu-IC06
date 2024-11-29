@@ -7,7 +7,7 @@ signal nutJustCollected
 
 func _ready() -> void:
 	$Appearance.play("idle")
-	targetPos = get_tree().current_scene.get_node("CanvasLayer/HUD/Ecrou").global_position
+	targetPos = Vector2(0, 0)
 	label = get_tree().current_scene.get_node("CanvasLayer/HUD/EcrouScore")
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -15,7 +15,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		Global.ecrous += 1
 		nutJustCollected.emit()
 		var tween = get_tree().create_tween()
-		#tween.tween_property(self, "global_position", targetPos, 0.5).set_ease(Tween.EASE_IN)
+		tween.tween_property(self, "global_position", targetPos, 0.5).set_ease(Tween.EASE_IN)
 		tween.chain().tween_property(self, "visible", false, 0.0)
 		tween.tween_property(label, "scale", Vector2(1.0, 1.0), 0.05)
 		tween.tween_property(label, "text", str(Global.ecrous), 0.0)

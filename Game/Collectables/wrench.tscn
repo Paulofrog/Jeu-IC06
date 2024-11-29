@@ -35,23 +35,23 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1q1hf"]
-size = Vector2(16, 21)
+size = Vector2(45, 58)
 
 [node name="Wrench" type="Node2D"]
 script = ExtResource("1_1w2b2")
 
 [node name="Appearance" type="AnimatedSprite2D" parent="."]
-position = Vector2(8.26732, -10.6916)
-scale = Vector2(0.022125, 0.022125)
+position = Vector2(21.7673, -28.7109)
+scale = Vector2(0.0607516, 0.0607516)
 sprite_frames = SubResource("SpriteFrames_r5h17")
 animation = &"idle"
 frame = 2
-frame_progress = 0.659097
+frame_progress = 0.954991
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
-position = Vector2(8, -10.5)
+position = Vector2(22.5, -29)
 shape = SubResource("RectangleShape2D_1q1hf")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
