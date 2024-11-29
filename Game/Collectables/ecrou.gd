@@ -7,7 +7,7 @@ signal nutJustCollected
 
 func _ready() -> void:
 	$Appearance.play("idle")
-	targetPos = get_tree().current_scene.get_node("CanvasLayer/HUD/Sprite2D").global_position
+	targetPos = get_tree().current_scene.get_node("CanvasLayer/HUD/Ecrou").global_position
 	label = get_tree().current_scene.get_node("CanvasLayer/HUD/EcrouScore")
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
