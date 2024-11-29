@@ -35,7 +35,7 @@ func _ready() -> void:
 	pausemenu = $CanvasLayer/PauseMenu
 	$ProximityLabel.hide()
 	Global.ecrous = 0
-	currentLevel = 1
+	currentLevel = 2
 	levelSetUp()
 
 
@@ -88,6 +88,7 @@ func levelSetUp() -> void:
 		1:
 			levelScene = level1
 			twoPlayerSetUp()
+			showEcrou()
 			Global.can_change_assembly_state = false
 			levelInstance = levelScene.instantiate()
 			add_child(levelInstance)
@@ -103,6 +104,7 @@ func levelSetUp() -> void:
 		2:
 			levelScene = level2
 			completePlayerSetUp()
+			hideEcrou()
 			Global.can_change_assembly_state = false # jsp ce qu'on avait dit, à vérifier
 			levelInstance = levelScene.instantiate()
 			add_child(levelInstance)
@@ -115,6 +117,7 @@ func levelSetUp() -> void:
 		3:
 			levelScene = level3
 			completePlayerSetUp()
+			hideEcrou()
 			Global.can_change_assembly_state = true
 			levelInstance = levelScene.instantiate()
 			add_child(levelInstance)
@@ -132,6 +135,11 @@ func nextLevel() -> void:
 	remove_child(levelInstance)
 	levelSetUp()
 
+func hideEcrou() -> void:
+	$CanvasLayer/HUD.hide()
+
+func showEcrou() -> void:
+	$CanvasLayer/HUD.show()
 
 func pauseMenu() -> void:
 	if paused:
