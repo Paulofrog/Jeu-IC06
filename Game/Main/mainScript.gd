@@ -6,6 +6,8 @@ const PROXIMITYLABEL_OFFSET = Vector2(0, -45)
 
 var distance
 var zoom_factor
+var screenWitdh
+var levelWitdh
 
 var paused = false
 var pausemenu
@@ -125,7 +127,7 @@ func levelSetUp() -> void:
 			# levelInstance.nextLevel.connect(Callable(self, "nextLevel")) A décommenter quand le signal nextLevel sera implémenté dans le script du lv2
 			completePlayerSpawnPoint = levelInstance.get_node("CompletePlayerSpawnPoint").position
 			SetCompletePlayerSpawnPosition()
-			#resetCamera()
+			resetCamera()
 		_:
 			get_tree().change_scene_to_file("res://Game/UI/TitleScreen/titleScreenScene.tscn")
 
@@ -163,8 +165,11 @@ func SetCompletePlayerSpawnPosition():
 
 
 func resetCamera() -> void:
-	$Camera.position = Vector2(0, 0)
-	$Camera.zoom = Vector2(levelInstance.get_node("Background").scale.x * levelInstance.get_node("Background").texture.get_width() / get_viewport().get_visible_rect().size.x, levelInstance.get_node("Background").scale.x * levelInstance.get_node("Background").texture.get_width() / get_viewport().get_visible_rect().size.x)
+	levelWitdh = levelInstance.get_node("Background").scale.x * levelInstance.get_node("Background").texture.get_width()
+	screenWitdh = get_viewport().get_visible_rect().size.x
+	$Camera.position = Vector2(levelWitdh/2, levelWitdh/2.*0.521)
+	var ratio = screenWitdh / levelWitdh
+	$Camera.zoom = Vector2(ratio, ratio)
 
 
 func UpdateCameraPosition():
@@ -237,6 +242,7 @@ func assemble_players() -> void:
 	if currentLevel >= 1 and currentLevel <= 1:
 		# incrémenter la deuxième condition quand on aura fait les autres endAniamtions
 		Global.can_move = false
+		#$Camera.position.x = 
 		await get_tree().create_timer(.3).timeout
 		dialogue("endingLevel")
 		while dialogueInstance != null:
