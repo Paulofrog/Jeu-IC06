@@ -35,7 +35,7 @@ func _ready() -> void:
 	pausemenu = $CanvasLayer/PauseMenu
 	$ProximityLabel.hide()
 	Global.ecrous = 0
-	currentLevel = 2
+	currentLevel = 1
 	levelSetUp()
 
 
@@ -72,7 +72,6 @@ func completePlayerSetUp() -> void:
 func levelSetUp() -> void:
 	Global.ecrous = 0
 	Global.can_move = true
-	resetCamera()
 	match currentLevel:
 		0:
 			levelScene = levelTest
@@ -84,6 +83,7 @@ func levelSetUp() -> void:
 			legsPlayerSpawnPoint = levelInstance.get_node("LegsPlayerSpawnPoint").position
 			armsPlayerSpawnPoint = levelInstance.get_node("ArmsPlayerSpawnPoint").position
 			SetTwoPlayersSpawnPositions()
+			resetCamera()
 		1:
 			levelScene = level1
 			twoPlayerSetUp()
@@ -98,6 +98,7 @@ func levelSetUp() -> void:
 			armsPlayerSpawnPoint = levelInstance.get_node("ArmsPlayerSpawnPoint").position
 			SetTwoPlayersSpawnPositions()
 			dialogue("expositionSequence")
+			resetCamera()
 		2:
 			levelScene = level2
 			completePlayerSetUp()
@@ -106,10 +107,10 @@ func levelSetUp() -> void:
 			add_child(levelInstance)
 			move_child(levelInstance, 0)
 			levelInstance.killPlayer.connect(Callable(self, "kill_player"))
-			
 			# levelInstance.nextLevel.connect(Callable(self, "nextLevel")) A décommenter quand le signal nextLevel sera implémenté dans le script du lv2
 			completePlayerSpawnPoint = levelInstance.get_node("CompletePlayerSpawnPoint").position
 			SetCompletePlayerSpawnPosition()
+			resetCamera()
 		3:
 			levelScene = level3
 			completePlayerSetUp()
@@ -120,6 +121,7 @@ func levelSetUp() -> void:
 			# levelInstance.nextLevel.connect(Callable(self, "nextLevel")) A décommenter quand le signal nextLevel sera implémenté dans le script du lv2
 			completePlayerSpawnPoint = levelInstance.get_node("CompletePlayerSpawnPoint").position
 			SetCompletePlayerSpawnPosition()
+			#resetCamera()
 		_:
 			get_tree().change_scene_to_file("res://Game/UI/TitleScreen/titleScreenScene.tscn")
 
@@ -152,8 +154,8 @@ func SetCompletePlayerSpawnPosition():
 
 
 func resetCamera() -> void:
-	$Camera.position = Vector2(960, 505)
-	$Camera.zoom = Vector2(1, 1)
+	$Camera.position = Vector2(0, 0)
+	$Camera.zoom = Vector2(levelInstance.get_node("Background").scale.x * levelInstance.get_node("Background").texture.get_width() / get_viewport().get_visible_rect().size.x, levelInstance.get_node("Background").scale.x * levelInstance.get_node("Background").texture.get_width() / get_viewport().get_visible_rect().size.x)
 
 
 func UpdateCameraPosition():

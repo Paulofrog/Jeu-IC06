@@ -1,9 +1,6 @@
 > > > > > > > > > > > > > > > Fonctionnalités à implémenter < < < < < < < < < < < < < < <
 
 > Paul
-	ArmsPlayer et LegsPlayer : 
-		Gérer les animations
-			A FAIRE - régler la vitesse pour que les animations soient réalistes
 	Interface utilisateur :
 		Narration
 			A VOIR - implémenter les messages d'erreur de Gauthier
@@ -45,4 +42,6 @@
 		A FAIRE - musique menu
 
 >> A attribuer <<
-	
+	A FAIRE - ajouter une porte de fin de niveau et son animation d'ouverture pour tous les niveaux
+	A FAIRE - régler tous les bugs d'animations de suspension du perso assemblé (lv2)
+	A FAIRE - bug : on ne peut pas descendre d'une échelle ?

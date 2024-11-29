@@ -16,8 +16,7 @@ size = Vector2(40, 532)
 script = ExtResource("1_cu2if")
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(951, 540)
-zoom = Vector2(1.795, 1.795)
+anchor_mode = 0
 position_smoothing_speed = 10.0
 
 [node name="MovementArea" type="StaticBody2D" parent="Camera"]
