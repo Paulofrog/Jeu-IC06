@@ -18,7 +18,7 @@ func _ready() -> void:
 	isArmsPlayerInEndZone = false
 	everyNutFound = false
 	ecrousCount = $Ecrous.get_child_count()
-	# $"..".assemble_players()      #(pour debug l'animation de fin)
+	$"..".assemble_players()      #(pour debug l'animation de fin)
 
 
 func _process(_delta: float) -> void:

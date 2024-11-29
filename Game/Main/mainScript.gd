@@ -63,10 +63,11 @@ func twoPlayerSetUp() -> void:
 
 
 func completePlayerSetUp() -> void:
-	completeInstance = completeplayerScene.instantiate()
-	add_child(completeInstance)
-	move_child(completeInstance, 0)
-	Global.are_assembled = true
+	if !(is_instance_valid(completeInstance)):
+		completeInstance = completeplayerScene.instantiate()
+		add_child(completeInstance)
+		move_child(completeInstance, 0)
+		Global.are_assembled = true
 
 
 func levelSetUp() -> void:

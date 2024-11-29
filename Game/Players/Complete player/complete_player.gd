@@ -63,6 +63,9 @@ func _physics_process(delta: float) -> void:
 			$"../Timers/CeilingTimer".stop()
 			inFall = true
 			inHang = false
+		if !Global.can_hang:
+			inFall = true
+			inHang = false
 		velocity.y = 0		
 	if inHang and Input.is_action_just_released("armsHang") and !inFall:
 		$"../Timers/CeilingTimer".stop()
@@ -72,7 +75,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Global.can_climb:
 		inClimb = true
-		if directionY and Input.is_action_pressed("legsJump"):
+		if (Input.is_action_pressed("armsUp") and Input.is_action_pressed("legsJump")) or (Input.is_action_pressed("armsDown") and Input.is_action_pressed("legsDown")):
 			velocity.y = 0
 			position.y += directionY * CLIMB_SPEED
 			$Appearance.play("climb")

@@ -50,6 +50,9 @@ func _physics_process(delta: float) -> void:
 			$"../Timers/CeilingTimer".stop()
 			inFall = true
 			inHang = false
+		if !Global.can_hang:
+			inFall = true
+			inHang = false
 		velocity.y = 0		
 	if inHang and Input.is_action_just_released("armsHang") and !inFall:
 		$"../Timers/CeilingTimer".stop()
