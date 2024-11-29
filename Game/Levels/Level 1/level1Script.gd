@@ -12,7 +12,6 @@ var isArmsPlayerInEndZone
 var ecrousCount
 var everyNutFound
 
-
 func _ready() -> void:
 	isLegsPlayerInEndZone = false
 	isArmsPlayerInEndZone = false
