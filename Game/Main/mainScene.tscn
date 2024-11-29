@@ -102,7 +102,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "0"
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/HUD"]
+[node name="Ecrou" type="Sprite2D" parent="CanvasLayer/HUD"]
 position = Vector2(-683.875, -326.546)
 scale = Vector2(0.0483615, 0.0483615)
 texture = ExtResource("5_i74h2")
