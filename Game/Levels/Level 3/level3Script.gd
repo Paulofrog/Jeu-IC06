@@ -4,6 +4,7 @@ signal ceilingEntered
 signal ceilingExited
 signal killLegsPlayer
 signal killArmsPlayer
+signal killPlayer
 signal nextLevel
 
 var isLegsPlayerInEndZone
@@ -44,3 +45,5 @@ func _on_death_zone_body_entered(body: Node2D) -> void:
 		killLegsPlayer.emit()
 	elif body.name == "ArmsPlayer":
 		killArmsPlayer.emit()
+	elif body.name == "CompletePlayer":
+		killPlayer.emit()
