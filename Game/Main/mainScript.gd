@@ -33,6 +33,7 @@ var level2 = preload("res://Game/Levels/Level 2/level2Scene.tscn")
 var level3 = preload("res://Game/Levels/Level 3/level3Scene.tscn")
 var dialogueScene = preload("res://Game/UI/NarrativeDisplay/Dialogues.tscn")
 
+
 func _ready() -> void:
 	pausemenu = $CanvasLayer/PauseMenu
 	$ProximityLabel.hide()
@@ -46,12 +47,11 @@ func _process(delta: float) -> void:
 		pauseMenu()
 	if !Global.are_assembled:
 		if currentLevel == 0:
-			UpdateCameraPosition()
 			UpdateCameraZoom(delta)
 		AssembleCheck()
 	else:
 		DisassembleCheck()
-		UpdateCameraPositionAssembled()
+	UpdateCameraPosition()
 
 
 func twoPlayerSetUp() -> void:
@@ -124,6 +124,7 @@ func levelSetUp() -> void:
 			levelInstance = levelScene.instantiate()
 			add_child(levelInstance)
 			move_child(levelInstance, 0)
+			levelInstance.killPlayer.connect(Callable(self, "kill_player"))
 			# levelInstance.nextLevel.connect(Callable(self, "nextLevel")) A décommenter quand le signal nextLevel sera implémenté dans le script du lv2
 			completePlayerSpawnPoint = levelInstance.get_node("CompletePlayerSpawnPoint").position
 			SetCompletePlayerSpawnPosition()
@@ -137,11 +138,14 @@ func nextLevel() -> void:
 	remove_child(levelInstance)
 	levelSetUp()
 
+
 func hideEcrou() -> void:
 	$CanvasLayer/HUD.hide()
 
+
 func showEcrou() -> void:
 	$CanvasLayer/HUD.show()
+
 
 func pauseMenu() -> void:
 	if paused:
@@ -174,25 +178,31 @@ func resetCamera() -> void:
 		2:
 			$Camera.position.y = 1400
 		3:
-			$Camera.position.y = 432		# à déterminer
+			$Camera.position.y = 817
 		_:
 			$Camera.position.y = levelWitdh/2.*0.521
 
 
 func UpdateCameraPosition():
-	$Camera.position = ($ArmsPlayer.global_position + $LegsPlayer.global_position) / 2
-
-
-func UpdateCameraPositionAssembled():
 	match currentLevel:
+		1:
+			pass
 		2:
 			if $CompletePlayer.global_position.y <= 1400:
 				$Camera.position.y = $CompletePlayer.global_position.y
 		3:
-			if $CompletePlayer.global_position.y <= 800:
-				$Camera.position.y = $CompletePlayer.global_position.y
+			if Global.are_assembled:
+				if $CompletePlayer.global_position.y <= 817:
+					$Camera.position.y = $CompletePlayer.global_position.y
+			else:
+				if $ArmsPlayer.global_position.y >= $LegsPlayer.global_position.y:
+					if $ArmsPlayer.global_position.y <= 817:
+						$Camera.position.y = $ArmsPlayer.global_position.y
+				else:
+					if $LegsPlayer.global_position.y <= 817:
+						$Camera.position.y = $LegsPlayer.global_position.y
 		_:
-			pass
+			$Camera.position = ($ArmsPlayer.global_position + $LegsPlayer.global_position) / 2
 
 
 func UpdateCameraZoom(delta):
@@ -221,14 +231,17 @@ func AssembleCheck():
 		distance = $LegsPlayer.global_position.distance_to($ArmsPlayer.global_position)
 		if (distance < PROXIMITY_THRESHOLD):
 			if !Global.are_assembled:
-				$ProximityLabel.position = (($ArmsPlayer.global_position + $LegsPlayer.global_position) / (2)) \
-											- ($ProximityLabel.get_size() / 2) \
-											+ PROXIMITYLABEL_OFFSET
-				$ProximityLabel.show()
+				#$ProximityLabel.position = (($ArmsPlayer.global_position + $LegsPlayer.global_position) / (2)) \
+				#							- ($ProximityLabel.get_size() / 2) \
+				#							+ PROXIMITYLABEL_OFFSET
+				#$ProximityLabel.show()
+				pass
 			else:
-				$ProximityLabel.hide()
+				#$ProximityLabel.hide()
+				pass
 		else:
-			$ProximityLabel.hide()
+			#$ProximityLabel.hide()
+			pass
 		
 		if distance < PROXIMITY_THRESHOLD:
 			if Input.is_action_pressed("legsAssembly") and Input.is_action_pressed("armsAssembly"):
@@ -294,6 +307,7 @@ func kill_legs_player() -> void:
 func kill_player() -> void:
 	$CompletePlayer.velocity = Vector2(0, 0)
 	$CompletePlayer.position = completePlayerSpawnPoint
+
 
 func dialogue(key):
 	if dialogueInstance != null:

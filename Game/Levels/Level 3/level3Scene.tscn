@@ -510,8 +510,8 @@ size = Vector2(129, 34.5)
 script = ExtResource("1_0surk")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(495, -79.9999)
-scale = Vector2(4.7109, 7.2163)
+position = Vector2(496, -80)
+scale = Vector2(4.70142, 7.22257)
 texture = ExtResource("2_ov1ke")
 
 [node name="TileMap" type="TileMapLayer" parent="."]
@@ -523,7 +523,7 @@ tile_map_data = PackedByteArray("AAA4AD8AAAAMAAYAAAA4AEAAAAAMAAcAAAA5AD8AAAANAAY
 tile_set = SubResource("TileSet_pb4tp")
 
 [node name="CompletePlayerSpawnPoint" type="Marker2D" parent="."]
-position = Vector2(408, -844)
+position = Vector2(96, 1000)
 
 [node name="Ceiling" type="Area2D" parent="."]
 
@@ -625,4 +625,3 @@ debug_color = Color(0.776471, 0.407843, 0.435294, 0.419608)
 [connection signal="body_entered" from="Ladder" to="." method="_on_ladder_body_entered"]
 [connection signal="body_exited" from="Ladder" to="." method="_on_ladder_body_exited"]
 [connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
-[connection signal="body_exited" from="DeathZone" to="." method="_on_death_zone_body_exited"]
