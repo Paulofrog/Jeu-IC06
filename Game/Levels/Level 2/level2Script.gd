@@ -6,11 +6,13 @@ signal killPlayer
 signal nextLevel
 
 var isPlayerInEndZone
-
+var musicPlayer : AudioStreamPlayer
 
 func _ready() -> void:
 	isPlayerInEndZone = false
-
+	musicPlayer = $Musique2
+	musicPlayer.play()
+	
 
 func _process(_delta: float) -> void:
 	pass

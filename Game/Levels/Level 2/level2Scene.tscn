@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=4 uid="uid://74lkrgkyi8pa"]
+[gd_scene load_steps=22 format=4 uid="uid://74lkrgkyi8pa"]
 
 [ext_resource type="Script" path="res://Game/Levels/Level 2/level2Script.gd" id="1_2g57p"]
 [ext_resource type="Texture2D" uid="uid://cf0mtqki23qw2" path="res://Game/Levels/Level 1/IndustrialTile_81-0.png" id="2_6cope"]
 [ext_resource type="Texture2D" uid="uid://otn3syq7nl0l" path="res://Game/Levels/Level 2/Niveau 2.png" id="2_h6ygq"]
+[ext_resource type="AudioStream" uid="uid://cycdwqyhr8i41" path="res://Game/Assets/Musique/niveau 2.mp3" id="2_vkos3"]
 [ext_resource type="Texture2D" uid="uid://dmly0jh2qxtu8" path="res://Game/Levels/Level 1/Ladder2-0.png" id="3_36p7h"]
 [ext_resource type="PackedScene" uid="uid://cuhj0dworrtjk" path="res://Game/Collectables/wrench.tscn" id="5_ju4xb"]
 
@@ -495,6 +496,10 @@ size = Vector2(287, 36)
 
 [node name="Level2" type="Node"]
 script = ExtResource("1_2g57p")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vkos3")
+autoplay = true
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(575, 499.5)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=29 format=4 uid="uid://cjrv4cok8382"]
+[gd_scene load_steps=30 format=4 uid="uid://cjrv4cok8382"]
 
 [ext_resource type="Script" path="res://Game/Levels/Level 3/level3Script.gd" id="1_0surk"]
+[ext_resource type="AudioStream" uid="uid://c3cg1j7pstf4b" path="res://Game/Assets/Musique/niveau 3.mp3" id="2_47fep"]
 [ext_resource type="Texture2D" uid="uid://co5rsfwri27cg" path="res://Game/Levels/Level 3/Niveau 3 background.PNG" id="2_ov1ke"]
 [ext_resource type="Texture2D" uid="uid://cf0mtqki23qw2" path="res://Game/Levels/Level 1/IndustrialTile_81-0.png" id="3_0yy34"]
 [ext_resource type="Texture2D" uid="uid://dmly0jh2qxtu8" path="res://Game/Levels/Level 1/Ladder2-0.png" id="4_1a57c"]
@@ -508,6 +509,11 @@ size = Vector2(129, 34.5)
 
 [node name="Level3" type="Node"]
 script = ExtResource("1_0surk")
+
+[node name="Musique3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_47fep")
+autoplay = true
+parameters/looping = true
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(496, -80)

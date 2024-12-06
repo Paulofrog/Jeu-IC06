@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=4 uid="uid://c1twm6qw3aove"]
+[gd_scene load_steps=25 format=4 uid="uid://c1twm6qw3aove"]
 
 [ext_resource type="Texture2D" uid="uid://cf0mtqki23qw2" path="res://Game/Levels/Level 1/IndustrialTile_81-0.png" id="1_dbu7c"]
 [ext_resource type="Script" path="res://Game/Levels/Level 1/level1Script.gd" id="1_v0f40"]
 [ext_resource type="Texture2D" uid="uid://q42tgsyqql30" path="res://Game/Levels/Level 1/craftpix-net-314143-free-industrial-zone-tileset-pixel-art/2 Background/Background.png" id="2_0lopn"]
+[ext_resource type="AudioStream" uid="uid://dlb4mjx722te4" path="res://Game/Assets/Musique/niveau 1.mp3" id="2_mdrsj"]
 [ext_resource type="Texture2D" uid="uid://31sj72rkjao6" path="res://Game/Assets/Images/Ladder2-0.png" id="3_8e15i"]
 [ext_resource type="PackedScene" uid="uid://cughft0iyembk" path="res://Game/Collectables/Ecrou.tscn" id="5_6kgi7"]
 
@@ -556,6 +557,10 @@ size = Vector2(185, 116)
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_v0f40")
+
+[node name="Musique1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mdrsj")
+autoplay = true
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(960.726, 497)

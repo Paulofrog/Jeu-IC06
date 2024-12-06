@@ -10,9 +10,13 @@ signal killPlayer
 var isLegsPlayerInEndZone
 var isArmsPlayerInEndZone
 var isPlayerInEndZone
+var musicPlayer : AudioStreamPlayer
 
 func _ready() -> void:
 	isPlayerInEndZone = false
+	musicPlayer = $Musique3
+	musicPlayer.play()    
+
 	
 func _process(_delta: float) -> void:
 	pass

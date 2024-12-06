@@ -11,12 +11,15 @@ var isArmsPlayerInEndZone
 
 var ecrousCount
 var everyNutFound
+var musicPlayer : AudioStreamPlayer
 
 func _ready() -> void:
 	isLegsPlayerInEndZone = false
 	isArmsPlayerInEndZone = false
 	everyNutFound = false
 	ecrousCount = $Ecrous.get_child_count()
+	musicPlayer = $Musique1
+	musicPlayer.play()
 	#$"..".assemble_players()      #(pour debug l'animation de fin)
 
 
