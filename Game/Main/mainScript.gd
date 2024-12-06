@@ -251,9 +251,7 @@ func assemble_players() -> void:
 	$CompletePlayer.position = $ArmsPlayer.position
 	armsInstance.queue_free()
 	legsInstance.queue_free()
-	$MetalAudioPlayer.play()
-	dialogue("example")
-	
+	$MetalAudioPlayer.play()	
 	if currentLevel >= 1 and currentLevel <= 1:
 		# incrémenter la deuxième condition quand on aura fait les autres endAniamtions
 		Global.can_move = false
