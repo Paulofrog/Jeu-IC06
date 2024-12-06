@@ -497,7 +497,7 @@ size = Vector2(287, 36)
 [node name="Level2" type="Node"]
 script = ExtResource("1_2g57p")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Musique2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_vkos3")
 autoplay = true
 
