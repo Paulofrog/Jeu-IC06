@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://ke6k8ufdjwdj"]
+[gd_scene load_steps=25 format=3 uid="uid://ke6k8ufdjwdj"]
 
 [ext_resource type="Script" path="res://Game/UI/TitleScreen/title_screen_scene.gd" id="1_fgq64"]
+[ext_resource type="AudioStream" uid="uid://dqa42ijuvhh5w" path="res://Game/Assets/Musique/Menu principale.mp3" id="2_4rkjl"]
 [ext_resource type="Texture2D" uid="uid://d1pakmr6spmua" path="res://Game/Assets/Images/Title Screen/background.jpg" id="2_v7y4n"]
 [ext_resource type="Texture2D" uid="uid://bl5lo01xugi56" path="res://Game/Assets/Images/StartMenu Sprites/startarms/0000.png" id="3_0wbqy"]
 [ext_resource type="Texture2D" uid="uid://bqaebos8y63lc" path="res://Game/Assets/Images/StartMenu Sprites/startarms/0004.png" id="4_0n8a3"]
@@ -87,6 +88,10 @@ offset_right = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fgq64")
+
+[node name="MusiqueMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4rkjl")
+parameters/looping = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0

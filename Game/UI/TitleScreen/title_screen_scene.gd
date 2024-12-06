@@ -1,11 +1,14 @@
 extends Control
 
 var mainScene
+var musicPlayer : AudioStreamPlayer
 
 func _ready() -> void:
 	mainScene = preload("res://Game/Main/mainScene.tscn")
 	$Arms.play("default")
 	$Legs.play("default")
+	musicPlayer = $MusiqueMenu
+	musicPlayer.play() 
 
 
 func _on_start_pressed() -> void:
