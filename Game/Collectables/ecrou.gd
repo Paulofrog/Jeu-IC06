@@ -14,6 +14,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if(body.name == "LegsPlayer" or body.name == "ArmsPlayer" or body.name == "CompletePlayer"):
 		Global.ecrous += 1
 		nutJustCollected.emit()
+		print("+1")
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "global_position", targetPos, 0.5).set_ease(Tween.EASE_IN)
 		tween.chain().tween_property(self, "visible", false, 0.0)

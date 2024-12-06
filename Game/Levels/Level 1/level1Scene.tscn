@@ -654,10 +654,10 @@ position = Vector2(699, 54.9998)
 position = Vector2(1390, 251)
 
 [node name="Ecrou5" parent="Ecrous" instance=ExtResource("5_6kgi7")]
-position = Vector2(61, 588)
+position = Vector2(62, 591)
 
 [node name="Ecrou6" parent="Ecrous" instance=ExtResource("5_6kgi7")]
-position = Vector2(1101, 591)
+position = Vector2(1102, 590)
 
 [node name="EndZone" type="Node2D" parent="."]
 

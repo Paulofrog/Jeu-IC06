@@ -9,10 +9,10 @@
 script = ExtResource("1_dgqr2")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-offset_left = 22.0
-offset_top = 844.0
-offset_right = 1904.0
-offset_bottom = 1028.0
+offset_left = 24.0
+offset_top = 809.0
+offset_right = 1906.0
+offset_bottom = 993.0
 texture = ExtResource("2_4q43i")
 region_rect = Rect2(1, 1, 599, 301)
 patch_margin_left = 124
@@ -21,10 +21,10 @@ patch_margin_right = 173
 patch_margin_bottom = 81
 
 [node name="Text" type="RichTextLabel" parent="."]
-offset_left = 89.0
-offset_top = 905.0
-offset_right = 1876.0
-offset_bottom = 985.0
+offset_left = 91.0
+offset_top = 870.0
+offset_right = 1878.0
+offset_bottom = 950.0
 theme_override_colors/default_color = Color(0.565369, 0.889971, 1, 1)
 theme_override_constants/line_separation = 5
 theme_override_fonts/normal_font = ExtResource("3_0540u")
