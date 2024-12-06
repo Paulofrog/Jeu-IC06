@@ -15,6 +15,8 @@ var directionX = 0
 var directionXarms = 0
 var directionY = 0
 
+var click_timer
+
 
 func _ready() -> void:
 	inJump = false
@@ -53,11 +55,15 @@ func _physics_process(delta: float) -> void:
 		velocity.x = directionX * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	print(inFall)
+		
+	if Input.is_action_just_pressed("armsHang"):
+		click_timer = get_tree().create_timer(0.5)		
+
 	if Global.can_hang and Input.is_action_pressed("armsHang") and !inFall:
-		$"../Timers/CeilingTimer".start()
-		inHang = true
-		velocity.y = 0
+		if click_timer != null and click_timer.time_left > 0:
+			$"../Timers/CeilingTimer".start()
+			inHang = true
+			velocity.y = 0
 	if inHang and Input.is_action_pressed("armsHang") and !inFall:
 		if $"../Timers/CeilingTimer".get_time_left() == 0:
 			$"../Timers/CeilingTimer".stop()
