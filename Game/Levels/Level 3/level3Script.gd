@@ -5,7 +5,7 @@ signal ceilingExited
 signal killLegsPlayer
 signal killArmsPlayer
 signal killPlayer
-signal nextLevel
+#signal nextLevel
 
 var isLegsPlayerInEndZone
 var isArmsPlayerInEndZone
