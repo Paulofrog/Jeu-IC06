@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2om6os6haj1"]
+[gd_scene load_steps=8 format=3 uid="uid://b2om6os6haj1"]
 
 [ext_resource type="Script" path="res://Game/Main/mainScript.gd" id="1_cu2if"]
+[ext_resource type="Texture2D" uid="uid://cgvjnpcol36hq" path="res://icon.svg" id="3_i6e74"]
 [ext_resource type="PackedScene" uid="uid://b5bicbah67v4c" path="res://Game/UI/PauseScreen/pauseScreenScene.tscn" id="5_hwaqx"]
 [ext_resource type="Texture2D" uid="uid://bnh48vb6ac2i4" path="res://Game/Assets/Images/Ecrou sprites/0000000004.png" id="5_i74h2"]
 [ext_resource type="AudioStream" uid="uid://frt5m4m3t0ay" path="res://Game/Assets/Sound Effects/metal-beaten-sfx-230501.mp3" id="8_2bgkw"]
@@ -65,6 +66,10 @@ wait_time = 0.4
 one_shot = true
 
 [node name="CeilingTimer" type="Timer" parent="Timers"]
+wait_time = 1.5
+one_shot = true
+
+[node name="ArmsCeilingTimer" type="Timer" parent="Timers"]
 wait_time = 3.0
 one_shot = true
 
@@ -74,6 +79,22 @@ one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 689.0
+offset_top = 357.0
+offset_right = 689.0
+offset_bottom = 357.0
+texture = ExtResource("3_i6e74")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+offset_left = 689.0
+offset_top = 357.0
+offset_right = 689.0
+offset_bottom = 357.0
+texture = ExtResource("3_i6e74")
+expand_mode = 1
+
 [node name="HUD" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
@@ -82,9 +103,17 @@ offset_top = 357.0
 offset_right = 755.0
 offset_bottom = 397.0
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD"]
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HUD"]
 layout_mode = 0
+offset_left = -26.0
+offset_right = -26.0
+texture = ExtResource("3_i6e74")
 expand_mode = 1
+
+[node name="Ecrou" type="Sprite2D" parent="CanvasLayer/HUD"]
+position = Vector2(-683.875, -326.546)
+scale = Vector2(0.0483615, 0.0483615)
+texture = ExtResource("5_i74h2")
 
 [node name="EcrouScore" type="Label" parent="CanvasLayer/HUD"]
 layout_mode = 0
@@ -92,14 +121,9 @@ offset_left = -646.0
 offset_top = -361.0
 offset_right = -554.0
 offset_bottom = -292.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.758192, 0.758192, 0.758192, 1)
 theme_override_font_sizes/font_size = 50
 text = "0"
-
-[node name="Ecrou" type="Sprite2D" parent="CanvasLayer/HUD"]
-position = Vector2(-683.875, -326.546)
-scale = Vector2(0.0483615, 0.0483615)
-texture = ExtResource("5_i74h2")
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_hwaqx")]
 visible = false

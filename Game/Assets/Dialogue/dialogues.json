@@ -1,8 +1,4 @@
 {
-	"example": [
-		"This is an example!",
-		"This the second line!!"
-	],
 	"expositionSequence": [
 		"Vous vous retrouvez plongé dans un monde apocalyptique dans lequel la science est devenue hors de contrôle.",
 		"Vous êtes Roberto,le robot assistant créé par un scientifique fou.",
@@ -30,7 +26,29 @@
 		"Vous venez de terminer la première partie de l'aventure !!",
 		"Bon, passe à la suite j'ai plus d'inspi."
 	],
+	"level2explanation": [
+		"Ouf, vous avez enfin retrouvé votre intégrité!",
+		"Seulement, vous avez pris goût à votre autonomie...",
+		"Vous recherchez donc une clé à molette pour avoir la possibilité de vous séparer quand vous le désirez.",
+		"Peut-être se cache-t-elle dans cette pièce??"
+	],
 	"needToCollectWrench": [
 		"Récupérez la clé à molette avant de passer à la pièce suivante!"
-	]
+	],
+	"wrenchFound": [
+		"Voilà enfin la clé à molette!!",
+		"Vous pouvez désormais quitter cette pièce!"
+	],
+	"notEnoughNutsToGoOut": [
+		"Il semblerait que vous n'ayez pas assez d'écrous pour accéder à la sortie..."
+	],
+	"level3explanation": [
+		"Vous avez désormais la possibilité de vous assembler quand vous en avez envie!",
+		"Lorsque cette envie se présente, appuyez sur sur ALT et CTRL droit.",
+		"Vous allez enfin pouvoir déjouer tout les pièges et trouver la sortie.",
+		"La porte semble endomagée...",
+		"Ramassez tout les écrous sur votre chemin pour pouvoir l'ouvrir",
+		"Bon courage!"
+	],
+	
 }

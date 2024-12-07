@@ -1,12 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhl4dipccvjml"]
+[gd_scene load_steps=6 format=3 uid="uid://dhl4dipccvjml"]
 
 [ext_resource type="Script" path="res://Game/UI/NarrativeDisplay/dialogues.gd" id="1_dgqr2"]
 [ext_resource type="Texture2D" uid="uid://chnwwh34e0ydh" path="res://Game/Assets/Dialogue/borderWithBg.png" id="2_4q43i"]
+[ext_resource type="Texture2D" uid="uid://cgvjnpcol36hq" path="res://icon.svg" id="2_w2phl"]
 [ext_resource type="FontFile" uid="uid://dbxbnqmsfkgd7" path="res://Game/Assets/Fonts/Yulong-Regular.ttf" id="3_0540u"]
 [ext_resource type="FontFile" uid="uid://defjoe54te0kd" path="res://Game/Assets/Fonts/Yulong-Italic.ttf" id="4_hbdsh"]
 
 [node name="Dialogues" type="CanvasLayer"]
 script = ExtResource("1_dgqr2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 406.0
+offset_top = 227.0
+offset_right = 406.0
+offset_bottom = 227.0
+texture = ExtResource("2_w2phl")
+expand_mode = 1
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 offset_left = 24.0

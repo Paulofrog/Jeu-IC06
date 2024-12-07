@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://cjrv4cok8382"]
+[gd_scene load_steps=35 format=4 uid="uid://cjrv4cok8382"]
 
 [ext_resource type="Script" path="res://Game/Levels/Level 3/level3Script.gd" id="1_0surk"]
 [ext_resource type="AudioStream" uid="uid://c3cg1j7pstf4b" path="res://Game/Assets/Musique/niveau 3.mp3" id="2_47fep"]
@@ -464,37 +464,37 @@ size = Vector2(305, 19.5)
 size = Vector2(286, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxrvk"]
-size = Vector2(31, 80)
+size = Vector2(8, 83)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofpvy"]
-size = Vector2(24, 528)
+size = Vector2(7, 528)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4vv4k"]
-size = Vector2(31, 81)
+size = Vector2(7, 85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5fpt"]
-size = Vector2(32.5, 80)
+size = Vector2(8, 81)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfnxv"]
-size = Vector2(32, 224)
+size = Vector2(9, 227)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_na3c0"]
-size = Vector2(31, 129)
+size = Vector2(8, 130)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l4dpy"]
-size = Vector2(31.5, 208)
+size = Vector2(7, 212)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_quiqh"]
-size = Vector2(24, 48.25)
+size = Vector2(8, 47)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8ewu"]
-size = Vector2(31, 224.5)
+size = Vector2(9, 227)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8kc5"]
-size = Vector2(24, 272.5)
+size = Vector2(6, 272.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48xaj"]
-size = Vector2(27, 161.5)
+size = Vector2(5, 161.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dtilf"]
 size = Vector2(161, 31.5)
@@ -507,6 +507,21 @@ size = Vector2(32, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sdn5i"]
 size = Vector2(129, 15)
+
+[sub_resource type="Gradient" id="Gradient_qk24m"]
+offsets = PackedFloat32Array(0.202381, 1)
+colors = PackedColorArray(0.277041, 0.116985, 0.035564, 1, 0.924548, 0.554675, 0.446394, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yoox0"]
+gradient = SubResource("Gradient_qk24m")
+fill_from = Vector2(0.474138, 1)
+fill_to = Vector2(0.456897, 0.0215517)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdx0j"]
+size = Vector2(60, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i148f"]
+size = Vector2(21, 126)
 
 [node name="Level3" type="Node"]
 script = ExtResource("1_0surk")
@@ -530,7 +545,7 @@ tile_map_data = PackedByteArray("AAA4AD8AAAAMAAYAAAA4AEAAAAAMAAcAAAA5AD8AAAANAAY
 tile_set = SubResource("TileSet_pb4tp")
 
 [node name="CompletePlayerSpawnPoint" type="Marker2D" parent="."]
-position = Vector2(80, 998)
+position = Vector2(70, 1005)
 
 [node name="ArmsPlayerSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(850, 1018)
@@ -568,47 +583,47 @@ debug_color = Color(0.337255, 0.427451, 0.862745, 0.419608)
 [node name="Ladder" type="Area2D" parent="."]
 
 [node name="Ladder1" type="CollisionShape2D" parent="Ladder"]
-position = Vector2(912.5, 1000)
+position = Vector2(908, 998.5)
 shape = SubResource("RectangleShape2D_fxrvk")
 
 [node name="Ladder2" type="CollisionShape2D" parent="Ladder"]
-position = Vector2(588, 696)
+position = Vector2(587.5, 695)
 shape = SubResource("RectangleShape2D_ofpvy")
 
 [node name="Ladder3" type="CollisionShape2D" parent="Ladder"]
-position = Vector2(912.5, 808.5)
+position = Vector2(907.5, 805.5)
 shape = SubResource("RectangleShape2D_4vv4k")
 
 [node name="Ladder4" type="CollisionShape2D" parent="Ladder"]
-position = Vector2(927.75, 536)
+position = Vector2(924, 533.5)
 shape = SubResource("RectangleShape2D_w5fpt")
 
 [node name="Ladder5" type="CollisionShape2D" parent="Ladder"]
-position = Vector2(209, 224)
+position = Vector2(203.5, 221.5)
 shape = SubResource("RectangleShape2D_vfnxv")
 
 [node name="Ladder6" type="CollisionShape2D" parent="Ladder"]
-position = Vector2(145, -239)
+position = Vector2(139, -243)
 shape = SubResource("RectangleShape2D_na3c0")
 
 [node name="Ladder7" type="CollisionShape2D" parent="Ladder"]
-position = Vector2(80.25, -583)
+position = Vector2(74.5, -587)
 shape = SubResource("RectangleShape2D_l4dpy")
 
 [node name="Ladder8" type="CollisionShape2D" parent="Ladder"]
-position = Vector2(140, -711.875)
+position = Vector2(140, -712.5)
 shape = SubResource("RectangleShape2D_quiqh")
 
 [node name="Ladder9" type="CollisionShape2D" parent="Ladder"]
-position = Vector2(912.5, -591.75)
+position = Vector2(907.5, -595.5)
 shape = SubResource("RectangleShape2D_m8ewu")
 
 [node name="Ladder10" type="CollisionShape2D" parent="Ladder"]
-position = Vector2(476, -903.75)
+position = Vector2(477, -903.75)
 shape = SubResource("RectangleShape2D_w8kc5")
 
 [node name="Ladder11" type="CollisionShape2D" parent="Ladder"]
-position = Vector2(108.5, -1039.25)
+position = Vector2(107.5, -1039.25)
 shape = SubResource("RectangleShape2D_48xaj")
 
 [node name="DeathZone" type="Area2D" parent="."]
@@ -633,32 +648,70 @@ position = Vector2(224.5, -681.5)
 shape = SubResource("RectangleShape2D_sdn5i")
 debug_color = Color(0.776471, 0.407843, 0.435294, 0.419608)
 
-[node name="Ecrou" parent="." instance=ExtResource("6_hw0gx")]
+[node name="EndZone" type="Node2D" parent="."]
+
+[node name="Door" type="Sprite2D" parent="EndZone"]
+position = Vector2(930.5, -1136)
+scale = Vector2(0.921875, 2)
+texture = SubResource("GradientTexture2D_yoox0")
+
+[node name="Area2D" type="Area2D" parent="EndZone"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndZone/Area2D"]
+position = Vector2(930, -1135.5)
+shape = SubResource("RectangleShape2D_qdx0j")
+
+[node name="Ecrous" type="Node2D" parent="."]
+
+[node name="Ecrou" parent="Ecrous" instance=ExtResource("6_hw0gx")]
 position = Vector2(41, 106)
 
-[node name="Ecrou2" parent="." instance=ExtResource("6_hw0gx")]
+[node name="Ecrou2" parent="Ecrous" instance=ExtResource("6_hw0gx")]
 position = Vector2(904, -167)
 
-[node name="Ecrou3" parent="." instance=ExtResource("6_hw0gx")]
+[node name="Ecrou3" parent="Ecrous" instance=ExtResource("6_hw0gx")]
 position = Vector2(70, 775)
 
-[node name="Ecrou4" parent="." instance=ExtResource("6_hw0gx")]
+[node name="Ecrou4" parent="Ecrous" instance=ExtResource("6_hw0gx")]
 position = Vector2(934, 763)
 
-[node name="Ecrou5" parent="." instance=ExtResource("6_hw0gx")]
+[node name="Ecrou5" parent="Ecrous" instance=ExtResource("6_hw0gx")]
 position = Vector2(130, -184)
 
-[node name="Ecrou6" parent="." instance=ExtResource("6_hw0gx")]
+[node name="Ecrou6" parent="Ecrous" instance=ExtResource("6_hw0gx")]
 position = Vector2(599, -483)
 
-[node name="Ecrou7" parent="." instance=ExtResource("6_hw0gx")]
+[node name="Ecrou7" parent="Ecrous" instance=ExtResource("6_hw0gx")]
 position = Vector2(374, -696)
 
-[node name="Ecrou8" parent="." instance=ExtResource("6_hw0gx")]
+[node name="Ecrou8" parent="Ecrous" instance=ExtResource("6_hw0gx")]
 position = Vector2(703, -918)
+
+[node name="Ecrou9" parent="Ecrous" instance=ExtResource("6_hw0gx")]
+position = Vector2(871, 264)
+
+[node name="Checkpoint" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
+position = Vector2(499, -360)
+shape = SubResource("RectangleShape2D_i148f")
+
+[node name="ReSpawnPoint" type="Marker2D" parent="Checkpoint"]
+position = Vector2(437, -341)
 
 [connection signal="body_entered" from="Ceiling" to="." method="_on_ceiling_body_entered"]
 [connection signal="body_exited" from="Ceiling" to="." method="_on_ceiling_body_exited"]
 [connection signal="body_entered" from="Ladder" to="." method="_on_ladder_body_entered"]
 [connection signal="body_exited" from="Ladder" to="." method="_on_ladder_body_exited"]
 [connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
+[connection signal="body_entered" from="EndZone/Area2D" to="." method="_on_end_zone_body_entered"]
+[connection signal="nutJustCollected" from="Ecrous/Ecrou" to="." method="_on_ecrou_nut_just_collected"]
+[connection signal="nutJustCollected" from="Ecrous/Ecrou2" to="." method="_on_ecrou_nut_just_collected"]
+[connection signal="nutJustCollected" from="Ecrous/Ecrou3" to="." method="_on_ecrou_nut_just_collected"]
+[connection signal="nutJustCollected" from="Ecrous/Ecrou4" to="." method="_on_ecrou_nut_just_collected"]
+[connection signal="nutJustCollected" from="Ecrous/Ecrou5" to="." method="_on_ecrou_nut_just_collected"]
+[connection signal="nutJustCollected" from="Ecrous/Ecrou6" to="." method="_on_ecrou_nut_just_collected"]
+[connection signal="nutJustCollected" from="Ecrous/Ecrou7" to="." method="_on_ecrou_nut_just_collected"]
+[connection signal="nutJustCollected" from="Ecrous/Ecrou8" to="." method="_on_ecrou_nut_just_collected"]
+[connection signal="nutJustCollected" from="Ecrous/Ecrou9" to="." method="_on_ecrou_nut_just_collected"]
+[connection signal="body_entered" from="Checkpoint" to="." method="_on_checkpoint_entered"]

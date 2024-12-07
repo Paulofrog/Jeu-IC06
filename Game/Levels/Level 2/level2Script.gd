@@ -13,7 +13,7 @@ func _ready() -> void:
 	isPlayerInEndZone = false
 	musicPlayer = $Musique2
 	musicPlayer.play()
-	
+	$"..".dialogue("level2explanation")
 
 func _process(_delta: float) -> void:
 	pass
@@ -65,3 +65,4 @@ func _on_death_zone_body_exited(_body: Node2D) -> void:
 
 func _on_wrench_wrench_just_collected() -> void:
 	wrenchCollected = true
+	$"..".dialogue("wrenchFound")

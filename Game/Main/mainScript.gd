@@ -38,7 +38,7 @@ func _ready() -> void:
 	pausemenu = $CanvasLayer/PauseMenu
 	$ProximityLabel.hide()
 	Global.ecrous = 0
-	currentLevel = 2
+	currentLevel = 1
 	levelSetUp()
 
 
@@ -127,7 +127,8 @@ func levelSetUp() -> void:
 			levelInstance.killPlayer.connect(Callable(self, "kill_player"))
 			levelInstance.killLegsPlayer.connect(Callable(self, "kill_legs_player"))
 			levelInstance.killArmsPlayer.connect(Callable(self, "kill_arms_player"))
-			# levelInstance.nextLevel.connect(Callable(self, "nextLevel")) A décommenter quand le signal nextLevel sera implémenté dans le script du lv2
+			levelInstance.nextLevel.connect(Callable(self, "nextLevel"))
+			levelInstance.newSpawnPoint.connect(Callable(self, "newSpawnPoint"))
 			completePlayerSpawnPoint = levelInstance.get_node("CompletePlayerSpawnPoint").position
 			legsPlayerSpawnPoint = levelInstance.get_node("LegsPlayerSpawnPoint").position
 			armsPlayerSpawnPoint = levelInstance.get_node("ArmsPlayerSpawnPoint").position
@@ -314,16 +315,19 @@ func kill_legs_player() -> void:
 	$LegsPlayer.velocity = Vector2(0, 0)
 	$LegsPlayer.position = legsPlayerSpawnPoint
 
-
 func kill_player() -> void:
 	$CompletePlayer.velocity = Vector2(0, 0)
 	$CompletePlayer.position = completePlayerSpawnPoint
 
+func newSpawnPoint(spawnPoint) -> void:
+	legsPlayerSpawnPoint = spawnPoint.position
+	armsPlayerSpawnPoint = spawnPoint.position
+	completePlayerSpawnPoint = spawnPoint.position
 
 func dialogue(key):
 	if dialogueInstance != null:
 		dialogueInstance.queue_free()
 	dialogueInstance = dialogueScene.instantiate()
 	dialogueInstance.displayDialogs(key)
-	call_deferred("add_child", dialogueInstance)
-	call_deferred("move_child", dialogueInstance, 0)
+	$CanvasLayer.call_deferred("add_child", dialogueInstance)
+	#$CanvasLayer.call_deferred("move_child", dialogueInstance, 0)

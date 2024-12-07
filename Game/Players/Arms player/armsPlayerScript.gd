@@ -42,12 +42,12 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	if Global.can_hang and Input.is_action_just_pressed("armsHang") and !inFall:
-		$"../Timers/CeilingTimer".start()
+		$"../Timers/ArmsCeilingTimer".start()
 		inHang = true
 		velocity.y = 0
 	if inHang and Input.is_action_pressed("armsHang") and !inFall:
-		if $"../Timers/CeilingTimer".get_time_left() == 0:
-			$"../Timers/CeilingTimer".stop()
+		if $"../Timers/ArmsCeilingTimer".get_time_left() == 0:
+			$"../Timers/ArmsCeilingTimer".stop()
 			inFall = true
 			inHang = false
 		if !Global.can_hang:
@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
 			inHang = false
 		velocity.y = 0		
 	if inHang and Input.is_action_just_released("armsHang") and !inFall:
-		$"../Timers/CeilingTimer".stop()
+		$"../Timers/ArmsCeilingTimer".stop()
 		inFall = true
 		inHang = false
 		

@@ -5,18 +5,22 @@ signal ceilingExited
 signal killLegsPlayer
 signal killArmsPlayer
 signal killPlayer
-#signal nextLevel
+signal nextLevel
+signal newSpawnPoint(spawnPoint)
 
 var isLegsPlayerInEndZone
 var isArmsPlayerInEndZone
 var isPlayerInEndZone
+var everyNutFound = false
+var checkpointTriggered = false
+var ecrousCount = 9
 var musicPlayer : AudioStreamPlayer
 
 func _ready() -> void:
 	isPlayerInEndZone = false
 	musicPlayer = $Musique3
-	musicPlayer.play()    
-
+	musicPlayer.play()
+	$"..".dialogue("level3explanation")
 	
 func _process(_delta: float) -> void:
 	pass
@@ -51,3 +55,25 @@ func _on_death_zone_body_entered(body: Node2D) -> void:
 		killArmsPlayer.emit()
 	elif body.name == "CompletePlayer":
 		killPlayer.emit()
+
+
+func _on_end_zone_body_entered(body: Node2D) -> void:
+	if body.name == "CompletePlayer":
+		if everyNutFound:
+			nextLevel.emit()
+		else :
+			$"..".dialogue("notEnoughNutsToGoOut")
+			nextLevel.emit()
+
+
+func _on_ecrou_nut_just_collected() -> void:
+	if Global.ecrous == ecrousCount:
+		everyNutFound = true
+		$"..".dialogue("everyNutFound")
+
+
+func _on_checkpoint_entered(body: Node2D) -> void:
+	if body.name == "LegsPlayer" or body.name == "ArmsPlayer" or body.name == "CompletePlayer":
+		if !checkpointTriggered:
+			checkpointTriggered = true
+			newSpawnPoint.emit($Checkpoint/ReSpawnPoint)
