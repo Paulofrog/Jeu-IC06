@@ -38,7 +38,7 @@ func _ready() -> void:
 	pausemenu = $CanvasLayer/PauseMenu
 	$ProximityLabel.hide()
 	Global.ecrous = 0
-	currentLevel = 1
+	currentLevel = 2
 	levelSetUp()
 
 
@@ -112,23 +112,25 @@ func levelSetUp() -> void:
 			add_child(levelInstance)
 			move_child(levelInstance, 0)
 			levelInstance.killPlayer.connect(Callable(self, "kill_player"))
-			levelInstance.killLegsPlayer.connect(Callable(self, "kill_legs_player"))
-			levelInstance.killArmsPlayer.connect(Callable(self, "kill_arms_player"))
-			# levelInstance.nextLevel.connect(Callable(self, "nextLevel")) A décommenter quand le signal nextLevel sera implémenté dans le script du lv2
+			levelInstance.nextLevel.connect(Callable(self, "nextLevel"))
 			completePlayerSpawnPoint = levelInstance.get_node("CompletePlayerSpawnPoint").position
 			SetCompletePlayerSpawnPosition()
 			resetCamera()
 		3:
 			levelScene = level3
 			completePlayerSetUp()
-			hideEcrou()
+			showEcrou()
 			Global.can_change_assembly_state = true
 			levelInstance = levelScene.instantiate()
-			add_child(levelInstance)
-			move_child(levelInstance, 0)
+			call_deferred("add_child", levelInstance)
+			call_deferred("move_child", levelInstance, 0)
 			levelInstance.killPlayer.connect(Callable(self, "kill_player"))
+			levelInstance.killLegsPlayer.connect(Callable(self, "kill_legs_player"))
+			levelInstance.killArmsPlayer.connect(Callable(self, "kill_arms_player"))
 			# levelInstance.nextLevel.connect(Callable(self, "nextLevel")) A décommenter quand le signal nextLevel sera implémenté dans le script du lv2
 			completePlayerSpawnPoint = levelInstance.get_node("CompletePlayerSpawnPoint").position
+			legsPlayerSpawnPoint = levelInstance.get_node("LegsPlayerSpawnPoint").position
+			armsPlayerSpawnPoint = levelInstance.get_node("ArmsPlayerSpawnPoint").position
 			SetCompletePlayerSpawnPosition()
 			resetCamera()
 		_:
@@ -137,7 +139,7 @@ func levelSetUp() -> void:
 
 func nextLevel() -> void:
 	currentLevel += 1
-	remove_child(levelInstance)
+	call_deferred("remove_child", levelInstance)
 	levelSetUp()
 
 
@@ -169,7 +171,6 @@ func SetTwoPlayersSpawnPositions():
 func SetCompletePlayerSpawnPosition():
 	$CompletePlayer.position = completePlayerSpawnPoint
 
-
 func resetCamera() -> void:
 	levelWitdh = levelInstance.get_node("Background").scale.x * levelInstance.get_node("Background").texture.get_width()
 	screenWitdh = get_viewport().get_visible_rect().size.x
@@ -192,17 +193,25 @@ func UpdateCameraPosition():
 		2:
 			if $CompletePlayer.global_position.y <= 1400:
 				$Camera.position.y = $CompletePlayer.global_position.y
+			else : 
+				$Camera.position.y = 1400
 		3:
 			if Global.are_assembled:
 				if $CompletePlayer.global_position.y <= 817:
 					$Camera.position.y = $CompletePlayer.global_position.y
+				else:
+					$Camera.position.y = 817
 			else:
 				if $ArmsPlayer.global_position.y >= $LegsPlayer.global_position.y:
 					if $ArmsPlayer.global_position.y <= 817:
 						$Camera.position.y = $ArmsPlayer.global_position.y
+					else:
+						$Camera.position.y = 817
 				else:
 					if $LegsPlayer.global_position.y <= 817:
 						$Camera.position.y = $LegsPlayer.global_position.y
+					else:
+						$Camera.position.y = 817
 		_:
 			$Camera.position = ($ArmsPlayer.global_position + $LegsPlayer.global_position) / 2
 
@@ -267,7 +276,7 @@ func assemble_players() -> void:
 	armsInstance.queue_free()
 	legsInstance.queue_free()
 	$MetalAudioPlayer.play()	
-	if currentLevel >= 1 and currentLevel <= 1:
+	if currentLevel == 1:
 		# incrémenter la deuxième condition quand on aura fait les autres endAniamtions
 		Global.can_move = false
 		#$Camera.position.x = 
@@ -316,5 +325,5 @@ func dialogue(key):
 		dialogueInstance.queue_free()
 	dialogueInstance = dialogueScene.instantiate()
 	dialogueInstance.displayDialogs(key)
-	add_child(dialogueInstance)
-	move_child(dialogueInstance, 0)
+	call_deferred("add_child", dialogueInstance)
+	call_deferred("move_child", dialogueInstance, 0)

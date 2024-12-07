@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://74lkrgkyi8pa"]
+[gd_scene load_steps=25 format=4 uid="uid://74lkrgkyi8pa"]
 
 [ext_resource type="Script" path="res://Game/Levels/Level 2/level2Script.gd" id="1_2g57p"]
 [ext_resource type="Texture2D" uid="uid://cf0mtqki23qw2" path="res://Game/Levels/Level 1/IndustrialTile_81-0.png" id="2_6cope"]
@@ -494,12 +494,25 @@ size = Vector2(31.5, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvxo8"]
 size = Vector2(287, 36)
 
+[sub_resource type="Gradient" id="Gradient_qk24m"]
+offsets = PackedFloat32Array(0.202381, 1)
+colors = PackedColorArray(0.277041, 0.116985, 0.035564, 1, 0.924548, 0.554675, 0.446394, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ba50f"]
+gradient = SubResource("Gradient_qk24m")
+fill_from = Vector2(0.474138, 1)
+fill_to = Vector2(0.456897, 0.0215517)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4cuc"]
+size = Vector2(125, 135)
+
 [node name="Level2" type="Node"]
 script = ExtResource("1_2g57p")
 
 [node name="Musique2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_vkos3")
 autoplay = true
+parameters/looping = true
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(575, 499.5)
@@ -517,7 +530,7 @@ tile_map_data = PackedByteArray("AABAAFoAAAAMAAYAAABAAFsAAAAMAAcAAABBAFoAAAANAAY
 tile_set = SubResource("TileSet_ucm51")
 
 [node name="CompletePlayerSpawnPoint" type="Marker2D" parent="."]
-position = Vector2(78.9999, 1618)
+position = Vector2(119, 1608)
 
 [node name="Ceiling" type="Area2D" parent="."]
 position = Vector2(29.9999, -1.00037)
@@ -579,10 +592,25 @@ shape = SubResource("RectangleShape2D_nvxo8")
 debug_color = Color(0.776471, 0.407843, 0.435294, 0.419608)
 
 [node name="Wrench" parent="." instance=ExtResource("5_ju4xb")]
-position = Vector2(25, -555)
+position = Vector2(253, -545)
+
+[node name="EndZone" type="Node2D" parent="."]
+
+[node name="Door" type="Sprite2D" parent="EndZone"]
+position = Vector2(85.5, -608)
+scale = Vector2(1.73438, 2.03125)
+texture = SubResource("GradientTexture2D_ba50f")
+
+[node name="DetectionZone" type="Area2D" parent="EndZone"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndZone/DetectionZone"]
+position = Vector2(86.5, -610)
+shape = SubResource("RectangleShape2D_q4cuc")
 
 [connection signal="body_entered" from="Ceiling" to="." method="_on_ceiling_body_entered"]
 [connection signal="body_exited" from="Ceiling" to="." method="_on_ceiling_body_exited"]
 [connection signal="body_entered" from="Ladder" to="." method="_on_ladder_body_entered"]
 [connection signal="body_exited" from="Ladder" to="." method="_on_ladder_body_exited"]
 [connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
+[connection signal="wrenchJustCollected" from="Wrench" to="." method="_on_wrench_wrench_just_collected"]
+[connection signal="body_entered" from="EndZone/DetectionZone" to="." method="_on_end_zone_body_entered"]

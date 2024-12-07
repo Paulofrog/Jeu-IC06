@@ -6,6 +6,7 @@ signal killPlayer
 signal nextLevel
 
 var isPlayerInEndZone
+var wrenchCollected = false
 var musicPlayer : AudioStreamPlayer
 
 func _ready() -> void:
@@ -46,32 +47,11 @@ func _on_death_zone_body_entered(body: Node2D) -> void:
 
 
 func _on_end_zone_body_entered(_body: Node2D) -> void:
-	"""
-	if body.name == "LegsPlayer":
-		isLegsPlayerInEndZone = true
-	elif body.name == "ArmsPlayer":
-		isArmsPlayerInEndZone = true
-	if body.name == "LegsPlayer" or body.name == "ArmsPlayer":
-		if !everyNutFound:
-			$"..".dialogue("notEnoughNuts")
-	
-	if isLegsPlayerInEndZone and isArmsPlayerInEndZone:
-		Global.can_change_assembly_state = true
-		if everyNutFound:
-			$"..".dialogue("canEndLevel1")
-	else:
-		Global.can_change_assembly_state = false"""
-
-
-func _on_end_zone_body_exited(_body: Node2D) -> void:
-	"""if body.name == "LegsPlayer":
-		isLegsPlayerInEndZone = false
-		Global.can_change_assembly_state = false
-	elif body.name == "ArmsPlayer":
-		isArmsPlayerInEndZone = false
-		Global.can_change_assembly_state = false
-	if everyNutFound:
-		$"..".dialogue("leavingEndZone")"""
+	if _body.name == "CompletePlayer":
+		if wrenchCollected:
+			nextLevel.emit()
+		else:
+			$"..".dialogue("needToCollectWrench")
 
 
 func endLevel() -> void:	# cette fonction est lancée par mainScript
@@ -81,3 +61,7 @@ func endLevel() -> void:	# cette fonction est lancée par mainScript
 
 func _on_death_zone_body_exited(_body: Node2D) -> void:
 	pass # Replace with function body.
+
+
+func _on_wrench_wrench_just_collected() -> void:
+	wrenchCollected = true

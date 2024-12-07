@@ -9,6 +9,7 @@ func _ready() -> void:
 	$Appearance.play("idle")
 	targetPos = Vector2(0, 0)
 	label = get_tree().current_scene.get_node("CanvasLayer/HUD/EcrouScore")
+	label.text = str(Global.ecrous)
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if(body.name == "LegsPlayer" or body.name == "ArmsPlayer" or body.name == "CompletePlayer"):

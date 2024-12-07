@@ -29,5 +29,8 @@
 		"Félicitations !",
 		"Vous venez de terminer la première partie de l'aventure !!",
 		"Bon, passe à la suite j'ai plus d'inspi."
+	],
+	"needToCollectWrench": [
+		"Récupérez la clé à molette avant de passer à la pièce suivante!"
 	]
 }

@@ -543,12 +543,12 @@ size = Vector2(878, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_og0pt"]
 size = Vector2(446, 32)
 
-[sub_resource type="Gradient" id="Gradient_qk24m"]
+[sub_resource type="Gradient" id="Gradient_syf52"]
 offsets = PackedFloat32Array(0.202381, 1)
 colors = PackedColorArray(0.277041, 0.116985, 0.035564, 1, 0.924548, 0.554675, 0.446394, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_h1mee"]
-gradient = SubResource("Gradient_qk24m")
+gradient = SubResource("Gradient_syf52")
 fill_from = Vector2(0.474138, 1)
 fill_to = Vector2(0.456897, 0.0215517)
 
@@ -561,6 +561,7 @@ script = ExtResource("1_v0f40")
 [node name="Musique1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_mdrsj")
 autoplay = true
+parameters/looping = true
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(960.726, 497)

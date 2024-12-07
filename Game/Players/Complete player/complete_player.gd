@@ -49,12 +49,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = directionXarms * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	
-	if directionX:
-		velocity.x = directionX * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	if Input.is_action_just_pressed("armsHang"):
 		click_timer = get_tree().create_timer(0.5)		
@@ -93,7 +87,7 @@ func _physics_process(delta: float) -> void:
 				inClimb = false
 	if (inClimb or inHang) and inFall:
 		inFall = false
-	if Input.is_action_just_pressed("legsJump") and is_on_floor() and !Global.can_climb:
+	if Input.is_action_just_pressed("legsJump") and is_on_floor() and !inClimb:
 		velocity.y = JUMP_VELOCITY
 		inJump = true
 		if directionX:
@@ -119,6 +113,8 @@ func _physics_process(delta: float) -> void:
 			$Appearance.flip_h = directionX < 0
 		else:
 			$Appearance.play("hangIdle")
+	if is_on_floor() and !directionX:
+		velocity.x = 0;
 	move_and_slide()
 
 
