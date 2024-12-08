@@ -58,6 +58,7 @@ func _on_death_zone_body_entered(body: Node2D) -> void:
 
 func _on_ecrou_nut_just_collected() -> void:
 	# le but de cette fonction est de ne pas avoir cette condition dans le _process, alors qu'elle ne s'exécutera qu'une seule fois
+	Global.targetPosition = $"..".getTargetNutPosition()
 	if Global.ecrous == ecrousCount:
 		everyNutFound = true
 		$"..".dialogue("everyNutFound")

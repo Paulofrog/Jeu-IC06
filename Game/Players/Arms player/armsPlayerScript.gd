@@ -13,6 +13,7 @@ func _ready() -> void:
 	inHang = false
 	inFall = false
 	inClimb = false
+	$Appearance.play("idle")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -26,24 +27,20 @@ func _physics_process(delta: float) -> void:
 		
 	var directionX = Input.get_axis("armsLeft", "armsRight")
 	var directionY := Input.get_axis("armsUp", "armsDown")
-
-	if directionX:
-		if inClimb:
-			velocity.x = directionX * CLIMBHORIZONTALSPEED
-		else:
-			velocity.x = directionX * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	if Global.can_move:
 		if directionX:
-			velocity.x = directionX * SPEED
+			if inClimb:
+				velocity.x = directionX * CLIMBHORIZONTALSPEED
+			else:
+				velocity.x = directionX * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-		
+	
 	if Global.can_hang and Input.is_action_just_pressed("armsHang") and !inFall:
 		$"../Timers/ArmsCeilingTimer".start()
 		inHang = true
+		inClimb = false
 		velocity.y = 0
 	if inHang and Input.is_action_pressed("armsHang") and !inFall:
 		if $"../Timers/ArmsCeilingTimer".get_time_left() == 0:
@@ -59,7 +56,6 @@ func _physics_process(delta: float) -> void:
 		inFall = true
 		inHang = false
 		
-	# Handle jump.
 	if Global.can_climb and !inHang:
 		inClimb = true
 		if directionY:
@@ -72,17 +68,17 @@ func _physics_process(delta: float) -> void:
 				$Appearance.play("climbIdle")
 			else : 
 				inClimb = false
-	
-	if !inHang and !inClimb:
-		if directionX:
-			$Appearance.play("walk")
-			$Appearance.flip_h = directionX < 0
-		else:
-			$Appearance.play("idle")
-	elif inHang:
-		if directionX:
-			$Appearance.play("hangWalk")
-			$Appearance.flip_h = directionX < 0
-		else:
-			$Appearance.play("hangIdle")
+	if Global.can_move:
+		if !inHang and !inClimb:
+			if directionX:
+				$Appearance.play("walk")
+				$Appearance.flip_h = directionX < 0
+			else:
+				$Appearance.play("idle")
+		elif inHang:
+			if directionX:
+				$Appearance.play("hangWalk")
+				$Appearance.flip_h = directionX < 0
+			else:
+				$Appearance.play("hangIdle")
 	move_and_slide()

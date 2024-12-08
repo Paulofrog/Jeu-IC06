@@ -38,7 +38,7 @@ func _ready() -> void:
 	pausemenu = $CanvasLayer/PauseMenu
 	$ProximityLabel.hide()
 	Global.ecrous = 0
-	currentLevel = 1
+	currentLevel = 3
 	levelSetUp()
 
 
@@ -331,3 +331,8 @@ func dialogue(key):
 	dialogueInstance.displayDialogs(key)
 	$CanvasLayer.call_deferred("add_child", dialogueInstance)
 	#$CanvasLayer.call_deferred("move_child", dialogueInstance, 0)
+
+
+func getTargetNutPosition() -> Vector2:
+	#print(Vector2($Camera.position.x - levelWitdh*$Camera.scale.x/2. + 10  , $Camera.position.y - levelWitdh*9./16.*$Camera.scale.y/2. + 60))
+	return Vector2($Camera.position.x - levelWitdh*$Camera.scale.x/2. + 10  , $Camera.position.y - levelWitdh*9./16.*$Camera.scale.y/2. + 60)

@@ -24,31 +24,30 @@
 	"endingLevel": [
 		"Félicitations !",
 		"Vous venez de terminer la première partie de l'aventure !!",
-		"Bon, passe à la suite j'ai plus d'inspi."
+		"La suite se cache derrière cette porte."
 	],
 	"level2explanation": [
-		"Ouf, vous avez enfin retrouvé votre intégrité!",
+		"Ouf, vous avez enfin retrouvé votre intégrité !",
 		"Seulement, vous avez pris goût à votre autonomie...",
 		"Vous recherchez donc une clé à molette pour avoir la possibilité de vous séparer quand vous le désirez.",
-		"Peut-être se cache-t-elle dans cette pièce??"
+		"Peut-être se cache-t-elle dans cette pièce ??"
 	],
 	"needToCollectWrench": [
-		"Récupérez la clé à molette avant de passer à la pièce suivante!"
+		"Récupérez la clé à molette avant de passer à la pièce suivante !"
 	],
 	"wrenchFound": [
-		"Voilà enfin la clé à molette!!",
-		"Vous pouvez désormais quitter cette pièce!"
+		"Voilà enfin la clé à molette !!",
+		"Vous pouvez désormais quitter cette pièce !"
 	],
 	"notEnoughNutsToGoOut": [
 		"Il semblerait que vous n'ayez pas assez d'écrous pour accéder à la sortie..."
 	],
 	"level3explanation": [
-		"Vous avez désormais la possibilité de vous assembler quand vous en avez envie!",
+		"Vous avez désormais la possibilité de vous assembler quand vous en avez envie !",
 		"Lorsque cette envie se présente, appuyez sur sur ALT et CTRL droit.",
-		"Vous allez enfin pouvoir déjouer tout les pièges et trouver la sortie.",
-		"La porte semble endomagée...",
-		"Ramassez tout les écrous sur votre chemin pour pouvoir l'ouvrir",
-		"Bon courage!"
+		"Vous allez enfin pouvoir déjouer tous les pièges et trouver la sortie.",
+		"La porte semble endommagée...",
+		"Ramassez tous les écrous sur votre chemin pour pouvoir l'ouvrir.",
+		"Bon courage !"
 	],
-	
 }

@@ -67,6 +67,7 @@ func _on_end_zone_body_entered(body: Node2D) -> void:
 
 
 func _on_ecrou_nut_just_collected() -> void:
+	Global.targetPosition = $"..".getTargetNutPosition()
 	if Global.ecrous == ecrousCount:
 		everyNutFound = true
 		$"..".dialogue("everyNutFound")

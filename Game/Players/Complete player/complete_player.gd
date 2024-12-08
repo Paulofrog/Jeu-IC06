@@ -35,20 +35,20 @@ func _physics_process(delta: float) -> void:
 		inFall = false
 		inClimb = false
 	
-	if Global.can_move:
-		directionX = Input.get_axis("legsLeft", "legsRight")
-		directionXarms = Input.get_axis("armsLeft", "armsRight")
-		directionY = Input.get_axis("armsUp", "armsDown")
+	directionX = Input.get_axis("legsLeft", "legsRight")
+	directionXarms = Input.get_axis("armsLeft", "armsRight")
+	directionY = Input.get_axis("armsUp", "armsDown")
 
-	if directionX and !inHang:
-		if inClimb:
-			velocity.x = directionX * CLIMBHORIZONTALSPEED
+	if Global.can_move:
+		if directionX and !inHang:
+			if inClimb:
+				velocity.x = directionX * CLIMBHORIZONTALSPEED
+			else:
+				velocity.x = directionX * SPEED
+		elif directionXarms and inHang:
+			velocity.x = directionXarms * SPEED
 		else:
-			velocity.x = directionX * SPEED
-	elif directionXarms and inHang:
-		velocity.x = directionXarms * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	if Input.is_action_just_pressed("armsHang"):
 		click_timer = get_tree().create_timer(0.5)		
@@ -128,7 +128,7 @@ func endAnimation() -> void:
 	await get_tree().create_timer(1.5).timeout
 	
 	directionX = 1
-	await get_tree().create_timer(.5).timeout
+	await get_tree().create_timer(.3).timeout
 	directionX = 0
 	
 	# durée totale : 3.5 secondes

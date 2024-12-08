@@ -11,6 +11,7 @@ var inJump
 func _ready() -> void:
 	inJump = false
 	Global.isLegsPlayerJumping = false
+	$Appearance.play("idle")
 
 
 func _physics_process(delta: float) -> void:
@@ -31,7 +32,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	# Handle jump.				
-	if Input.is_action_just_pressed("legsJump") and is_on_floor():
+	if Input.is_action_just_pressed("legsJump") and is_on_floor() and Global.can_move:
 		velocity.y = JUMP_VELOCITY
 		inJump = true
 		Global.isLegsPlayerJumping = true
@@ -39,17 +40,17 @@ func _physics_process(delta: float) -> void:
 			$Appearance.play("sideJump")
 		else:
 			$Appearance.play("frontJump")
-	
-	if !inJump:
-		if directionX:
-			$Appearance.play("walk")
-			$Appearance.flip_h = directionX < 0
+	if Global.can_move:
+		if !inJump:
+			if directionX:
+				$Appearance.play("walk")
+				$Appearance.flip_h = directionX < 0
+			else:
+				$Appearance.play("idle")
 		else:
-			$Appearance.play("idle")
-	else:
-		if directionX:
-			$Appearance.play("sideJump")
-			$Appearance.flip_h = directionX < 0
-		else:
-			$Appearance.play("frontJump")
+			if directionX:
+				$Appearance.play("sideJump")
+				$Appearance.flip_h = directionX < 0
+			else:
+				$Appearance.play("frontJump")
 	move_and_slide()
