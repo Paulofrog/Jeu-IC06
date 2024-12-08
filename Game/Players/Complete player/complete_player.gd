@@ -34,21 +34,21 @@ func _physics_process(delta: float) -> void:
 		inHang = false
 		inFall = false
 		inClimb = false
-	
-	directionX = Input.get_axis("legsLeft", "legsRight")
-	directionXarms = Input.get_axis("armsLeft", "armsRight")
-	directionY = Input.get_axis("armsUp", "armsDown")
-
+		
 	if Global.can_move:
-		if directionX and !inHang:
-			if inClimb:
-				velocity.x = directionX * CLIMBHORIZONTALSPEED
-			else:
-				velocity.x = directionX * SPEED
-		elif directionXarms and inHang:
-			velocity.x = directionXarms * SPEED
+		directionX = Input.get_axis("legsLeft", "legsRight")
+		directionXarms = Input.get_axis("armsLeft", "armsRight")
+		directionY = Input.get_axis("armsUp", "armsDown")
+
+	if directionX and !inHang:
+		if inClimb:
+			velocity.x = directionX * CLIMBHORIZONTALSPEED
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.x = directionX * SPEED
+	elif directionXarms and inHang:
+		velocity.x = directionXarms * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	if Input.is_action_just_pressed("armsHang"):
 		click_timer = get_tree().create_timer(0.5)		
