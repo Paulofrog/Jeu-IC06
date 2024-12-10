@@ -38,7 +38,7 @@ func _ready() -> void:
 	pausemenu = $CanvasLayer/PauseMenu
 	$ProximityLabel.hide()
 	Global.ecrous = 0
-	currentLevel = 3
+	currentLevel = 1
 	levelSetUp()
 
 
