@@ -338,7 +338,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 19.0
+"speed": 66.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfn42"]
@@ -353,7 +353,7 @@ script = ExtResource("1_eh33y")
 position = Vector2(13, -18)
 scale = Vector2(0.0637427, 0.0630001)
 sprite_frames = SubResource("SpriteFrames_sk1vv")
-animation = &"frontJump"
+animation = &"walk"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(13, -17)

@@ -534,7 +534,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 30.0
+"speed": 33.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mh60r"]
@@ -549,7 +549,7 @@ script = ExtResource("1_q0yyi")
 position = Vector2(13.3942, -34.3608)
 scale = Vector2(0.0754177, 0.075266)
 sprite_frames = SubResource("SpriteFrames_rjjch")
-animation = &"climbIdle"
+animation = &"walk"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(13.125, -33.625)
