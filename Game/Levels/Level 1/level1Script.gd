@@ -28,8 +28,15 @@ func _process(_delta: float) -> void:
 
 
 func _on_ladder_body_entered(body: Node2D) -> void:
-	if body.name == "ArmsPlayer" or body.name == "CompletePlayer":
-		Global.can_climb = true
+	match body.name:
+		"ArmsPlayer":
+			if $"../ArmsPlayer".is_on_floor():
+				Global.can_climb = true
+		"CompletePlayer":
+			if $"../CompletePlayer".is_on_floor():
+				Global.can_climb = true
+		_:
+			pass
 
 
 func _on_ladder_body_exited(body: Node2D) -> void:

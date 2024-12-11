@@ -110,7 +110,7 @@ func _physics_process(delta: float) -> void:
 	elif inHang:
 		if directionXarms:
 			$Appearance.play("hang")
-			$Appearance.flip_h = directionX < 0
+			$Appearance.flip_h = directionXarms < 0
 		else:
 			$Appearance.play("hangIdle")
 	if is_on_floor() and !directionX:
