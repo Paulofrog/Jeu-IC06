@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 		inHang = false
 		inFall = false
 		inClimb = false
-		
+
 	var directionX = Input.get_axis("armsLeft", "armsRight")
 	var directionY := Input.get_axis("armsUp", "armsDown")
 	
@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		if !Global.can_hang:
 			inFall = true
 			inHang = false
-		velocity.y = 0		
+		velocity.y = 0
 	if inHang and Input.is_action_just_released("armsHang") and !inFall:
 		$"../Timers/ArmsCeilingTimer".stop()
 		inFall = true

@@ -44,5 +44,4 @@
 > Bugs à résoudre <
 	EN COURS - Possibilité de bouger pendant qu'il y a des dialogues affichés
 		--> ça marche pour le premier dialogue, mais pas pour les suivants, je ne sais pas pourquoi
-	A VERIFIER SI C'EST TJRS UN BUG - animation de déplacement en suspension perso assemblé : anim toujours vers la droite
 	A FAIRE - problèmes appels dialogues fin lv1

@@ -16,6 +16,7 @@ var directionXarms = 0
 var directionY = 0
 
 var click_timer
+var endAnimationPlaying = false
 
 
 func _ready() -> void:
@@ -35,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		inFall = false
 		inClimb = false
 		
-	if Global.can_move:
+	if Global.can_move or endAnimationPlaying:
 		directionX = Input.get_axis("legsLeft", "legsRight")
 		directionXarms = Input.get_axis("armsLeft", "armsRight")
 		directionY = Input.get_axis("armsUp", "armsDown")
@@ -119,6 +120,7 @@ func _physics_process(delta: float) -> void:
 
 
 func endAnimation() -> void:
+	endAnimationPlaying = true
 	velocity.y = JUMP_VELOCITY
 	$Appearance.play("frontJump")
 	await get_tree().create_timer(1.5).timeout
@@ -130,5 +132,7 @@ func endAnimation() -> void:
 	directionX = 1
 	await get_tree().create_timer(.3).timeout
 	directionX = 0
+	
+	endAnimationPlaying = false
 	
 	# durée totale : 3.5 secondes

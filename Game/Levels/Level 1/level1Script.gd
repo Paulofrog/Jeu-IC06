@@ -93,7 +93,6 @@ func _on_end_zone_body_exited(body: Node2D) -> void:
 
 
 func endLevel() -> void:	# cette fonction est lancée par mainScript
-	
 	# 1) zoom de camera
 	# 2) perso saute	
 	# 3) porte s'ouvre et perso sort de l'écran

@@ -128,9 +128,9 @@ text = "0"
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_hwaqx")]
 visible = false
-offset_left = 843.0
-offset_top = 474.0
-offset_right = 843.0
-offset_bottom = 481.0
+offset_left = 734.0
+offset_top = 451.0
+offset_right = 734.0
+offset_bottom = 458.0
 
 [connection signal="timeout" from="Timers/NextScene (temporary)" to="." method="nextLevel"]

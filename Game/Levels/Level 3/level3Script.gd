@@ -16,12 +16,14 @@ var checkpointTriggered = false
 var ecrousCount = 9
 var musicPlayer : AudioStreamPlayer
 
+
 func _ready() -> void:
 	isPlayerInEndZone = false
 	musicPlayer = $Musique3
 	musicPlayer.play()
 	$"..".dialogue("level3explanation")
-	
+
+
 func _process(_delta: float) -> void:
 	pass
 

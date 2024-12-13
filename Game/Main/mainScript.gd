@@ -52,6 +52,17 @@ func _process(delta: float) -> void:
 	else:
 		DisassembleCheck()
 	UpdateCameraPosition()
+	
+	if Input.is_action_just_pressed("skipLevel"):
+		if currentLevel == 1:
+			Global.are_assembled = true
+			completeInstance = completeplayerScene.instantiate()
+			add_child(completeInstance)
+			move_child(completeInstance, 1)
+			$CompletePlayer.position = $ArmsPlayer.position
+			armsInstance.queue_free()
+			legsInstance.queue_free()
+		nextLevel()
 
 
 func twoPlayerSetUp() -> void:

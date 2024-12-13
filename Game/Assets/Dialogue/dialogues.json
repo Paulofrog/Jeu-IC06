@@ -1,11 +1,12 @@
 {
 	"expositionSequence": [
-		"Vous vous retrouvez plongé dans un monde apocalyptique dans lequel la science est devenue hors de contrôle.",
+		" *** Appuyez sur Entrée pour continuer ***",
+		"Vous vous retrouvez plongés dans un monde apocalyptique dans lequel la science est devenue hors de contrôle.",
 		"Vous êtes Roberto,le robot assistant créé par un scientifique fou.",
 		"Lors de sa dernière expérience sur l’anatomie, il vous a coupé en deux. C'en est trop !",
 		"Vous cherchez maintenant à vous enfuir de son laboratoire.",
 		"La première étape pour vous est de vous rassembler.",
-		"Il semblerait aussi y avoir des écrous un peu partout dans la pièce où vous vous trouvez.",
+		"Il semblerait aussi y avoir des écrous un peu partout dans la pièce dans laquelle vous vous trouvez.",
 		"Peut-être qu’ils pourraient vous servir à quelque chose..."
 	],
 	"notEnoughNuts": [
@@ -43,8 +44,8 @@
 		"Il semblerait que vous n'ayez pas assez d'écrous pour accéder à la sortie..."
 	],
 	"level3explanation": [
-		"Vous avez désormais la possibilité de vous assembler quand vous en avez envie !",
-		"Lorsque cette envie se présente, appuyez sur sur ALT et CTRL droit.",
+		"Vous avez désormais la possibilité de vous (dés)assembler quand vous en avez envie !",
+		"Lorsque cette envie se présente, appuyez sur ALT et CTRL droit.",
 		"Vous allez enfin pouvoir déjouer tous les pièges et trouver la sortie.",
 		"La porte semble endommagée...",
 		"Ramassez tous les écrous sur votre chemin pour pouvoir l'ouvrir.",
