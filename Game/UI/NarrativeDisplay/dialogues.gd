@@ -23,6 +23,7 @@ func nextDialog():
 	currentIndex += 1
 	inDialog = true
 	Global.can_move = false
+	Global.directionX = 0
 	if dialogArray.size() == currentIndex:
 		inDialog = false
 		Global.can_move = true

@@ -1,10 +1,8 @@
 > > > > > > > > > > > > > > > Fonctionnalités à implémenter < < < < < < < < < < < < < < <
 
 > Paul
-	Niveaux : 
-			EN COURS - faire fin niveau 1
-				--> EN COURS - animation de fin de niveau (porte à faire)
-
+	
+	
 > Romane
 	FAIT - Ajout d'écran d'accueil basique (start / quit)
 	FAIT - Ecran de pause
@@ -36,7 +34,6 @@
 		A FAIRE - musique menu
 
 >> A attribuer <<
-	A FAIRE - ajouter une porte de fin de niveau et son animation d'ouverture pour tous les niveaux
 	A FAIRE - régler tous les bugs d'animations de suspension du perso assemblé (lv2)
 	A FAIRE - bug : on ne peut pas descendre d'une échelle ?
 	A FAIRE - trouver un moyen de diffuser le jeu
@@ -44,4 +41,3 @@
 > Bugs à résoudre <
 	EN COURS - Possibilité de bouger pendant qu'il y a des dialogues affichés
 		--> ça marche pour le premier dialogue, mais pas pour les suivants, je ne sais pas pourquoi
-	A FAIRE - problèmes appels dialogues fin lv1

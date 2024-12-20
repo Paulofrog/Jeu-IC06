@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		inFall = false
 		inClimb = false
 		
-	if Global.can_move or endAnimationPlaying:
+	if Global.can_move and !endAnimationPlaying:
 		directionX = Input.get_axis("legsLeft", "legsRight")
 		directionXarms = Input.get_axis("armsLeft", "armsRight")
 		directionY = Input.get_axis("armsUp", "armsDown")
@@ -130,9 +130,9 @@ func endAnimation() -> void:
 	await get_tree().create_timer(1.5).timeout
 	
 	directionX = 1
-	await get_tree().create_timer(.3).timeout
+	await get_tree().create_timer(.4).timeout
 	directionX = 0
 	
 	endAnimationPlaying = false
 	
-	# durée totale : 3.5 secondes
+	# durée totale : 3.4 secondes

@@ -88,7 +88,7 @@ func _on_end_zone_body_exited(body: Node2D) -> void:
 	elif body.name == "ArmsPlayer":
 		isArmsPlayerInEndZone = false
 		Global.can_change_assembly_state = false
-	if everyNutFound and $"..".currentLevel == 1:
+	if (body.name == "LegsPlayer" or body.name == "ArmsPlayer") and everyNutFound and $"..".currentLevel == 1 and !Global.are_assembled:
 		$"..".dialogue("leavingEndZone")
 
 
@@ -97,6 +97,6 @@ func endLevel() -> void:	# cette fonction est lancée par mainScript
 	# 2) perso saute	
 	# 3) porte s'ouvre et perso sort de l'écran
 	$"..".playEndAnimation()
-	await get_tree().create_timer(4.5).timeout
+	await get_tree().create_timer(3.4).timeout
 	nextLevel.emit()
 	Global.can_move = true

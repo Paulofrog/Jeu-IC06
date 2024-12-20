@@ -118,7 +118,7 @@ func levelSetUp() -> void:
 			levelScene = level2
 			completePlayerSetUp()
 			hideEcrou()
-			Global.can_change_assembly_state = false # jsp ce qu'on avait dit, à vérifier
+			Global.can_change_assembly_state = false
 			levelInstance = levelScene.instantiate()
 			add_child(levelInstance)
 			move_child(levelInstance, 0)
@@ -209,10 +209,11 @@ func UpdateCameraPosition():
 				$Camera.position.y = 1400
 		3:
 			if Global.are_assembled:
-				if $CompletePlayer.global_position.y <= 817:
-					$Camera.position.y = $CompletePlayer.global_position.y
-				else:
-					$Camera.position.y = 817
+				if has_node("CompletePlayer"):
+					if $CompletePlayer.global_position.y <= 817:
+						$Camera.position.y = $CompletePlayer.global_position.y
+					else:
+						$Camera.position.y = 817
 			else:
 				if $ArmsPlayer.global_position.y >= $LegsPlayer.global_position.y:
 					if $ArmsPlayer.global_position.y <= 817:
@@ -282,21 +283,19 @@ func DisassembleCheck():
 func assemble_players() -> void:
 	Global.are_assembled = true
 	completeInstance = completeplayerScene.instantiate()
+	await get_tree().process_frame
 	add_child(completeInstance)
 	move_child(completeInstance, 1)
 	$CompletePlayer.position = $ArmsPlayer.position
 	armsInstance.queue_free()
 	legsInstance.queue_free()
-	$MetalAudioPlayer.play()	
+	$MetalAudioPlayer.play()
 	if currentLevel == 1:
-		# incrémenter la deuxième condition quand on aura fait les autres endAniamtions
-		Global.can_move = false
-		#$Camera.position.x = 
-		await get_tree().create_timer(.3).timeout
+		await get_tree().create_timer(.1).timeout
 		dialogue("endingLevel")
 		while dialogueInstance != null:
 				await get_tree().process_frame
-		await get_tree().create_timer(.3).timeout
+		await get_tree().create_timer(.1).timeout
 		levelInstance.endLevel()
 
 
