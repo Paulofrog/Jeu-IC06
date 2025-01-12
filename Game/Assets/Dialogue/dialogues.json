@@ -20,7 +20,7 @@
 		"Attention, rapprochez-vous de la porte pour vous assembler."
 	],
 	"canEndLevel1": [
-		"Vous pouvez maintenant vous assembler pour passer la porte en appuyant sur ALT et CTRL droit."
+		"Vous pouvez maintenant vous assembler pour passer la porte en appuyant sur ALT et CTRL droit (ou W et N sur mac)."
 	],
 	"endingLevel": [
 		"Félicitations !",
@@ -45,7 +45,7 @@
 	],
 	"level3explanation": [
 		"Vous avez désormais la possibilité de vous (dés)assembler quand vous en avez envie !",
-		"Lorsque cette envie se présente, appuyez sur ALT et CTRL droit.",
+		"Lorsque cette envie se présente, appuyez sur ALT et CTRL droit (ou W et N sur mac).",
 		"Vous allez enfin pouvoir déjouer tous les pièges et trouver la sortie.",
 		"La porte semble endommagée...",
 		"Ramassez tous les écrous sur votre chemin pour pouvoir l'ouvrir.",

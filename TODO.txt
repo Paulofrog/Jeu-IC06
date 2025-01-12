@@ -1,43 +1,34 @@
 > > > > > > > > > > > > > > > Fonctionnalités à implémenter < < < < < < < < < < < < < < <
 
 > Paul
-	
-	
+	FAIT - exporter la version finale
+
 > Romane
 	FAIT - Ajout d'écran d'accueil basique (start / quit)
 	FAIT - Ecran de pause
 	Sprites manquants :
 		FAIT - CompletePlayer Hang et HangIdle
 		FAIT - CompletePlayer Climb et ClimbIdle
-		FAIT MAIS MOCHE.... - Sprites StartMenu
+		FAIT - Sprites StartMenu
 	Sprites existants : 
 		FAIT - Calibrer sprites bras 
 		FAIT - Calibrer sprites corps complet
 		A FAIRE - Mettre chaque animation dans une sprite sheet
 	FAIT - Clean scripts Arms et Legs --> Bcp de superflu
 	Interface utilisateur
-		A FAIRE - trouver une BELLE police et la mettre pour tous les textes
+		FAIT - trouver une BELLE police et la mettre pour tous les textes
 		FAIT - Faire messages narratifs pour aider le joueur
 		FAIT - Animations à lier correctement
-		A FAIRE - Mécaniques de jeu qui marchent
 
 > Gauthier
 	Level Design
 		FAIT - finir le niveau 1 graphiquement parlant.
 		FAIT - rendre le niveau Level1 jouable (intégration des éléments Ceiling et Ladder + peindre les collisions sur les tuiles)
-		A FAIRE - Level design niveau 2
+		FAIT - Level design niveau 2
+		FAIT - Level design niveau 3
 	Autres
-		A FAIRE - faire du tri dans les assets et ne pas utiliser d'assets dans les dossiers de scènes
+		FAIT - faire du tri dans les assets et ne pas utiliser d'assets dans les dossiers de scènes
 	Gestion du son
-		A FAIRE - diversifier les effets sonores
-		A FAIRE - rendre le son global et non localisé en un point de la scène
-		A FAIRE - musique menu
-
->> A attribuer <<
-	A FAIRE - régler tous les bugs d'animations de suspension du perso assemblé (lv2)
-	A FAIRE - bug : on ne peut pas descendre d'une échelle ?
-	A FAIRE - trouver un moyen de diffuser le jeu
-
-> Bugs à résoudre <
-	EN COURS - Possibilité de bouger pendant qu'il y a des dialogues affichés
-		--> ça marche pour le premier dialogue, mais pas pour les suivants, je ne sais pas pourquoi
+		FAIT - diversifier les effets sonores
+		FAIT - rendre le son global et non localisé en un point de la scène
+		FAIT - musique menu
